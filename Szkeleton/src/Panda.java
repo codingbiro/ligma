@@ -45,5 +45,14 @@ public class Panda extends Animal{
 		}
 		o.setBehind(this);
 	}
+	
+	public void die() {
+		System.out.println(name+" die");
+		Panda pb = getBehind();
+		if(pb!=null) {
+			pb.breakLine();
+		}
+		
+	}
 }
 	

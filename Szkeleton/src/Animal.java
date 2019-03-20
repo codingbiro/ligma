@@ -102,7 +102,7 @@ public class Animal {
 		System.out.println(name+" Exhaust");
 	}
 	
-	public void Die() {
+	public void die() {
 		System.out.println(name+" Die");
 	}
 	
