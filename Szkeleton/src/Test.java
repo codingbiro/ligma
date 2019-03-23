@@ -105,7 +105,7 @@ public class Test {
 		t2.setThing(null);
 		t1.setNeighbour();
 		t2.setNeighbour();
-		o.Move(Directions.UP);
+		o.Move(d);
 	}
 	
 	public void VendingMachingBeepsOnOrangutan() {
@@ -366,5 +366,5 @@ public class Test {
 		wt.setAnimal(p);
 		
 	}
-	
+
 }
