@@ -4,6 +4,7 @@ public class Tile {
 	Animal a;
 	Thing th;
 	
+	
 	public Tile(String s) {
 		name = s;
 	}
@@ -16,7 +17,7 @@ public class Tile {
 	
 	public Tile getNeighbour(Direction d) {
 		System.out.println(name+" getNeighbour");
-		
+
 	}
 	
 	public Thing getThing() {
