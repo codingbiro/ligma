@@ -11,12 +11,12 @@ public class Panda extends Animal{
 	}
 	
 	public void setAhead(Animal a) {
-		System.out.println(name+" setAhead");
+		System.out.println(name+" setAhead(" + a.name + ")");
 	}
 	
 	public Animal getAhead() {
 		System.out.println(name+" getAhead");
-		
+		return ahead;
 	}
 
 	public boolean hitBy(Panda p) {
