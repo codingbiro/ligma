@@ -6,7 +6,7 @@ public class Panda extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Direction getDirection(Tile t) {
+	public Directions getDirection(Tile t) {
 		System.out.println(name+" getDirection");
 	}
 	

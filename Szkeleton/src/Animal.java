@@ -10,7 +10,7 @@ public class Animal {
 	}
 	
 
-	public void Move(Direction d) {
+	public void Move(Directions d) {
 		boolean b1=true;
 		boolean b2=true;
 		
@@ -45,7 +45,7 @@ public class Animal {
 							a2.caughtBy(this);
 						}
 						else if(a2==null){
-							Direction d2=behind.getDirection(t1);
+							Directions d2=behind.getDirection(t1);
 							behind.Move(d2);
 						}
 					}
@@ -56,7 +56,7 @@ public class Animal {
 		else if(b){
 			t1.setAnimal(null);
 			if(behind!=null) {
-				Direction d2=behind.getDirection(t1);
+				Directions d2=behind.getDirection(t1);
 				behind.Move(d2);
 			}
 			t2.setAnimal(this);

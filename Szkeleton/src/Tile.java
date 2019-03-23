@@ -15,7 +15,7 @@ public class Tile {
 		
 	}
 	
-	public Tile getNeighbour(Direction d) {
+	public Tile getNeighbour(Directions d) {
 		System.out.println(name+" getNeighbour");
 
 	}
