@@ -108,6 +108,125 @@ public class Test {
 		o.Move(d);
 	}
 	
+	//starting ini 8/14
+	public void OrangutanMovesIntoPanda2() {
+		Orangutan o = new Orangutan("o");
+		Orangutan o2 = new Orangutan("o2");
+		Panda p = new Panda("p");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(p);
+		t2.setThing(null);
+		t1.setNeighbour();
+		t2.setNeighbour();
+		p.setAhead(o2);
+		o.Move(d);
+	}
+	
+	public void OrangutanMovesWithPandaChain() {
+		Orangutan o = new Orangutan("o");
+		Panda p = new Panda("p");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(p);
+		t2.setThing(null);
+		t1.setNeighbour();
+		t2.setNeighbour();
+		o.Move(d);
+	}
+	
+	//Animal moves to Tile with Thing
+	public void OrangutanMovesToTileWithThing() {
+		Orangutan o = new Orangutan("o");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		Thing t = new Object("t"); //Thing
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(t);
+		t1.setNeighbour();
+		t2.setNeighbour();
+		o.Move(d);
+	}
+	//Animal moves to Tile with Wardrobe
+	public void OrangutanMovesToTileWithWardrobe() {
+		Orangutan o = new Orangutan("o");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		Tile t3 = new Tile("t3");
+		Wardrobe w1 = new Wardrobe("w1");
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(w1);
+		t1.setNeighbour();
+		o.Move(d);
+		//w2 ? t3.setAnimal(null);t3.setThing(w2); ?
+	}
+	
+	public void OrangutanMovesToExit() {
+		Orangutan o = new Orangutan("o");
+		Exit ex = new Exit("ex");
+		GameController gc = new GameController("gc"); //Entrance?
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(ex);
+		
+	}
+	
+	public void PandaInChainMovesToExit() {
+		Panda p1 = new Panda("p1");
+		Orangutan o = new Orangutan("o");
+		p1.setAhead(o);
+		Exit ex = new Exit("ex");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		GameController gc = new GameController("gc");
+		t1.setAnimal(p1);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(ex);
+		t1.setNeighbour();
+		t2.setNeighbour();
+		p1.Move(d);
+	}
+	public void VendingMachingBeepsOnJumperPanda() {
+		VendingMachine vm = new VendingMachine("vm");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		Tile t3 = new Tile("t3");
+		Tile t4 = new Tile("t4");
+		Tile t5 = new Tile("t5");
+		JumperPanda p = new JumperPanda("p");
+		t1.setThing(vm);
+		t1.setAnimal(null);
+		t2.setThing(null);
+		t2.setAnimal(o);
+		t3.setThing(null);
+		t3.setAnimal(null);
+		t4.setThing(null);
+		t4.setAnimal(null);
+		t5.setThing(null);
+		t5.setAnimal(null);
+		t1.setNeighbour();
+		t2.setNeighbour();
+		t3.setNeighbour();
+		t4.setNeighbour();
+		t5.setNeighbour();
+		vm.beep();
+		
+	}
+	//endof ini 14/14
+	
 	public void VendingMachingBeepsOnOrangutan() {
 		VendingMachine vm = new VendingMachine("vm");
 		Tile t1 = new Tile("t1");
