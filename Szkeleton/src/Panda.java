@@ -31,6 +31,12 @@ public class Panda extends Animal{
 		
 	}
 	
+	public boolean hitBy(Orangutan o) {
+		System.out.println(name+ "hitBy");
+		boolean b=inLine();
+		return !b;
+	}
+	
 	public void breakLine() {
 		System.out.println(name+" breakLine");
 		setAhead(null);
