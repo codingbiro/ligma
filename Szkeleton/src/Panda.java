@@ -21,7 +21,7 @@ public class Panda extends Animal{
 
 	public boolean hitBy(Panda p) {
 		System.out.println(name+" hitBy");
-		
+		return false;
 	}
 	
 	public void breakLine() {

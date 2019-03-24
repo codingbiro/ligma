@@ -4,7 +4,6 @@ public class Tile {
 	Animal a;
 	Thing th;
 	
-	
 	public Tile(String s) {
 		name = s;
 	}
