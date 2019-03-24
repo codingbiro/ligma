@@ -6,8 +6,15 @@ public class Panda extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Directions getDirection(Tile t) {
+	public Direction getDirection(Tile t) {
 		System.out.println(name+" getDirection");
+		for(Direction d:Direction.values()) {
+			Tile t2=t1.getNeighbour(d);
+			if(t2.equals(t)) {
+				return d;
+			}
+		}
+		return Direction.UP;
 	}
 	
 	public void setAhead(Animal a) {
@@ -21,7 +28,7 @@ public class Panda extends Animal{
 
 	public boolean hitBy(Panda p) {
 		System.out.println(name+" hitBy");
-		return false;
+		
 	}
 	
 	public void breakLine() {

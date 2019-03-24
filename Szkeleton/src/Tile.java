@@ -4,6 +4,8 @@ public class Tile {
 	Animal a;
 	Thing th;
 	
+	Tile neighbour[];
+	
 	public Tile(String s) {
 		name = s;
 	}
@@ -14,9 +16,9 @@ public class Tile {
 		
 	}
 	
-	public Tile getNeighbour(Directions d) {
+	public Tile getNeighbour(Direction d) {
 		System.out.println(name+" getNeighbour");
-
+		return neighbour[d.ordinal()];
 	}
 	
 	public Thing getThing() {

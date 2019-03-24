@@ -1,18 +1,13 @@
 
+// A félõs pandákat reprezentáló osztály
 public class AfraidPanda extends Panda{
 
-	/**
-	 * Konstruktor
-	 * @param s		objektum neve
-	 */
 	public AfraidPanda(String s) {
 		super(s);
 		// TODO Auto-generated constructor stub
 	}
 	
-	/**
-	 * Ez a függvény felelõs azért, hogy az állatok meghallják a csilingelést
-	 */
+	// Ha csilingelést hall megijed és elszakítja a láncot
 	public void hearJingle() {
 		System.out.println(name+" hearJingle");
 		breakLine();

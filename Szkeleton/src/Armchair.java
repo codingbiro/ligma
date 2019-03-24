@@ -1,21 +1,22 @@
 
 public class Armchair extends Thing{
 
-	/**
-	 * Konstruktor
-	 * @param s		objektum neve
-	 */
 	public Armchair(String s) {
 		super(s);
 		// TODO Auto-generated constructor stub
 	}
 	
-	/**
-	 * Ez a függvény ellenõrzi, hogy van-e a fotel közelében AfraidPanda
-	 * Ha van ilyen panda a közelben, akkor azt leülteti a fotelbe
-	 */
 	public void check() {
 		System.out.println(name+" check");
+		Animal a2=t.getAnimal();
+		if(a2==null) {
+			for(Direction d:Direction.values()) {
+				Tile t2=t.getNeighbour(d);
+				Animal a=t2.getAnimal();
+				a.Exhaust(t);
+			}
+		}
+		else a2.reduceTime();
 	}
 
 }
