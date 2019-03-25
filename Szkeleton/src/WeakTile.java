@@ -1,6 +1,6 @@
 
 public class WeakTile extends Tile {
-
+	int life = 0;
 	public WeakTile(String s) {
 		super(s);
 		// TODO Auto-generated constructor stub
@@ -19,12 +19,11 @@ public class WeakTile extends Tile {
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
 		
-		if(a!=null) {
+		if(a!=null && life == 0) {
 			System.out.println(name+" setAnimal(" + a.name + ")");
 			decreaseLife();
 			a.die();
 		}
-		// if(life==null) elvileg tesztesetben ez 0 (?)
 		
 		Globals.tab--;
 	}

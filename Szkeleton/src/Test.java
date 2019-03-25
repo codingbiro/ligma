@@ -35,6 +35,7 @@ public class Test {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
 		WeakTile wt = new WeakTile("wt");
+		wt.life = 1;
 		t1.setAnimal(o);
 		t1.setThing(null);
 		wt.setAnimal(null);
