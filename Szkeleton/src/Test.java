@@ -293,11 +293,8 @@ public class Test {
 		t5.setThing(null);
 		t5.setAnimal(null);
 		tvm.setNeighbour(Direction.RIGHT, t2);
-
 		tvm.setNeighbour(Direction.LEFT, t3);
-
 		tvm.setNeighbour(Direction.UP, t4);
-
 		tvm.setNeighbour(Direction.DOWN, t5);
 
 		vm.beep();
@@ -367,7 +364,10 @@ public class Test {
 		Tile t5 = new Tile("t5");
 		TiredPanda tp = new TiredPanda("tp");
 		Panda pb = new Panda("pb");
+		Orangutan o = new Orangutan("o");
 		if(inLine) {
+			tp.setAhead(o);
+			o.setBehind(tp);
 			tp.setBehind(pb);
 			pb.setAhead(tp);
 		}
@@ -450,7 +450,10 @@ public class Test {
 		Tile t5 = new Tile("t5");
 		AfraidPanda ap = new AfraidPanda("ap");
 		Panda pb = new Panda("pb");
+		Orangutan o = new Orangutan("o");
 		if(inLine) {
+			ap.setAhead(o);
+			o.setBehind(ap);
 			ap.setBehind(pb);
 			pb.setAhead(ap);
 		}
@@ -561,7 +564,7 @@ public class Test {
 		String cmd = null;
 		String p = null;
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
-        
+        Globals.tab = 0;
         while(true) {
         	System.out.println("A megfelelõ teszthez írd be a megfelelõ számot!");
         	System.out.println("1. Orangutan moves to empty Tile");

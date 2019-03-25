@@ -87,7 +87,9 @@ public class Panda extends Animal{
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
-		System.out.println(name+" setAhead(" + a.name + ")");
+		if(a!=null)
+			System.out.println(name+" setAhead(" + a.name + ")");
+		ahead= a;
 		Globals.tab--;
 	}
 	
@@ -119,9 +121,10 @@ public class Panda extends Animal{
 		return !b;
 	}
 	
-	public void breakLine() {Globals.tab++;
-	for(int i = 0; i<Globals.tab; i++)
-		System.out.print("\t");
+	public void breakLine() {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" breakLine");
 		setAhead(null);
 		Panda pb = getBehind();
@@ -131,9 +134,10 @@ public class Panda extends Animal{
 		Globals.tab--;
 	}
 	
-	public void caughtBy(Animal a) {Globals.tab++;
-	for(int i = 0; i<Globals.tab; i++)
-		System.out.print("\t");
+	public void caughtBy(Animal a) {
+		Globals.tab++;
+			for(int i = 0; i<Globals.tab; i++)
+				System.out.print("\t");
 		System.out.println(name+" caughtBy(" + a.name + ")");
 		Tile t = a.getTile();
 		t.setAnimal(this);
@@ -147,9 +151,10 @@ public class Panda extends Animal{
 		Globals.tab--;
 	}
 	
-	public void die() {Globals.tab++;
-	for(int i = 0; i<Globals.tab; i++)
-		System.out.print("\t");
+	public void die() {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" die");
 		Panda pb = getBehind();
 		if(pb!=null) {

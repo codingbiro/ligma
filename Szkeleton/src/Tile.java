@@ -54,6 +54,7 @@ public class Tile {
 			System.out.println(name+" setAnimal(" + a2.name + ")");
 			a2.setTile(this);
 		}
+		a=a2;
 		Globals.tab--;
 	}
 	
@@ -62,8 +63,8 @@ public class Tile {
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
 		if(t != null) {
-		System.out.println(name+" setThing(" + t.name + ")");
-		t.setTile(this);
+			System.out.println(name+" setThing(" + t.name + ")");
+			t.setTile(this);
 		}
 		th = t;
 		Globals.tab--;

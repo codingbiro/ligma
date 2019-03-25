@@ -30,7 +30,8 @@ public class Thing {
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
-		System.out.println(name+" setTile(" + _t.name + ")");
+		if(_t != null)
+			System.out.println(name+" setTile(" + _t.name + ")");
 		t = _t;
 		Globals.tab--;
 	}

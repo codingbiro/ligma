@@ -11,8 +11,7 @@ public class TiredPanda extends Panda{
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
 		System.out.println(name+" Exhaust(" + tar.name + ")");
-		boolean b=inLine();
-		if(b) {
+		if(inLine()) {
 			breakLine();
 		}
 		t1.setAnimal(null);

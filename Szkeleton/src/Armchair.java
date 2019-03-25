@@ -16,7 +16,8 @@ public class Armchair extends Thing{
 			for(Direction d:Direction.values()) {
 				Tile t2=t.getNeighbour(d);
 				Animal a=t2.getAnimal();
-				a.Exhaust(t);
+				if(a!=null)
+					a.Exhaust(t);
 			}
 		}
 		else a2.reduceTime();
