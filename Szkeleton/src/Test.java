@@ -138,14 +138,20 @@ public class Test {
 		Panda p = new Panda("p");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
+		Tile t3 = new Tile("t3");
 		t1.setAnimal(o);
 		t1.setThing(null);
+		t3.setAnimal(p);
+		t3.setThing(null);
 		t2.setAnimal(null);
 		t2.setThing(null);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
+		t3.setNeighbour(Direction.UP, t1);
+		t1.setNeighbour(Direction.DOWN, t3);
 		o.setBehind(p);
 		p.setAhead(o);
+		p.setBehind(null);
 		o.Move(Direction.RIGHT);
 	}
 	

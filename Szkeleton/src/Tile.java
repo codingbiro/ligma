@@ -53,6 +53,7 @@ public class Tile {
 			System.out.println(name+" setAnimal(" + a2.name + ")");
 			a2.setTile(this);
 		}
+		else System.out.println(name+" setAnimal(" + "null" + ")");
 		a=a2;
 		Globals.tab--;
 	}
