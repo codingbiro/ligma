@@ -248,44 +248,49 @@ public class Test {
 	
 	public static void OrangutanMovesToExit() {
 		Orangutan o = new Orangutan("o");
+		o.setBehind(null);
 		Tile t1 = new Tile("t1");
+		
 		t1.setAnimal(o);
 		t1.setThing(null);
 		
 		Exit ex = new Exit("ex");
+		Tile t2 = new Tile("t2");
+		t2.setAnimal(null);
+		t2.setThing(ex);
+		t2.setNeighbour(Direction.LEFT, t1);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		
 		GameController gc = new GameController("gc");
 		Entrance en = new Entrance("en");
-		Tile tex = new Tile("tex");
-		Tile ten = new Tile("ten");
+		Tile t3 = new Tile("t3");
 		
-		ten.setAnimal(null);
-		ten.setThing(en);
+		t3.setAnimal(null);
+		t3.setThing(en);
 		
 		gc.e = en;
 		ex.g = gc;
-
-		tex.setAnimal(null);
-		tex.setThing(ex);
+		
 		
 		o.Move(Direction.RIGHT);
 	}
 	
 	public static void PandaInChainMovesToExit() {
 		Panda p1 = new Panda("p1");
-		Orangutan o = new Orangutan("o");
-		p1.setAhead(o);
-		o.setBehind(p1);
+		
 		Exit ex = new Exit("ex");
 		Tile t1 = new Tile("t1");
-		Tile tex = new Tile("tex");
-		GameController gc = new GameController("gc");
-		ex.g = gc;
+		Tile t2 = new Tile("t2");		
 		t1.setAnimal(p1);
 		t1.setThing(null);
-		tex.setAnimal(null);
-		tex.setThing(ex);
-		t1.setNeighbour(Direction.RIGHT, tex);
-		tex.setNeighbour(Direction.LEFT, t1);
+		t2.setAnimal(null);
+		t2.setThing(ex);
+		
+		GameController gc = new GameController("gc");
+		ex.g = gc;
+		
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
 		p1.Move(Direction.RIGHT);
 	}
 	public static void VendingMachingBeepsOnJumperPanda() {

@@ -19,7 +19,6 @@ public class Orangutan extends Animal{
 		Tile t2=t1.getNeighbour(d);
 		boolean b=inLine();
 		
-		
 		if(!b) {
 			if(t2!=null) {
 				// Ha nem áll elõtte senki és van a választott irányban szomszédos mezõ akkor elkéri az azon álló dolgot és állatot
@@ -36,6 +35,7 @@ public class Orangutan extends Animal{
 						b1=a2.hitBy(this);
 					}
 				}
+				
 				else if(a2==null){
 					if(th!=null) {
 						// Ha csak tárgy van
@@ -54,11 +54,13 @@ public class Orangutan extends Animal{
 							behind.Move(d2);
 						}
 					}
+					// 5.4.12-t elrontja ez
 					t2.setAnimal(this);
 				}
 			}
 		}
 		else if(b){
+			System.out.println("a2sd");
 			t1.setAnimal(null);
 			if(behind!=null) {
 				Direction d2=behind.getDirection(t1);
@@ -66,6 +68,7 @@ public class Orangutan extends Animal{
 			}
 			t2.setAnimal(this);
 		}
+		
 		Globals.tab--;
 	}
 	

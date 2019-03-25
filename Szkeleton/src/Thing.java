@@ -8,7 +8,15 @@ public class Thing {
 		name=s;
 	}
 	
-	public boolean hitBy(Animal a) {
+	public boolean hitBy(Panda a) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
+		System.out.println(name+" hitBy(" + a.name + ")");
+		Globals.tab--;
+		return false;
+	}
+	public boolean hitBy(Orangutan a) {
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
