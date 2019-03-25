@@ -14,7 +14,8 @@ public class SlotMachine extends Thing{
 		for(Direction d:Direction.values()) {
 			Tile t2=t.getNeighbour(d);
 			Animal a=t2.getAnimal();
-			a.hearJingle();
+			if(a!=null)
+				a.hearJingle();
 		}
 		Globals.tab--;
 	}

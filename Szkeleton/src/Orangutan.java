@@ -99,10 +99,8 @@ public class Orangutan extends Animal{
 		}
 		Entrance en = g.getEntrance();
 		Tile ten = en.getTile();
-		Animal a = ten.getAnimal();
-		if(a!=null) {
-			ten.setAnimal(a);
-		}
+		Animal a = ten.getAnimal();		
+		ten.setAnimal(this);
 		Globals.tab--;
 	}
 }

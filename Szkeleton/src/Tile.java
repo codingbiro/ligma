@@ -49,7 +49,6 @@ public class Tile {
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
 		
-		
 		if(a2!=null) {
 			System.out.println(name+" setAnimal(" + a2.name + ")");
 			a2.setTile(this);

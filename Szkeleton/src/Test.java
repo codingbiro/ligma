@@ -543,6 +543,7 @@ public class Test {
 		ten.setThing(en);
 		ten.setAnimal(null);
 		g.e = en;
+		o.g = g;
 		wt.setAnimal(o);
 		
 	}
@@ -551,7 +552,10 @@ public class Test {
 		Panda p = new Panda("p");
 		Panda pb = new Panda("pb");
 		Tile wt = new WeakTile("wt");
+		Orangutan o = new Orangutan("o");
 		if(inLine) {
+			p.setAhead(o);
+			o.setBehind(p);
 			p.setBehind(pb);
 			pb.setAhead(p);
 		}
