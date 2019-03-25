@@ -146,7 +146,7 @@ public class Test {
 	}
 	
 	//Animal moves to Tile with Thing
-	public void OrangutanMovesToTileWithVendingMachine() {
+	public static void OrangutanMovesToTileWithVendingMachine() {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
@@ -159,7 +159,7 @@ public class Test {
 		t2.setNeighbour(Direction.LEFT, t1);
 		o.Move(Direction.RIGHT);
 	}
-	public void OrangutanMovesToTileWithArmchair() {
+	public static void OrangutanMovesToTileWithArmchair() {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
@@ -172,7 +172,7 @@ public class Test {
 		t2.setNeighbour(Direction.LEFT, t1);
 		o.Move(Direction.RIGHT);
 	}
-	public void OrangutanMovesToTileWithSlotMachine() {
+	public static void OrangutanMovesToTileWithSlotMachine() {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
@@ -186,7 +186,7 @@ public class Test {
 		o.Move(Direction.RIGHT);
 	}
 	
-	public void PandaMovesToTileWithArmchair() {
+	public static void PandaMovesToTileWithArmchair() {
 		Panda p = new Panda("p");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
@@ -194,13 +194,13 @@ public class Test {
 		t1.setAnimal(p);
 		t1.setThing(null);
 		t2.setAnimal(null);
-		t2.setThing(t);
+		t2.setThing(ac);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
 		p.Move(Direction.RIGHT);
 	}
 	
-	public void PandaMovesToTileWithVendingMachine() {
+	public static void PandaMovesToTileWithVendingMachine() {
 		Panda p = new Panda("p");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
@@ -208,21 +208,7 @@ public class Test {
 		t1.setAnimal(p);
 		t1.setThing(null);
 		t2.setAnimal(null);
-		t2.setThing(t);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
-	
-	public void PandaMovesToTileWithVendingMachine() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		VendingMachine vm = new VendingMachine("vm");
-		t1.setAnimal(p);
-		t1.setThing(null);
-		t2.setAnimal(null);
-		t2.setThing(t);
+		t2.setThing(sm);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
 		p.Move(Direction.RIGHT);
@@ -235,14 +221,19 @@ public class Test {
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Wardrobe w1 = new Wardrobe("w1");
+		Wardrobe w2 = new Wardrobe("w2");
 		t1.setAnimal(o);
 		t1.setThing(null);
 		t2.setAnimal(null);
 		t2.setThing(w1);
+		t3.setThing(w2);
+		t3.setAnimal(null);
+		w1.w2 = w2;
+		w2.w2 = w1;
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(d);
-		//w2 ? t3.setAnimal(null);t3.setThing(w2); ?
+		o.Move(Direction.RIGHT);
+		
 	}
 	
 	public static void OrangutanMovesToExit() {
@@ -277,9 +268,8 @@ public class Test {
 		t1.setThing(null);
 		tex.setAnimal(null);
 		tex.setThing(ex);
-		t1.setNeighbour(Direction.RIGHT, ex);
-		ex.setNeighbour(Direction.LEFT, t1);
-		tex.setNeighbour();
+		t1.setNeighbour(Direction.RIGHT, tex);
+		tex.setNeighbour(Direction.LEFT, t1);
 		p1.Move(Direction.RIGHT);
 	}
 	public static void VendingMachingBeepsOnJumperPanda() {
@@ -289,11 +279,11 @@ public class Test {
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
-		JumperPanda p = new JumperPanda("p");
+		JumperPanda jp = new JumperPanda("jp");
 		t1.setThing(vm);
 		t1.setAnimal(null);
 		t2.setThing(null);
-		t2.setAnimal(o);
+		t2.setAnimal(jp);
 		t3.setThing(null);
 		t3.setAnimal(null);
 		t4.setThing(null);
@@ -582,22 +572,25 @@ public class Test {
         	System.out.println("8. Orangutan moves into Panda");
         	System.out.println("9. Orangutan moves into Panda2");
         	System.out.println("10. Orangutan moves with Panda Chain");
-        	System.out.println("11. Orangutan moves to Tile with Thing");
+        	System.out.println("Orangutan moves to Tile with Thing(11-14)");
+        	System.out.println("11.Orangutan Moves To Tile With VendingMachine");
         	System.out.println("12. Orangutan moves to Tile with Wardrobe");
-        	System.out.println("13. OrangutanMovesToExit");
-        	System.out.println("14. PandaInChainMovesToExit");
-        	System.out.println("15. VendingMachingBeepsOnJumperPanda");
-        	System.out.println("16. VendingMachingBeepsOnOrangutan");
-        	System.out.println("17. VendingMachingBeepsOnPanda");
-        	System.out.println("18. ArmchairChecksTired");
-        	System.out.println("19. ArmchairChecksPanda");
-        	System.out.println("20. ArmchairChecksOrangutan");
-        	System.out.println("21. SlotMachineJinglesAfraid");
-        	System.out.println("22. SlotMachineJinglesPanda");
-        	System.out.println("23. SlotMachineJinglesOrangutan");
-        	System.out.println("24. TileBreaksWithOrangutan");
-        	System.out.println("25. TileBreaksWithPanda");
-        	System.out.println("26. Exit");
+        	System.out.println("13. Orangutan Moves To Tile With Armchair");
+        	System.out.println("14. Orangutan Moves To Tile With SlotMachine");
+        	System.out.println("15. OrangutanMovesToExit");
+        	System.out.println("16. PandaInChainMovesToExit");
+        	System.out.println("17. VendingMachingBeepsOnJumperPanda");
+        	System.out.println("18. VendingMachingBeepsOnOrangutan");
+        	System.out.println("19. VendingMachingBeepsOnPanda");
+        	System.out.println("20. ArmchairChecksTired");
+        	System.out.println("21. ArmchairChecksPanda");
+        	System.out.println("22. ArmchairChecksOrangutan");
+        	System.out.println("23. SlotMachineJinglesAfraid");
+        	System.out.println("24. SlotMachineJinglesPanda");
+        	System.out.println("25. SlotMachineJinglesOrangutan");
+        	System.out.println("26. TileBreaksWithOrangutan");
+        	System.out.println("27. TileBreaksWithPanda");
+        	System.out.println("28. Exit");
         	try {
         		cmd = reader.readLine();
         	} catch (IOException e) {
@@ -622,25 +615,29 @@ public class Test {
 				break;
     			case "8": OrangutanMovesIntoPanda();
 				break;
-    			case "9": OrangutanMovesIntoPanda2();
+    			case "9": OrangutanMovesIntoInlinePanda();
 				break;
     			case "10": OrangutanMovesWithPandaChain();
 				break;
-    			case "11": OrangutanMovesToTileWithThing();
+    			case "11": OrangutanMovesToTileWithVendingMachine();
 				break;
     			case "12": OrangutanMovesToTileWithWardrobe();
 				break;
-    			case "13": OrangutanMovesToExit();
+    			case "13": OrangutanMovesToTileWithArmchair();
+    			break;
+    			case "14": OrangutanMovesToTileWithSlotMachine();
+    			break;
+    			case "15": OrangutanMovesToExit();
 				break;
-    			case "14": PandaInChainMovesToExit();
+    			case "16": PandaInChainMovesToExit();
 				break;
-    			case "15": VendingMachingBeepsOnJumperPanda();
+    			case "17": VendingMachingBeepsOnJumperPanda();
 				break;
-    			case "16": VendingMachingBeepsOnOrangutan();
+    			case "18": VendingMachingBeepsOnOrangutan();
 				break;
-    			case "17": VendingMachingBeepsOnPanda();
+    			case "19": VendingMachingBeepsOnPanda();
 				break;
-    			case "18": System.out.println("Legyen sorban a panda? (I/N)");
+    			case "20": System.out.println("Legyen sorban a panda? (I/N)");
     			try {
 					p = reader.readLine();
 				} catch (IOException e3) {
@@ -655,11 +652,11 @@ public class Test {
     				ArmchairChecksTired(inline);
     			}
 				break;
-    			case "19": ArmchairChecksPanda();
+    			case "21": ArmchairChecksPanda();
 				break;
-    			case "20": ArmchairChecksOrangutan();
+    			case "22": ArmchairChecksOrangutan();
 				break;
-    			case "21": System.out.println("Legyen sorban a panda? (I/N)");
+    			case "23": System.out.println("Legyen sorban a panda? (I/N)");
     			try {
 					p = reader.readLine();
 				} catch (IOException e2) {
@@ -674,11 +671,11 @@ public class Test {
     				SlotMachineJinglesAfraid(inline);
     			}
 				break;
-    			case "22": SlotMachineJinglesPanda();
+    			case "24": SlotMachineJinglesPanda();
 				break;
-    			case "23": SlotMachineJinglesOrangutan();
+    			case "25": SlotMachineJinglesOrangutan();
 				break;
-    			case "24": System.out.println("Legyen sorban a panda? (I/N)");
+    			case "26": System.out.println("Legyen sorban a panda? (I/N)");
     			try {
 					p = reader.readLine();
 				} catch (IOException e1) {
@@ -693,7 +690,7 @@ public class Test {
     				TileBreaksWithOrangutan(inline);
     			} 	
 				break;
-    			case "25": System.out.println("Legyen sorban a panda? (I/N)");
+    			case "27": System.out.println("Legyen sorban a panda? (I/N)");
     			try {
 					p = reader.readLine();
 				} catch (IOException e) {
@@ -708,7 +705,8 @@ public class Test {
     				TileBreaksWithPanda(inline);
     			}
 				break;
-    			case "26": System.exit(0);
+    			
+    			case "28": System.exit(0);
     			break;
         	}
     	}
