@@ -268,6 +268,7 @@ public class Test {
 		Panda p1 = new Panda("p1");
 		Orangutan o = new Orangutan("o");
 		p1.setAhead(o);
+		o.setBehind(p1);
 		Exit ex = new Exit("ex");
 		Tile t1 = new Tile("t1");
 		Tile tex = new Tile("tex");
