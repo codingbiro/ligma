@@ -1,13 +1,19 @@
 
+
 public class Tile {
 	String name;
 	Animal a;
 	Thing th;
-	
+
 	Tile neighbour[];
 	
 	public Tile(String s) {
 		name = s;
+		neighbour = new Tile[Direction.values().length];
+	}
+	
+	public void setNeighbour(Direction d, Tile t) {
+		neighbour[d.ordinal()]  = t;
 	}
 	
 	public Animal getAnimal() {
@@ -28,6 +34,7 @@ public class Tile {
 	
 	public void setAnimal(Animal a2) {
 		System.out.println(name+" setAnimal");
+		
 		if(a2!=null) {
 			a2.setTile(this);
 		}
@@ -35,5 +42,7 @@ public class Tile {
 	
 	public void setThing(Thing t) {
 		System.out.println(name+" setThing");
+		t.setTile(this);
+		th = t;
 	}
 }

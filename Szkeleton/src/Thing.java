@@ -17,4 +17,9 @@ public class Thing {
 		System.out.println(name+" getTile");
 		return t;
 	}
+	
+	public void setTile(Tile _t) {
+		System.out.println(name+" setTile(" + _t.name + ")");
+		t = _t;
+	}
 }

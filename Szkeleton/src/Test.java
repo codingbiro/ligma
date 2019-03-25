@@ -1,5 +1,11 @@
 
 public class Test {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
 	public void OrangutanMovesToEmptyTile() {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
@@ -173,13 +179,18 @@ public class Test {
 		Orangutan o = new Orangutan("o");
 		Exit ex = new Exit("ex");
 		GameController gc = new GameController("gc"); //Entrance?
+		Entrance en = new Entrance("en");
 		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		
+		Tile tex = new Tile("tex");
+		Tile ten = new Tile("ten");
+		ten.setAnimal(null);
+		ten.setThing(en);
+		gc.e = en;
+		ex.g = gc;
 		t1.setAnimal(o);
 		t1.setThing(null);
-		t2.setAnimal(null);
-		t2.setThing(ex);
+		tex.setAnimal(null);
+		tex.setThing(ex);
 		
 	}
 	
@@ -189,15 +200,16 @@ public class Test {
 		p1.setAhead(o);
 		Exit ex = new Exit("ex");
 		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
+		Tile tex = new Tile("tex");
 		GameController gc = new GameController("gc");
+		ex.g = gc;
 		t1.setAnimal(p1);
 		t1.setThing(null);
-		t2.setAnimal(null);
-		t2.setThing(ex);
+		tex.setAnimal(null);
+		tex.setThing(ex);
 		t1.setNeighbour();
-		t2.setNeighbour();
-		p1.Move(d);
+		tex.setNeighbour();
+		p1.Move(Direction.UP);
 	}
 	public void VendingMachingBeepsOnJumperPanda() {
 		VendingMachine vm = new VendingMachine("vm");
@@ -229,14 +241,14 @@ public class Test {
 	
 	public void VendingMachingBeepsOnOrangutan() {
 		VendingMachine vm = new VendingMachine("vm");
-		Tile t1 = new Tile("t1");
+		Tile tvm = new Tile("tvm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Orangutan o = new Orangutan("o");
-		t1.setThing(vm);
-		t1.setAnimal(null);
+		tvm.setThing(vm);
+		tvm.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(o);
 		t3.setThing(null);
@@ -245,45 +257,44 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tvm.setNeighbour(Direction.UP, t2);
+		tvm.setNeighbour(Direction.DOWN, t3);
+		tvm.setNeighbour(Direction.RIGHT, t4);
+		tvm.setNeighbour(Direction.LEFT, t5);
+
 		vm.beep();
 		
 	}
 	
 	public void VendingMachingBeepsOnPanda() {
 		VendingMachine vm = new VendingMachine("vm");
-		Tile t1 = new Tile("t1");
+		Tile tvm = new Tile("tvm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Panda p = new Panda("p");
-		t1.setThing(vm);
-		t1.setAnimal(null);
+		tvm.setThing(vm);
+		tvm.setAnimal(null);
 		t2.setThing(null);
-		t2.setAnimal(o);
+		t2.setAnimal(p);
 		t3.setThing(null);
 		t3.setAnimal(null);
 		t4.setThing(null);
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tvm.setNeighbour(Direction.UP, t2);
+		tvm.setNeighbour(Direction.DOWN, t3);
+		tvm.setNeighbour(Direction.RIGHT, t4);
+		tvm.setNeighbour(Direction.LEFT, t5);
 		vm.beep();
 		
 	}
 	
 	public void ArmchairChecksTired(boolean inLine) {
 		Armchair ac = new Armchair("ac");
-		Tile t1 = new Tile("t1");
+		Tile tac = new Tile("tac");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
@@ -294,8 +305,8 @@ public class Test {
 			tp.setBehind(pb);
 			pb.setAhead(tp);
 		}
-		t1.setThing(ac);
-		t1.setAnimal(null);
+		tac.setThing(ac);
+		tac.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(tp);
 		t3.setThing(null);
@@ -304,25 +315,24 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tac.setNeighbour(Direction.UP, t2);
+		tac.setNeighbour(Direction.DOWN, t3);
+		tac.setNeighbour(Direction.RIGHT, t4);
+		tac.setNeighbour(Direction.LEFT, t5);
 		ac.check();
 		
 	}
 	
 	public void ArmchairChecksPanda() {
 		Armchair ac = new Armchair("ac");
-		Tile t1 = new Tile("t1");
+		Tile tac = new Tile("tac");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Panda p = new Panda("p");
-		t1.setThing(ac);
-		t1.setAnimal(null);
+		tac.setThing(ac);
+		tac.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(p);
 		t3.setThing(null);
@@ -331,25 +341,24 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tac.setNeighbour(Direction.UP, t2);
+		tac.setNeighbour(Direction.DOWN, t3);
+		tac.setNeighbour(Direction.RIGHT, t4);
+		tac.setNeighbour(Direction.LEFT, t5);
 		ac.check();
 		
 	}
 	
 	public void ArmchairChecksOrangutan() {
 		Armchair ac = new Armchair("ac");
-		Tile t1 = new Tile("t1");
+		Tile tac= new Tile("tac");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Orangutan o = new Orangutan("o");
-		t1.setThing(ac);
-		t1.setAnimal(null);
+		tac.setThing(ac);
+		tac.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(o);
 		t3.setThing(null);
@@ -358,18 +367,17 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tac.setNeighbour(Direction.UP, t2);
+		tac.setNeighbour(Direction.DOWN, t3);
+		tac.setNeighbour(Direction.RIGHT, t4);
+		tac.setNeighbour(Direction.LEFT, t5);
 		ac.check();
 		
 	}
 	
 	public void SlotMachineJinglesAfraid(boolean inLine) {
 		SlotMachine sm = new SlotMachine("sm");
-		Tile t1 = new Tile("t1");
+		Tile tsm = new Tile("tsm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
@@ -380,8 +388,8 @@ public class Test {
 			ap.setBehind(pb);
 			pb.setAhead(ap);
 		}
-		t1.setThing(sm);
-		t1.setAnimal(null);
+		tsm.setThing(sm);
+		tsm.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(ap);
 		t3.setThing(null);
@@ -390,11 +398,10 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tsm.setNeighbour(Direction.UP, t2);
+		tsm.setNeighbour(Direction.DOWN, t3);
+		tsm.setNeighbour(Direction.RIGHT, t4);
+		tsm.setNeighbour(Direction.LEFT, t5);
 		
 		sm.jingle();
 		
@@ -402,14 +409,14 @@ public class Test {
 	
 	public void SlotMachineJinglesPanda() {
 		SlotMachine sm = new SlotMachine("sm");
-		Tile t1 = new Tile("t1");
+		Tile tsm = new Tile("tsm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Panda p = new Panda("p");
-		t1.setThing(sm);
-		t1.setAnimal(null);
+		tsm.setThing(sm);
+		tsm.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(p);
 		t3.setThing(null);
@@ -418,25 +425,24 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tsm.setNeighbour(Direction.UP, t2);
+		tsm.setNeighbour(Direction.DOWN, t3);
+		tsm.setNeighbour(Direction.RIGHT, t4);
+		tsm.setNeighbour(Direction.LEFT, t5);
 		sm.jingle();
 		
 	}
 	
 	public void SlotMachineJinglesOrangutan() {
 		SlotMachine sm = new SlotMachine("sm");
-		Tile t1 = new Tile("t1");
+		Tile tsm = new Tile("tsm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		Orangutan o = new Orangutan("o");
-		t1.setThing(sm);
-		t1.setAnimal(null);
+		tsm.setThing(sm);
+		tsm.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(o);
 		t3.setThing(null);
@@ -445,11 +451,10 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		tsm.setNeighbour(Direction.UP, t2);
+		tsm.setNeighbour(Direction.DOWN, t3);
+		tsm.setNeighbour(Direction.RIGHT, t4);
+		tsm.setNeighbour(Direction.LEFT, t5);
 		sm.jingle();
 		
 	}

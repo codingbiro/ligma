@@ -10,7 +10,7 @@ public class Exit extends Thing{
 	}
 	
 	public boolean hitBy(Panda p) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + p.name + ")");
 		if(!p.inLine()) {
 			return false;
 		}
@@ -21,7 +21,7 @@ public class Exit extends Thing{
 	}
 	
 	public boolean hitBy(Orangutan o) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + o.name + ")");
 		Entrance e = g.getEntrance();
 		o.setBehind(null);
 		Tile t1 = e.getTile();

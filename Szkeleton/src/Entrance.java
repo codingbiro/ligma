@@ -12,7 +12,8 @@ public class Entrance extends Thing{
 	}
 	
 	public boolean hitBy(Orangutan o) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + o.name + ")");
+		return false;
 	}
 
 }
