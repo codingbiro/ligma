@@ -12,7 +12,7 @@ public class Orangutan extends Animal{
 		boolean b1=true;
 		boolean b2=true;
 		
-		System.out.println(name+" Move");
+		System.out.println(name+" Move(" + d.name() + ")" );
 		// A szomszédos mezõ lekérése
 		Tile t2=t1.getNeighbour(d);
 		boolean b=inLine();
@@ -67,12 +67,12 @@ public class Orangutan extends Animal{
 	}
 	
 	public boolean hitBy(Orangutan o) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + o.name + ")");
 		return false;
 	}
 	
 	public boolean hitBy(Panda p) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + p.name + ")");
 		return false;
 	}
 

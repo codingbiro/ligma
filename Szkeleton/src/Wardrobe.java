@@ -10,7 +10,7 @@ public class Wardrobe extends Thing{
 	}
 
 	public boolean hitBy(Animal a) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + a.name + ")");
 		Tile t2 = w2.getTile();
 		t2.setAnimal(a);
 		a.setTile(t2);

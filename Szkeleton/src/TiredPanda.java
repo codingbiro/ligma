@@ -7,7 +7,7 @@ public class TiredPanda extends Panda{
 	}
 	
 	public void Exhaust(Tile tar) {
-		System.out.println(name+" Exhaust");
+		System.out.println(name+" Exhaust(" + tar.name + ")");
 		boolean b=inLine();
 		if(b) {
 			breakLine();

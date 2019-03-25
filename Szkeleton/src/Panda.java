@@ -10,7 +10,7 @@ public class Panda extends Animal{
 		boolean b1=true;
 		boolean b2=true;
 		
-		System.out.println(name+" Move");
+		System.out.println(name+" Move(" + d.name() + ")");
 		// A szomszédos mezõ lekérése
 		Tile t2=t1.getNeighbour(d);
 		boolean b=inLine();
@@ -65,7 +65,7 @@ public class Panda extends Animal{
 	}
 	
 	public Direction getDirection(Tile t) {
-		System.out.println(name+" getDirection");
+		System.out.println(name+" getDirection(" + t.name + ")");
 		for(Direction d:Direction.values()) {
 			Tile t2=t1.getNeighbour(d);
 			if(t2.equals(t)) {
@@ -85,12 +85,12 @@ public class Panda extends Animal{
 	}
 
 	public boolean hitBy(Panda p) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + p.name + ")");
 		return false;
 	}
 	
 	public boolean hitBy(Orangutan o) {
-		System.out.println(name+ "hitBy");
+		System.out.println(name+ "hitBy(" + o.name + ")");
 		boolean b=inLine();
 		return !b;
 	}
@@ -105,7 +105,7 @@ public class Panda extends Animal{
 	}
 	
 	public void caughtBy(Animal a) {
-		System.out.println(name+" caughtBy");
+		System.out.println(name+" caughtBy(" + a.name + ")");
 		Tile t = a.getTile();
 		t.setAnimal(this);
 		setAhead(a);

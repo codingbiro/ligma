@@ -9,7 +9,7 @@ public class Thing {
 	}
 	
 	public boolean hitBy(Animal a) {
-		System.out.println(name+" hitBy");
+		System.out.println(name+" hitBy(" + a.name + ")");
 		return false;
 	}
 	

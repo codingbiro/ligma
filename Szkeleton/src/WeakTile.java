@@ -11,7 +11,7 @@ public class WeakTile extends Tile {
 	}
 	
 	public void setAnimal(Animal a) {
-		System.out.println(name+" setAnimal");
+		System.out.println(name+" setAnimal(" + a.name + ")");
 		if(a!=null) {
 			decreaseLife();
 		}

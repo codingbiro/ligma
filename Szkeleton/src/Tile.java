@@ -23,7 +23,7 @@ public class Tile {
 	}
 	
 	public Tile getNeighbour(Direction d) {
-		System.out.println(name+" getNeighbour");
+		System.out.println(name+" getNeighbour(" + d.name() + ")");
 		return neighbour[d.ordinal()];
 	}
 	
@@ -33,7 +33,7 @@ public class Tile {
 	}
 	
 	public void setAnimal(Animal a2) {
-		System.out.println(name+" setAnimal");
+		System.out.println(name+" setAnimal(" + a2.name + ")");
 		
 		if(a2!=null) {
 			a2.setTile(this);
@@ -41,7 +41,7 @@ public class Tile {
 	}
 	
 	public void setThing(Thing t) {
-		System.out.println(name+" setThing");
+		System.out.println(name+" setThing(" + t.name + ")");
 		t.setTile(this);
 		th = t;
 	}
