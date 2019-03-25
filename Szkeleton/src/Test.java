@@ -491,6 +491,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		String cmd = null;
+		String p = null;
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
         
         while(true) {
@@ -563,22 +564,76 @@ public class Test {
 				break;
     			case "17": VendingMachingBeepsOnPanda();
 				break;
-    			case "18": ArmchairChecksTired();
+    			case "18": System.out.println("Legyen sorban a panda? (I/N)");
+    			try {
+					p = reader.readLine();
+				} catch (IOException e3) {
+					// TODO Auto-generated catch block
+					e3.printStackTrace();
+				}
+    			if(p.equals("I")){
+    				boolean inline = true;
+    				ArmchairChecksTired(inline);
+    			} else {
+    				boolean inline = false;
+    				ArmchairChecksTired(inline);
+    			}
 				break;
     			case "19": ArmchairChecksPanda();
 				break;
     			case "20": ArmchairChecksOrangutan();
 				break;
-    			case "21": SlotMachineJinglesAfraid();
+    			case "21": System.out.println("Legyen sorban a panda? (I/N)");
+    			try {
+					p = reader.readLine();
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+    			if(p.equals("I")){
+    				boolean inline = true;
+    				SlotMachineJinglesAfraid(inline);
+    			} else {
+    				boolean inline = false;
+    				SlotMachineJinglesAfraid(inline);
+    			}
 				break;
     			case "22": SlotMachineJinglesPanda();
 				break;
     			case "23": SlotMachineJinglesOrangutan();
 				break;
-    			case "24": TileBreaksWithOrangutan();
+    			case "24": System.out.println("Legyen sorban a panda? (I/N)");
+    			try {
+					p = reader.readLine();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+    			if(p.equals("I")){
+    				boolean inline = true;
+    				TileBreaksWithOrangutan(inline);
+    			} else {
+    				boolean inline = false;
+    				TileBreaksWithOrangutan(inline);
+    			} 	
 				break;
-    			case "25": TileBreaksWithPanda();
+    			case "25": System.out.println("Legyen sorban a panda? (I/N)");
+    			try {
+					p = reader.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    			if(p.equals("I")){
+    				boolean inline = true;
+    				TileBreaksWithPanda(inline);
+    			} else {
+    				boolean inline = false;
+    				TileBreaksWithPanda(inline);
+    			}
 				break;
+    			case "26": System.exit(0);
+    			break;
         	}
     	}
 	}
