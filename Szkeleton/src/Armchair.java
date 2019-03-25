@@ -7,6 +7,9 @@ public class Armchair extends Thing{
 	}
 	
 	public void check() {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" check");
 		Animal a2=t.getAnimal();
 		if(a2==null) {
@@ -17,6 +20,7 @@ public class Armchair extends Thing{
 			}
 		}
 		else a2.reduceTime();
+		Globals.tab--;
 	}
 
 }

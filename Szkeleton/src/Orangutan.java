@@ -11,7 +11,9 @@ public class Orangutan extends Animal{
 	public void Move(Direction d) {
 		boolean b1=true;
 		boolean b2=true;
-		
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" Move(" + d.name() + ")" );
 		// A szomszédos mezõ lekérése
 		Tile t2=t1.getNeighbour(d);
@@ -64,19 +66,31 @@ public class Orangutan extends Animal{
 			}
 			t2.setAnimal(this);
 		}
+		Globals.tab--;
 	}
 	
 	public boolean hitBy(Orangutan o) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" hitBy(" + o.name + ")");
+		Globals.tab--;
 		return false;
 	}
 	
 	public boolean hitBy(Panda p) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" hitBy(" + p.name + ")");
+		Globals.tab--;
 		return false;
 	}
 
 	public void die() {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" die");
 		g.decreasePoints();
 		Panda pb = getBehind();
@@ -89,5 +103,6 @@ public class Orangutan extends Animal{
 		if(a!=null) {
 			ten.setAnimal(a);
 		}
+		Globals.tab--;
 	}
 }

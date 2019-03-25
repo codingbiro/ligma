@@ -10,9 +10,11 @@ public class AfraidPanda extends Panda{
 	// Ha csilingelést hall megijed és elszakítja a láncot
 	public void hearJingle() {
 		Globals.tab++;
-		
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" hearJingle");
 		breakLine();
+		Globals.tab--;
 	}
 
 }

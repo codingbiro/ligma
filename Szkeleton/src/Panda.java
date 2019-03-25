@@ -9,6 +9,9 @@ public class Panda extends Animal{
 	public void Move(Direction d) {
 		boolean b1=true;
 		boolean b2=true;
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		
 		System.out.println(name+" Move(" + d.name() + ")");
 		// A szomszédos mezõ lekérése
@@ -62,9 +65,13 @@ public class Panda extends Animal{
 			}
 			t2.setAnimal(this);
 		}
+		Globals.tab--;
 	}
 	
 	public Direction getDirection(Tile t) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" getDirection(" + t.name + ")");
 		for(Direction d:Direction.values()) {
 			Tile t2=t1.getNeighbour(d);
@@ -72,39 +79,61 @@ public class Panda extends Animal{
 				return d;
 			}
 		}
+		Globals.tab--;
 		return Direction.UP;
 	}
 	
 	public void setAhead(Animal a) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" setAhead(" + a.name + ")");
+		Globals.tab--;
 	}
 	
 	public Animal getAhead() {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" getAhead");
+		Globals.tab--;
 		return ahead;
 	}
 
 	public boolean hitBy(Panda p) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+" hitBy(" + p.name + ")");
+		Globals.tab--;
 		return false;
 	}
 	
 	public boolean hitBy(Orangutan o) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
 		System.out.println(name+ "hitBy(" + o.name + ")");
 		boolean b=inLine();
+		Globals.tab--;
 		return !b;
 	}
 	
-	public void breakLine() {
+	public void breakLine() {Globals.tab++;
+	for(int i = 0; i<Globals.tab; i++)
+		System.out.print("\t");
 		System.out.println(name+" breakLine");
 		setAhead(null);
 		Panda pb = getBehind();
 		if(pb!=null) {
 			pb.breakLine();
 		}
+		Globals.tab--;
 	}
 	
-	public void caughtBy(Animal a) {
+	public void caughtBy(Animal a) {Globals.tab++;
+	for(int i = 0; i<Globals.tab; i++)
+		System.out.print("\t");
 		System.out.println(name+" caughtBy(" + a.name + ")");
 		Tile t = a.getTile();
 		t.setAnimal(this);
@@ -115,14 +144,18 @@ public class Panda extends Animal{
 			pb.setAhead(this);
 		}
 		a.setBehind(this);
+		Globals.tab--;
 	}
 	
-	public void die() {
+	public void die() {Globals.tab++;
+	for(int i = 0; i<Globals.tab; i++)
+		System.out.print("\t");
 		System.out.println(name+" die");
 		Panda pb = getBehind();
 		if(pb!=null) {
 			pb.breakLine();
 		}
+		Globals.tab--;
 		
 	}
 }
