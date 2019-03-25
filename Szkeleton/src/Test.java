@@ -240,21 +240,26 @@ public class Test {
 	
 	public static void OrangutanMovesToExit() {
 		Orangutan o = new Orangutan("o");
-		Exit ex = new Exit("ex");
-		GameController gc = new GameController("gc"); //Entrance?
-		Entrance en = new Entrance("en");
 		Tile t1 = new Tile("t1");
-		Tile tex = new Tile("tex");
-		Tile ten = new Tile("ten");
-		ten.setAnimal(null);
-		ten.setThing(en);
-		gc.e = en;
-		ex.g = gc;
 		t1.setAnimal(o);
 		t1.setThing(null);
+		
+		Exit ex = new Exit("ex");
+		GameController gc = new GameController("gc");
+		Entrance en = new Entrance("en");
+		Tile tex = new Tile("tex");
+		Tile ten = new Tile("ten");
+		
+		ten.setAnimal(null);
+		ten.setThing(en);
+		
+		gc.e = en;
+		ex.g = gc;
+
 		tex.setAnimal(null);
 		tex.setThing(ex);
 		
+		o.Move(Direction.RIGHT);
 	}
 	
 	public static void PandaInChainMovesToExit() {
