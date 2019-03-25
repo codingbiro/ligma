@@ -146,7 +146,7 @@ public class Test {
 		t2.setNeighbour(Direction.LEFT, t1);
 		o.setBehind(p);
 		p.setAhead(o);
-		o.Move(Direction.RIGHT);
+		o.Move(Direction.LEFT);
 	}
 	
 	//Animal moves to Tile with Thing
