@@ -14,30 +14,30 @@ public class Panda extends Animal{
 			System.out.print("\t");
 		
 		System.out.println(name+" Move(" + d.name() + ")");
-		// A szomszÈdos mezı lekÈrÈse
+		// A szomsz√©dos mez√µ lek√©r√©se
 		Tile t2=t1.getNeighbour(d);
 		boolean b=inLine();
 		
 		
 		if(!b) {
 			if(t2!=null) {
-				// Ha nem ·ll elıtte senki Ès van a v·lasztott ir·nyban szomszÈdos mezı akkor elkÈri az azon ·llÛ dolgot Ès ·llatot
+				// Ha nem √°ll el√µtte senki √©s van a v√°lasztott ir√°nyban szomsz√©dos mez√µ akkor elk√©ri az azon √°ll√≥ dolgot √©s √°llatot
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
 				if(a2!=null) {
 					if(th!=null) {
-						// Ha ·llat Ès dolog is van
+						// Ha √°llat √©s dolog is van
 						b1=a2.hitBy(this);
 						b2=th.hitBy(this);
 					}
-					// Ha csak ·llat van
+					// Ha csak √°llat van
 					else if(th==null){
 						b1=a2.hitBy(this);
 					}
 				}
 				else if(a2==null){
 					if(th!=null) {
-						// Ha csak t·rgy van
+						// Ha csak t√°rgy van
 						b2=th.hitBy(this);
 					}
 				}
@@ -89,6 +89,7 @@ public class Panda extends Animal{
 			System.out.print("\t");
 		if(a!=null)
 			System.out.println(name+" setAhead(" + a.name + ")");
+		else System.out.println(name+" setAhead(" + "null" + ")");
 		ahead= a;
 		Globals.tab--;
 	}
