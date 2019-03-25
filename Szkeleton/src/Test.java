@@ -140,13 +140,13 @@ public class Test {
 		Tile t2 = new Tile("t2");
 		t1.setAnimal(o);
 		t1.setThing(null);
-		t2.setAnimal(p);
+		t2.setAnimal(null);
 		t2.setThing(null);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
 		o.setBehind(p);
 		p.setAhead(o);
-		o.Move(Direction.LEFT);
+		o.Move(Direction.RIGHT);
 	}
 	
 	//Animal moves to Tile with Thing
