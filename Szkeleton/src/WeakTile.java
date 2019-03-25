@@ -18,12 +18,26 @@ public class WeakTile extends Tile {
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
-		System.out.println(name+" setAnimal(" + a.name + ")");
+		
 		if(a!=null) {
+			System.out.println(name+" setAnimal(" + a.name + ")");
 			decreaseLife();
+			a.die();
 		}
 		// if(life==null) elvileg tesztesetben ez 0 (?)
-		a.die();
+		
+		Globals.tab--;
+	}
+	
+	public void setThing(Thing t) {
+		Globals.tab++;
+		for(int i = 0; i<Globals.tab; i++)
+			System.out.print("\t");
+		if(t!= null) {
+		System.out.println(name+" setThing(" + t.name + ")");
+		t.setTile(this);
+		}
+		th = t;
 		Globals.tab--;
 	}
 
