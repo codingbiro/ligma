@@ -127,8 +127,7 @@ public class Test {
 		t2.setAnimal(p);
 		t2.setThing(null);
 		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		
+		t2.setNeighbour(Direction.LEFT, t1);		
 		p.setAhead(o2);
 		o.Move(Direction.RIGHT);
 	}
@@ -144,6 +143,7 @@ public class Test {
 		t2.setThing(null);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
+		o.setBehind(p);
 		o.Move(Direction.RIGHT);
 	}
 	
