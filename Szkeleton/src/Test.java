@@ -49,6 +49,7 @@ public class Test {
 		Panda p = new Panda("p");
 		Tile t1 = new Tile("t1");
 		WeakTile wt = new WeakTile("wt");
+		wt.life = 1;
 		t1.setAnimal(p);
 		t1.setThing(null);
 		wt.setAnimal(null);
@@ -275,14 +276,14 @@ public class Test {
 	}
 	public static void VendingMachingBeepsOnJumperPanda() {
 		VendingMachine vm = new VendingMachine("vm");
-		Tile t1 = new Tile("t1");
+		Tile tvm = new Tile("tvm");
 		Tile t2 = new Tile("t2");
 		Tile t3 = new Tile("t3");
 		Tile t4 = new Tile("t4");
 		Tile t5 = new Tile("t5");
 		JumperPanda jp = new JumperPanda("jp");
-		t1.setThing(vm);
-		t1.setAnimal(null);
+		tvm.setThing(vm);
+		tvm.setAnimal(null);
 		t2.setThing(null);
 		t2.setAnimal(jp);
 		t3.setThing(null);
@@ -291,14 +292,14 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		t2.setNeighbour(Direction.RIGHT, t3);
-		t3.setNeighbour(Direction.LEFT, t2);
-		t3.setNeighbour(Direction.RIGHT, t4);
-		t4.setNeighbour(Direction.LEFT, t3);
-		t4.setNeighbour(Direction.RIGHT, t5);
-		t5.setNeighbour(Direction.LEFT, t4);
+		tvm.setNeighbour(Direction.RIGHT, t2);
+
+		tvm.setNeighbour(Direction.LEFT, t3);
+
+		tvm.setNeighbour(Direction.UP, t4);
+
+		tvm.setNeighbour(Direction.DOWN, t5);
+
 		vm.beep();
 		
 	}

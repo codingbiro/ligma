@@ -14,7 +14,8 @@ public class VendingMachine extends Thing{
 		for(Direction d:Direction.values()) {
 			Tile t2=t.getNeighbour(d);
 			Animal a=t2.getAnimal();
-			a.hearBeep();
+			if(a!=null)
+				a.hearBeep();
 		}
 		Globals.tab--;
 	}
