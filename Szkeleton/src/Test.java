@@ -129,6 +129,7 @@ public class Test {
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);		
 		p.setAhead(o2);
+		o2.setBehind(p);
 		o.Move(Direction.RIGHT);
 	}
 	
@@ -144,6 +145,7 @@ public class Test {
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
 		o.setBehind(p);
+		p.setAhead(o);
 		o.Move(Direction.RIGHT);
 	}
 	
