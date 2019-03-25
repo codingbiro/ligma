@@ -114,7 +114,7 @@ public class Test {
 	}
 	
 	//starting ini 8/14
-	public static void OrangutanMovesIntoPanda2() {
+	public static void OrangutanMovesIntoInlinePanda() {
 		Orangutan o = new Orangutan("o");
 		Orangutan o2 = new Orangutan("o2");
 		Panda p = new Panda("p");
@@ -124,10 +124,11 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(p);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 		p.setAhead(o2);
-		o.Move(d);
+		o.Move(Direction.RIGHT);
 	}
 	
 	public static void OrangutanMovesWithPandaChain() {
@@ -139,25 +140,94 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(p);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		o.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 	}
 	
 	//Animal moves to Tile with Thing
-	public static void OrangutanMovesToTileWithThing() {
+	public void OrangutanMovesToTileWithVendingMachine() {
 		Orangutan o = new Orangutan("o");
 		Tile t1 = new Tile("t1");
 		Tile t2 = new Tile("t2");
-		Thing t = new Object("t"); //Thing
+		VendingMachine vm = new VendingMachine("vm");
 		t1.setAnimal(o);
 		t1.setThing(null);
 		t2.setAnimal(null);
-		t2.setThing(t);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		o.Move(d);
+		t2.setThing(vm);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 	}
+	public void OrangutanMovesToTileWithArmchair() {
+		Orangutan o = new Orangutan("o");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		Armchair ac = new Armchair("ac");
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(ac);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
+	}
+	public void OrangutanMovesToTileWithSlotMachine() {
+		Orangutan o = new Orangutan("o");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		SlotMachine sm = new SlotMachine("sm");
+		t1.setAnimal(o);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(sm);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
+	}
+	
+	public void PandaMovesToTileWithArmchair() {
+		Panda p = new Panda("p");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		Armchair ac = new Armchair("ac");
+		t1.setAnimal(p);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(t);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
+	}
+	
+	public void PandaMovesToTileWithVendingMachine() {
+		Panda p = new Panda("p");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		SlotMachine sm = new SlotMachine("sm");
+		t1.setAnimal(p);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(t);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
+	}
+	
+	public void PandaMovesToTileWithVendingMachine() {
+		Panda p = new Panda("p");
+		Tile t1 = new Tile("t1");
+		Tile t2 = new Tile("t2");
+		VendingMachine vm = new VendingMachine("vm");
+		t1.setAnimal(p);
+		t1.setThing(null);
+		t2.setAnimal(null);
+		t2.setThing(t);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
+	}
+	
 	//Animal moves to Tile with Wardrobe
 	public static void OrangutanMovesToTileWithWardrobe() {
 		Orangutan o = new Orangutan("o");
@@ -169,7 +239,8 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(null);
 		t2.setThing(w1);
-		t1.setNeighbour();
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
 		o.Move(d);
 		//w2 ? t3.setAnimal(null);t3.setThing(w2); ?
 	}
@@ -206,9 +277,10 @@ public class Test {
 		t1.setThing(null);
 		tex.setAnimal(null);
 		tex.setThing(ex);
-		t1.setNeighbour();
+		t1.setNeighbour(Direction.RIGHT, ex);
+		ex.setNeighbour(Direction.LEFT, t1);
 		tex.setNeighbour();
-		p1.Move(Direction.UP);
+		p1.Move(Direction.RIGHT);
 	}
 	public static void VendingMachingBeepsOnJumperPanda() {
 		VendingMachine vm = new VendingMachine("vm");
@@ -228,11 +300,14 @@ public class Test {
 		t4.setAnimal(null);
 		t5.setThing(null);
 		t5.setAnimal(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		t3.setNeighbour();
-		t4.setNeighbour();
-		t5.setNeighbour();
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		t2.setNeighbour(Direction.RIGHT, t3);
+		t3.setNeighbour(Direction.LEFT, t2);
+		t3.setNeighbour(Direction.RIGHT, t4);
+		t4.setNeighbour(Direction.LEFT, t3);
+		t4.setNeighbour(Direction.RIGHT, t5);
+		t5.setNeighbour(Direction.LEFT, t4);
 		vm.beep();
 		
 	}
@@ -496,7 +571,7 @@ public class Test {
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
         
         while(true) {
-        	System.out.println("A megfelelı teszthez Ìrd be a megfelelı sz·mot!");
+        	System.out.println("A megfelel√µ teszthez √≠rd be a megfelel√µ sz√°mot!");
         	System.out.println("1. Orangutan moves to empty Tile");
         	System.out.println("2. Panda moves to empty Tile");
         	System.out.println("3. Orangutan moves to empty WeakTile");
