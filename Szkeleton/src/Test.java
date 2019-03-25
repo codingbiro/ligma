@@ -128,7 +128,7 @@ public class Test {
 		t2.setThing(null);
 		t1.setNeighbour(Direction.RIGHT, t2);
 		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
+		
 		p.setAhead(o2);
 		o.Move(Direction.RIGHT);
 	}
