@@ -16,6 +16,10 @@ public class Tile {
 		
 	}
 	
+	public void setNeighbour(Direction d, Tile t) {
+		neighbour[d.ordinal()] = t;
+	}
+	
 	public Tile getNeighbour(Direction d) {
 		System.out.println(name+" getNeighbour");
 		return neighbour[d.ordinal()];

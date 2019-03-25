@@ -8,9 +8,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(null);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		o.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 	}
 	
 	public void PandaMovesToEmptyTile() {
@@ -21,9 +21,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(null);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		p.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
 	}
 	
 	public void OrangutanMovesToEmptyWeakTile() {
@@ -34,9 +34,9 @@ public class Test {
 		t1.setThing(null);
 		wt.setAnimal(null);
 		wt.setThing(null);
-		t1.setNeighbour();
-		wt.setNeighbour();
-		o.Move(d);
+		t1.setNeighbour(Direction.RIGHT, wt);
+		wt.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 	}
 	
 	public void PandaMovesToEmptyWeakTile() {
@@ -47,9 +47,9 @@ public class Test {
 		t1.setThing(null);
 		wt.setAnimal(null);
 		wt.setThing(null);
-		t1.setNeighbour();
-		wt.setNeighbour();
-		p.Move(d);
+		t1.setNeighbour(Direction.RIGHT, wt);
+		wt.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
 	}
 	
 	public void PandaMovesIntoPanda() {
@@ -61,9 +61,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(p2);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		p1.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p1.Move(Direction.RIGHT);
 	}
 	
 	public void PandaMovesIntoOrangutan() {
@@ -75,9 +75,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(o);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		p.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		p.Move(Direction.RIGHT);
 	}
 	
 	public void OrangutanMovesIntoOrangutan() {
@@ -89,9 +89,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(o2);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		o1.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o1.Move(Direction.RIGHT);
 	}
 	
 	public void OrangutanMovesIntoPanda() {
@@ -103,9 +103,9 @@ public class Test {
 		t1.setThing(null);
 		t2.setAnimal(p);
 		t2.setThing(null);
-		t1.setNeighbour();
-		t2.setNeighbour();
-		o.Move(d);
+		t1.setNeighbour(Direction.RIGHT, t2);
+		t2.setNeighbour(Direction.LEFT, t1);
+		o.Move(Direction.RIGHT);
 	}
 	
 	//starting ini 8/14
