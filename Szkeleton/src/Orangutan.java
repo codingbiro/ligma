@@ -54,7 +54,7 @@ public class Orangutan extends Animal{
 							behind.Move(d2);
 						}
 					}
-					// 5.4.12-t elrontja ez
+					// 5.4.11-et es 5.4.12-t elrontja ez
 					t2.setAnimal(this);
 				}
 			}
