@@ -58,6 +58,11 @@ public class Tile {
 		Globals.tab--;
 	}
 	
+	public void setAnimal(Animal a2, boolean st) {
+		if(a2!=null) a2.setTile(this, true);
+		a=a2;
+	}
+	
 	public void setThing(Thing t) {
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)
@@ -68,5 +73,12 @@ public class Tile {
 		}
 		th = t;
 		Globals.tab--;
+	}
+	
+	public void setThing(Thing t, boolean st) {		
+		if(t != null) {			
+			t.setTile(this, true);
+		}
+		th = t;
 	}
 }

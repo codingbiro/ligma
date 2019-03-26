@@ -40,6 +40,10 @@ public abstract class Animal {
 		t1=t;
 		Globals.tab--;
 	}
+	public void setTile(Tile t, boolean tt) {
+		
+		t1=t;
+	}
 	
 	public Panda getBehind() {
 		Globals.tab++;
@@ -57,6 +61,12 @@ public abstract class Animal {
 		System.out.println(name+" setBehind");
 		behind = p;
 		Globals.tab--;
+	}
+	
+	public void setBehind(Panda p, boolean set) {
+		
+		behind = p;
+		
 	}
 	
 	public void hearBeep() {

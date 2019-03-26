@@ -13,6 +13,8 @@ public class WeakTile extends Tile {
 		System.out.println(name+" decreaseLife");
 		Globals.tab--;
 	}
+	public void decreaseLife(boolean set) {		
+	}
 	
 	public void setAnimal(Animal a) {
 		Globals.tab++;
@@ -23,11 +25,25 @@ public class WeakTile extends Tile {
 			System.out.println(name+" setAnimal(" + a.name + ")");
 			decreaseLife();
 		}
+		if(a!=null) {
+			System.out.println(name+" setAnimal(" + a.name + ")");			
+		}
 		
 		if(life == 0)
 			a.die();
 		
 		Globals.tab--;
+	}
+	
+	public void setAnimal(Animal a, boolean set) {
+		
+		if(a!=null && life != 0) {
+			
+			decreaseLife(true);
+		}
+		
+		if(life == 0)
+			a.die();
 	}
 	
 	public void setThing(Thing t) {
@@ -40,6 +56,14 @@ public class WeakTile extends Tile {
 		}
 		th = t;
 		Globals.tab--;
+	}
+	
+	public void setThing(Thing t, boolean set) {		
+		if(t!= null) {
+		
+		t.setTile(this);
+		}
+		th = t;
 	}
 
 }

@@ -94,6 +94,12 @@ public class Panda extends Animal{
 		Globals.tab--;
 	}
 	
+	public void setAhead(Animal a, boolean set) {
+		
+		ahead= a;
+
+	}
+	
 	public Animal getAhead() {
 		Globals.tab++;
 		for(int i = 0; i<Globals.tab; i++)

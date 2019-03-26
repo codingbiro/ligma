@@ -43,4 +43,8 @@ public class Thing {
 		t = _t;
 		Globals.tab--;
 	}
+	public void setTile(Tile _t, boolean ts) {
+		
+		t = _t;
+	}
 }
