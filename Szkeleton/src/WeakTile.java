@@ -19,11 +19,13 @@ public class WeakTile extends Tile {
 		for(int i = 0; i<Globals.tab; i++)
 			System.out.print("\t");
 		
-		if(a!=null && life == 0) {
+		if(a!=null && life != 0) {
 			System.out.println(name+" setAnimal(" + a.name + ")");
 			decreaseLife();
-			a.die();
 		}
+		
+		if(life == 0)
+			a.die();
 		
 		Globals.tab--;
 	}
