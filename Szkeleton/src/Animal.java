@@ -85,11 +85,11 @@ public abstract class Animal {
 	}
 	
 	public void Exhaust(Tile t) {
-		Globals.tab++;
-		for(int i = 0; i<Globals.tab; i++)
-			System.out.print("\t");
-		System.out.println(name+" Exhaust");
-		Globals.tab--;
+			//Globals.tab++;
+			//for(int i = 0; i<Globals.tab; i++)
+				//System.out.print("\t");
+			//System.out.println(name+" Exhaust");
+			//Globals.tab--;
 	}
 	
 	public abstract void die();
