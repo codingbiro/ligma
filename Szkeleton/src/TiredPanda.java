@@ -1,5 +1,8 @@
 
 public class TiredPanda extends Panda{
+	
+	// most csak adtam egy random értéket
+	private int naptime=3;
 
 	public TiredPanda(String s) {
 		super(s);
@@ -25,6 +28,8 @@ public class TiredPanda extends Panda{
 			System.out.print("\t");
 		System.out.println(name+" reduceTime");
 		Globals.tab--;
+		
+		naptime--;
 	}
 	
 }

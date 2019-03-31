@@ -34,7 +34,7 @@ public class Exit extends Thing{
 		Tile t1 = e.getTile();
 		t1.setAnimal(o);
 		Globals.tab--;
-		return true;
+		return false;
 	}
 
 }

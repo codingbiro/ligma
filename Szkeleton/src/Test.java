@@ -277,6 +277,7 @@ public class Test {
 	
 	public static void PandaInChainMovesToExit() {
 		Panda p1 = new Panda("p1");
+		p1.ahead=new Orangutan("o");
 		
 		Exit ex = new Exit("ex");
 		Tile t1 = new Tile("t1");
