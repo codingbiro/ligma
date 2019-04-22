@@ -1,0 +1,12 @@
+tile: f_0_1
+behind: p1
+stunned: 0
+tile: f_1_1
+behind: p2
+stunned: 0
+tile: f_0_2
+behind: null
+ahead: o1
+tile: f_1_2
+behind: null
+ahead: o2

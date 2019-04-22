@@ -1,0 +1,6 @@
+makemap 4 4
+setorangutan o1 t_1_1
+setslotmachine sm t_0_1
+step o1 left
+stat o1
+stat sm

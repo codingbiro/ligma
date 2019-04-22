@@ -1,0 +1,8 @@
+neighbour_up: f_0_1
+neighbour_down: f_2_1
+neighbour_left: f_1_0
+neighbour_right: f_1_2
+tile: f_1_0
+behind: null
+ahead: null
+naptime: 0

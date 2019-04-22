@@ -1,0 +1,15 @@
+makemap 4 4
+setweaktile t1 t_0_0
+sethealth t1 2
+setorangutan o1 t_0_0
+setpanda p1 t_0_1
+setpanda p2 t_0_2
+setbehind o1 p1
+setahead p1 o1
+setbehind p1 p2
+setahead p2 p1
+step o1 right
+stat t1
+stat o1
+stat p1
+stat p2

@@ -1,0 +1,6 @@
+tile: t_3_2
+behind: null
+ahead: null
+naptime: 0
+tile: t_0_1
+tile: t_3_2

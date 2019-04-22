@@ -1,0 +1,6 @@
+makemap 4 4
+setrandom p1 off
+setpanda p1 t_1_1
+pandastep p1 left
+stat t_1_1
+stat p1

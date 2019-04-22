@@ -1,0 +1,9 @@
+neighbour_up: f_1_2
+neighbour_up: f_1_4
+neighbour_up: f_0_1
+neighbour_up: f_2_3
+life: 19
+tile: t_1_1
+behind: null
+ahead: null
+tile: t_0_1

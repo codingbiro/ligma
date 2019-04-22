@@ -1,0 +1,7 @@
+makemap 4 4
+setweaktile t1 t_0_1
+sethealth t1 1
+setorangutan o1 t_1_1
+step o1 left
+stat t1
+stat o1
