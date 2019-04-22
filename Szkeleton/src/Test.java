@@ -1,743 +1,733 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Test {
-
-	public static void OrangutanMovesToEmptyTile() {
-
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
 	
-	public static void PandaMovesToEmptyTile() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(p,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
+	static ArrayList<Panda> pandas=new ArrayList<Panda>();
+	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
+	static ArrayList<Thing> things=new ArrayList<Thing>();
+	static ArrayList<Tile> tiles=new ArrayList<Tile>();
+	AfraidPanda af=new AfraidPanda("af");
+	JumperPanda jp=new JumperPanda("jf");
+	TiredPanda tp=new TiredPanda("tp");
+	Armchair ar=new Armchair("ar");
+	Entrance en=new Entrance("en");
+	Exit ex=new Exit("ex");
+	GameController gc=new GameController("gc");
+	Map map=new Map();
+	SlotMachine sm=new SlotMachine("sm");
+	VendingMachine vm=new VendingMachine("vm");
+	Wardrobe w=new Wardrobe("w");
+	WeakTile wt=new WeakTile("wt");
 	
-	public static void OrangutanMovesToEmptyWeakTile() {
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		WeakTile wt = new WeakTile("wt");
-		wt.life = 1;
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		wt.setAnimal(null,true);
-		wt.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, wt);
-		wt.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
-	
-	public static void PandaMovesToEmptyWeakTile() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		WeakTile wt = new WeakTile("wt");
-		wt.life = 1;
-		t1.setAnimal(p,true);
-		t1.setThing(null,true);
-		wt.setAnimal(null,true);
-		wt.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, wt);
-		wt.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
-	
-	public static void PandaMovesIntoPanda() {
-		Panda p1 = new Panda("p1");
-		Panda p2 = new Panda("p2");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(p1,true);
-		t1.setThing(null,true);
-		t2.setAnimal(p2,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p1.Move(Direction.RIGHT);
-	}
-	
-	public static void PandaMovesIntoOrangutan() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		Orangutan o = new Orangutan("o");
-		t1.setAnimal(p,true);
-		t1.setThing(null,true);
-		t2.setAnimal(o,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
-	
-	public static void OrangutanMovesIntoOrangutan() {
-		Orangutan o1 = new Orangutan("o1");
-		Orangutan o2 = new Orangutan("o2");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(o1,true);
-		t1.setThing(null,true);
-		t2.setAnimal(o2,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o1.Move(Direction.RIGHT);
-	}
-	
-	public static void OrangutanMovesIntoPanda() {
-		Orangutan o = new Orangutan("o");
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(p,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
-	
-	//starting ini 8/14
-	public static void OrangutanMovesIntoInlinePanda() {
-		Orangutan o = new Orangutan("o");
-		Orangutan o2 = new Orangutan("o2");
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(p,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);		
-		p.setAhead(o2);
-		o2.setBehind(p);
-		o.Move(Direction.RIGHT);
-	}
-	
-	public static void OrangutanMovesWithPandaChain() {
-		Orangutan o = new Orangutan("o");
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t3.setAnimal(p,true);
-		t3.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(null,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		t3.setNeighbour(Direction.UP, t1);
-		t1.setNeighbour(Direction.DOWN, t3);
-		o.setBehind(p,true);
-		p.setAhead(o,true);
-		p.setBehind(null,true);
-		o.Move(Direction.RIGHT);
-	}
-	
-	//Animal moves to Tile with Thing
-	public static void OrangutanMovesToTileWithVendingMachine() {
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		VendingMachine vm = new VendingMachine("vm");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(vm,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
-	public static void OrangutanMovesToTileWithArmchair() {
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		Armchair ac = new Armchair("ac");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(ac,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
-	public static void OrangutanMovesToTileWithSlotMachine() {
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		SlotMachine sm = new SlotMachine("sm");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(sm,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
-	}
-	
-	public static void PandaMovesToTileWithArmchair() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		Armchair ac = new Armchair("ac");
-		t1.setAnimal(p,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(ac,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
-	
-	public static void PandaMovesToTileWithVendingMachine() {
-		Panda p = new Panda("p");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		SlotMachine sm = new SlotMachine("sm");
-		t1.setAnimal(p,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(sm,true);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p.Move(Direction.RIGHT);
-	}
-	
-	//Animal moves to Tile with Wardrobe
-	public static void OrangutanMovesToTileWithWardrobe() {
-		Orangutan o = new Orangutan("o");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Wardrobe w1 = new Wardrobe("w1");
-		Wardrobe w2 = new Wardrobe("w2");
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(w1,true);
-		t3.setThing(w2,true);
-		t3.setAnimal(null,true);
-		w1.w2 = w2;
-		w2.w2 = w1;
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		o.Move(Direction.RIGHT);
+	public static void init() {
+		pandas.add(new Panda("p1"));
+		pandas.add(new Panda("p2"));
+		pandas.add(new Panda("p3"));
+		
+		orangutans.add(new Orangutan("o1"));
+		orangutans.add(new Orangutan("o2"));
+		
+		things.add(new Thing("th"));
+		
+		tiles.add(new Tile("t1"));
+		tiles.add(new Tile("t2"));
+		tiles.add(new Tile("t3"));
 		
 	}
 	
-	public static void OrangutanMovesToExit() {
-		Orangutan o = new Orangutan("o");
-		o.setBehind(null,true);
-		Tile t1 = new Tile("t1");
-		
-		t1.setAnimal(o,true);
-		t1.setThing(null,true);
-		
-		Exit ex = new Exit("ex");
-		Tile t2 = new Tile("t2");
-		t2.setAnimal(null,true);
-		t2.setThing(ex,true);
-		t2.setNeighbour(Direction.LEFT, t1);
-		t1.setNeighbour(Direction.RIGHT, t2);
-		
-		GameController gc = new GameController("gc");
-		Entrance en = new Entrance("en");
-		Tile t3 = new Tile("t3");
-		
-		t3.setAnimal(null,true);
-		t3.setThing(en,true);
-		
-		gc.e = en;
-		ex.g = gc;
-		
-		
-		o.Move(Direction.RIGHT);
+	public void clear() {
+		pandas.clear();
+		orangutans.clear();
+		things.clear();
+		tiles.clear();
 	}
 	
-	public static void PandaInChainMovesToExit() {
-		Panda p1 = new Panda("p1");
-		//p1.ahead=new Orangutan("o");
-		
-		Exit ex = new Exit("ex");
-		Tile t1 = new Tile("t1");
-		Tile t2 = new Tile("t2");		
-		t1.setAnimal(p1,true);
-		t1.setThing(null,true);
-		t2.setAnimal(null,true);
-		t2.setThing(ex,true);
-		
-		GameController gc = new GameController("gc");
-		ex.g = gc;
-		
-		t1.setNeighbour(Direction.RIGHT, t2);
-		t2.setNeighbour(Direction.LEFT, t1);
-		p1.Move(Direction.RIGHT);
-	}
-	public static void VendingMachingBeepsOnJumperPanda() {
-		VendingMachine vm = new VendingMachine("vm");
-		Tile tvm = new Tile("tvm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		JumperPanda jp = new JumperPanda("jp");
-		tvm.setThing(vm,true);
-		tvm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(jp,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tvm.setNeighbour(Direction.RIGHT, t2);
-		tvm.setNeighbour(Direction.LEFT, t3);
-		tvm.setNeighbour(Direction.UP, t4);
-		tvm.setNeighbour(Direction.DOWN, t5);
-
-		vm.beep();
+	public static void makemap(int a, int b) {
 		
 	}
-	//endof ini 14/14
-	
-	public static void VendingMachingBeepsOnOrangutan() {
-		VendingMachine vm = new VendingMachine("vm");
-		Tile tvm = new Tile("tvm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Orangutan o = new Orangutan("o");
-		tvm.setThing(vm,true);
-		tvm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(o,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tvm.setNeighbour(Direction.UP, t2);
-		tvm.setNeighbour(Direction.DOWN, t3);
-		tvm.setNeighbour(Direction.RIGHT, t4);
-		tvm.setNeighbour(Direction.LEFT, t5);
-
-		vm.beep();
+	public static void setorangutan(String s, int a, int b) {
 		
 	}
-	
-	public static void VendingMachingBeepsOnPanda() {
-		VendingMachine vm = new VendingMachine("vm");
-		Tile tvm = new Tile("tvm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Panda p = new Panda("p");
-		tvm.setThing(vm,true);
-		tvm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(p,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tvm.setNeighbour(Direction.UP, t2);
-		tvm.setNeighbour(Direction.DOWN, t3);
-		tvm.setNeighbour(Direction.RIGHT, t4);
-		tvm.setNeighbour(Direction.LEFT, t5);
-		vm.beep();
+	public static void setpanda(String s, int a, int b) {
 		
 	}
-	
-	public static void ArmchairChecksTired(boolean inLine) {
-		Armchair ac = new Armchair("ac");
-		Tile tac = new Tile("tac");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		TiredPanda tp = new TiredPanda("tp");
-		Panda pb = new Panda("pb");
-		Orangutan o = new Orangutan("o");
-		if(inLine) {
-			tp.setAhead(o,true);
-			o.setBehind(tp,true);
-			tp.setBehind(pb,true);
-			pb.setAhead(tp,true);
+	public static void step(String s, String s2) {
+		Orangutan o1=null;
+		for(int i=0;i<orangutans.size();i++) {
+			if(s.equals(orangutans.get(i).name)) o1=orangutans.get(i);
 		}
-		tac.setThing(ac,true);
-		tac.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(tp,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tac.setNeighbour(Direction.UP, t2);
-		tac.setNeighbour(Direction.DOWN, t3);
-		tac.setNeighbour(Direction.RIGHT, t4);
-		tac.setNeighbour(Direction.LEFT, t5);
-		ac.check();
-		
-	}
-	
-	public static void ArmchairChecksPanda() {
-		Armchair ac = new Armchair("ac");
-		Tile tac = new Tile("tac");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Panda p = new Panda("p");
-		tac.setThing(ac,true);
-		tac.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(p,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tac.setNeighbour(Direction.UP, t2);
-		tac.setNeighbour(Direction.DOWN, t3);
-		tac.setNeighbour(Direction.RIGHT, t4);
-		tac.setNeighbour(Direction.LEFT, t5);
-		ac.check();
-		
-	}
-	
-	public static void ArmchairChecksOrangutan() {
-		Armchair ac = new Armchair("ac");
-		Tile tac= new Tile("tac");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Orangutan o = new Orangutan("o");
-		tac.setThing(ac,true);
-		tac.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(o,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tac.setNeighbour(Direction.UP, t2);
-		tac.setNeighbour(Direction.DOWN, t3);
-		tac.setNeighbour(Direction.RIGHT, t4);
-		tac.setNeighbour(Direction.LEFT, t5);
-		ac.check();
-		
-	}
-	
-	public static void SlotMachineJinglesAfraid(boolean inLine) {
-		SlotMachine sm = new SlotMachine("sm");
-		Tile tsm = new Tile("tsm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		AfraidPanda ap = new AfraidPanda("ap");
-		Panda pb = new Panda("pb");
-		Orangutan o = new Orangutan("o");
-		if(inLine) {
-			ap.setAhead(o,true);
-			o.setBehind(ap,true);
-			ap.setBehind(pb,true);
-			pb.setAhead(ap,true);
+		if(o1!=null) {
+			o1.Move(Direction.valueOf(s2));
 		}
-		tsm.setThing(sm,true);
-		tsm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(ap,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tsm.setNeighbour(Direction.UP, t2);
-		tsm.setNeighbour(Direction.DOWN, t3);
-		tsm.setNeighbour(Direction.RIGHT, t4);
-		tsm.setNeighbour(Direction.LEFT, t5);
-		
-		sm.jingle();
-		
 	}
+	public static void setrandom(String s, String s2) {
 	
-	public static void SlotMachineJinglesPanda() {
-		SlotMachine sm = new SlotMachine("sm");
-		Tile tsm = new Tile("tsm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Panda p = new Panda("p");
-		tsm.setThing(sm,true);
-		tsm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(p,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tsm.setNeighbour(Direction.UP, t2);
-		tsm.setNeighbour(Direction.DOWN, t3);
-		tsm.setNeighbour(Direction.RIGHT, t4);
-		tsm.setNeighbour(Direction.LEFT, t5);
-		sm.jingle();
+	}
+	public static void pandastep(String s, String s2) {
 		
 	}
-	
-	public static void SlotMachineJinglesOrangutan() {
-		SlotMachine sm = new SlotMachine("sm");
-		Tile tsm = new Tile("tsm");
-		Tile t2 = new Tile("t2");
-		Tile t3 = new Tile("t3");
-		Tile t4 = new Tile("t4");
-		Tile t5 = new Tile("t5");
-		Orangutan o = new Orangutan("o");
-		tsm.setThing(sm,true);
-		tsm.setAnimal(null,true);
-		t2.setThing(null,true);
-		t2.setAnimal(o,true);
-		t3.setThing(null,true);
-		t3.setAnimal(null,true);
-		t4.setThing(null,true);
-		t4.setAnimal(null,true);
-		t5.setThing(null,true);
-		t5.setAnimal(null,true);
-		tsm.setNeighbour(Direction.UP, t2);
-		tsm.setNeighbour(Direction.DOWN, t3);
-		tsm.setNeighbour(Direction.RIGHT, t4);
-		tsm.setNeighbour(Direction.LEFT, t5);
-		sm.jingle();
+	public static void beep(String s) {
 		
 	}
-	
-	public static void TileBreaksWithOrangutan(boolean inLine) {
-		GameController g = new GameController("g");
-		Orangutan o = new Orangutan("o");
-		Panda pb = new Panda("pb");
-		Tile wt = new WeakTile("wt");
-		Entrance en = new Entrance("en");
-		Tile ten = new Tile("ten");
-		if(inLine) {
-			o.setBehind(pb,true);
-			pb.setAhead(o,true);
-		}	
-		wt.setThing(null,true);
-		ten.setThing(en,true);
-		ten.setAnimal(null,true);
-		g.e = en;
-		o.g = g;
-		wt.setAnimal(o);
+	public static void jingle(String s) {
 		
 	}
-	
-	public static void TileBreaksWithPanda(boolean inLine) {
-		Panda p = new Panda("p");
-		Panda pb = new Panda("pb");
-		Tile wt = new WeakTile("wt");
-		Orangutan o = new Orangutan("o");
-		if(inLine) {
-			p.setAhead(o,true);
-			o.setBehind(p,true);
-			p.setBehind(pb,true);
-			pb.setAhead(p,true);
-		}
-		wt.setThing(null,true);
-		wt.setAnimal(p);
+	public static void stat(String s) {
 		
 	}
+	public static void load(String s) {
+		
+	}
+	public static void save(String s) {
+		
+	}
+	public static void setbehind(String s, String s2) {
+		
+	}
+	public static void setahead(String s, String s2) {
+		
+	}
+	public static void releasepandas(String s) {
+		
+	}
+	public static void setweaktile(String s, int a, int b) {
+		
+	}
+	public static void setvendingmachine(String s, int a, int b) {
+		
+	}
+	public static void setslotmachine(String s, int a, int b) {
+		
+	}
+	public static void setwardrobe(String s, int a, int b) {
+		
+	}
+	public static void setarmchair(String s, int a, int b) {
+		
+	}
+	public static void check(String s) {
+		
+	}
+	public static void setstunned(String s, int a) {
+		
+	}
+	public static void setlife(String s, int a) {
+		
+	}
+	public static void setexit(String s, int a, int b) {
+		
+	}
+	public static void setentrance(String s, int a, int b) {
+		
+	}
+
 
 	public static void main(String[] args) {
+		init();
 		String cmd = null;
 		String p = null;
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
-        Globals.tab = 0;
         while(true) {
-        	System.out.println("A megfelelõ teszthez írd be a megfelelõ számot!");
-        	System.out.println("1. Orangutan moves to empty Tile");
-        	System.out.println("2. Panda moves to empty Tile");
-        	System.out.println("3. Orangutan moves to empty WeakTile");
-        	System.out.println("4. Panda moves to empty WeakTile");
-        	System.out.println("5. Panda moves into Panda");
-        	System.out.println("6. Panda moves into Orangutan");
-        	System.out.println("7. Orangutan moves into Orangutan");
-        	System.out.println("8. Orangutan moves into Panda");
-        	System.out.println("9. Orangutan moves into Panda2");
-        	System.out.println("10. Orangutan moves with Panda Chain");
-        	System.out.println("Orangutan moves to Tile with Thing(11-14)");
-        	System.out.println("11.Orangutan Moves To Tile With VendingMachine");
-        	System.out.println("12. Orangutan moves to Tile with Wardrobe");
-        	System.out.println("13. Orangutan Moves To Tile With Armchair");
-        	System.out.println("14. Orangutan Moves To Tile With SlotMachine");
-        	System.out.println("15. OrangutanMovesToExit");
-        	System.out.println("16. PandaInChainMovesToExit");
-        	System.out.println("17. VendingMachingBeepsOnJumperPanda");
-        	System.out.println("18. VendingMachingBeepsOnOrangutan");
-        	System.out.println("19. VendingMachingBeepsOnPanda");
-        	System.out.println("20. ArmchairChecksTired");
-        	System.out.println("21. ArmchairChecksPanda");
-        	System.out.println("22. ArmchairChecksOrangutan");
-        	System.out.println("23. SlotMachineJinglesAfraid");
-        	System.out.println("24. SlotMachineJinglesPanda");
-        	System.out.println("25. SlotMachineJinglesOrangutan");
-        	System.out.println("26. TileBreaksWithOrangutan");
-        	System.out.println("27. TileBreaksWithPanda");
-        	System.out.println("28. Exit");
+        	System.out.println("A megfelelo teszt beolvasasahoz, irja be a megfelelo szamot a 'loadcommands' utan!\n"
+        			+ "(pl: loadcommands 12)\n");
+        	System.out.println("1. In_VendingMachingBeepsOnPanda");
+        	System.out.println("2. In_VendingMachingBeepsOnOrangutan");
+        	System.out.println("3. In_VendingMachingBeepsOnJumperPandaWithWeakTile");
+        	System.out.println("4. In_VendingMachingBeepsOnJumperPandaWithTile");
+        	System.out.println("5. In_TileBreaksWithSingleOrangutan");
+        	System.out.println("6. In_TileBreaksWithPandaInChain");
+        	System.out.println("7. In_TileBreaksWithOrangutanWithPandaChain");
+        	System.out.println("8. In_TileBreaksWithFreePanda");
+        	System.out.println("9. In_SlotMachineJinglesPanda");
+        	System.out.println("10. In_SlotMachineJinglesOrangutan");
+        	System.out.println("11. In_SlotMachineJinglesFreeAfraid");
+        	System.out.println("12. In_SlotMachineJinglesAfraidInChain");
+        	System.out.println("13. In_SingleStunnedOrangutanMovesIntoOrangutanWithPandaChain");
+        	System.out.println("14. In_SingleOrangutanMovesIntoSingleOrangutan");
+        	System.out.println("15. In_SingleNon-StunnedOrangutanMovesIntoOrangutanWithPandaChain");
+        	System.out.println("16. In_PandaMovesToVendingMachine");
+        	System.out.println("17. In_PandaMovesToSlotMachine");
+        	System.out.println("18. In_PandaMovesToEntrance");
+        	System.out.println("19. In_PandaMovesToEmptyWeakTile");
+        	System.out.println("20. In_PandaMovesToEmptyTile");
+        	System.out.println("21. In_PandaMovesToArmchair");
+        	System.out.println("22. In_PandaMovesIntoPanda");
+        	System.out.println("23. In_PandaMovesIntoOrangutan");
+        	System.out.println("24. In_PandaInChainMovesToWardrobe");
+        	System.out.println("25. In_PandaInChainMovesToExit");
+        	System.out.println("26. In_OrangutanWithPandaChainReleasesPandas");
+        	System.out.println("27. In_OrangutanWithPandaChainMovesIntoSingleOrangutan");
+			System.out.println("28. In_OrangutanWithPandaChainMovesIntoOrangutanWithPandaChain");
+			System.out.println("29. In_OrangutanMovesWithPandaChain");
+			System.out.println("30. In_OrangutanMovesToWardrobe");
+			System.out.println("31. In_OrangutanMovesToVendingMachine");
+			System.out.println("32. In_OrangutanMovesToSlotMachine");
+			System.out.println("33. In_OrangutanMovesToExit");
+			System.out.println("34. In_OrangutanMovesToEntrance");
+			System.out.println("35. In_OrangutanMovesToEmptyWeakTile");
+			System.out.println("36. In_OrangutanMovesToEmptyTile");
+			System.out.println("37. In_OrangutanMovesToArmchair");
+			System.out.println("38. In_OrangutanMovesIntoPandaInChain");
+			System.out.println("39. In_OrangutanMovesIntoFreePanda");
+			System.out.println("40. In_FreePandaMovesToWardrobe");
+			System.out.println("41. In_FreePandaMovesToExit");
+			System.out.println("42. In_ArmchairChecksTired");
+			System.out.println("43. In_ArmchairChecksPanda");
+			System.out.println("44. In_ArmchairChecksOrangutan");
+
+        	System.out.println("\nKilepeshez gepelje be az 'exit' parancsot");
         	try {
         		cmd = reader.readLine();
         	} catch (IOException e) {
         		// TODO Auto-generated catch block
         		e.printStackTrace();
-        	}  
-        	
-        	switch(cmd) {
-    			case "1": OrangutanMovesToEmptyTile();
-    			break;
-    			case "2": PandaMovesToEmptyTile();
-    			break;
-    			case "3": OrangutanMovesToEmptyWeakTile();
-    			break;
-    			case "4": PandaMovesToEmptyWeakTile();
-				break;
-    			case "5": PandaMovesIntoPanda();
-				break;
-    			case "6": PandaMovesIntoOrangutan();
-				break;
-    			case "7": OrangutanMovesIntoOrangutan();
-				break;
-    			case "8": OrangutanMovesIntoPanda();
-				break;
-    			case "9": OrangutanMovesIntoInlinePanda();
-				break;
-    			case "10": OrangutanMovesWithPandaChain();
-				break;
-    			case "11": OrangutanMovesToTileWithVendingMachine();
-				break;
-    			case "12": OrangutanMovesToTileWithWardrobe();
-				break;
-    			case "13": OrangutanMovesToTileWithArmchair();
-    			break;
-    			case "14": OrangutanMovesToTileWithSlotMachine();
-    			break;
-    			case "15": OrangutanMovesToExit();
-				break;
-    			case "16": PandaInChainMovesToExit();
-				break;
-    			case "17": VendingMachingBeepsOnJumperPanda();
-				break;
-    			case "18": VendingMachingBeepsOnOrangutan();
-				break;
-    			case "19": VendingMachingBeepsOnPanda();
-				break;
-    			case "20": System.out.println("Legyen sorban a panda? (I/N)");
-    			try {
-					p = reader.readLine();
-				} catch (IOException e3) {
-					// TODO Auto-generated catch block
-					e3.printStackTrace();
-				}
-    			if(p.equals("I")){
-    				boolean inline = true;
-    				ArmchairChecksTired(inline);
-    			} else {
-    				boolean inline = false;
-    				ArmchairChecksTired(inline);
-    			}
-				break;
-    			case "21": ArmchairChecksPanda();
-				break;
-    			case "22": ArmchairChecksOrangutan();
-				break;
-    			case "23": System.out.println("Legyen sorban a panda? (I/N)");
-    			try {
-					p = reader.readLine();
-				} catch (IOException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-    			if(p.equals("I")){
-    				boolean inline = true;
-    				SlotMachineJinglesAfraid(inline);
-    			} else {
-    				boolean inline = false;
-    				SlotMachineJinglesAfraid(inline);
-    			}
-				break;
-    			case "24": SlotMachineJinglesPanda();
-				break;
-    			case "25": SlotMachineJinglesOrangutan();
-				break;
-    			case "26": System.out.println("Legyen sorban a panda? (I/N)");
-    			try {
-					p = reader.readLine();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-    			if(p.equals("I")){
-    				boolean inline = true;
-    				TileBreaksWithOrangutan(inline);
-    			} else {
-    				boolean inline = false;
-    				TileBreaksWithOrangutan(inline);
-    			} 	
-				break;
-    			case "27": System.out.println("Legyen sorban a panda? (I/N)");
-    			try {
-					p = reader.readLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-    			if(p.equals("I")){
-    				boolean inline = true;
-    				TileBreaksWithPanda(inline);
-    			} else {
-    				boolean inline = false;
-    				TileBreaksWithPanda(inline);
-    			}
-				break;
-    			
-    			case "28": System.exit(0);
-    			break;
         	}
+        	String[] parts = cmd.split(" ");
+        	Scanner in = null;
+        	String[] parameters = null;
+        	switch(parts[0]) {
+	        	case "loadcommands": 
+	        		loadcommands(parts[1]);
+				break;
+	        	case "load": 
+	        		load(parts[1]);
+				break;
+	        	case "save": 
+	        		save(parts[1]);
+				break;
+    			case "exit": System.exit(0);
+    			break;
+    			case "makemap": 
+    				makemap(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+    			break;
+    			case "setbehind":
+    				setbehind(parts[1], parts[2]);
+    			break;
+    			case "setahead": 
+    				setahead(parts[1], parts[2]);
+    			break;
+    			case "releasepandas":
+    				releasepandas(parts[1]);
+    			break;
+    			case "setweaktile":
+    				parameters = parts[2].split("_");
+    				setweaktile(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setvendingmachine":
+    				parameters = parts[2].split("_");
+    				setvendingmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setslotmachine":
+    				parameters = parts[2].split("_");
+    				setslotmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setwardrobe":
+    				parameters = parts[2].split("_");
+    				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setarmchair":
+    				parameters = parts[2].split("_");
+    				setarmchair(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "check":
+    				check(parts[1]);
+    			break;
+    			case "setstunned":
+    				setstunned(parts[1], Integer.parseInt(parts[2]));
+    			break;
+    			case "setlife":
+    				setlife(parts[1], Integer.parseInt(parts[2]));
+    			break;
+    			case "setexit":
+    				parameters = parts[2].split("_");
+    				setexit(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setentrance":
+    				parameters = parts[2].split("_");
+    				setentrance(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setorangutan":
+    				parameters = parts[2].split("_");
+    				setorangutan(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setpanda":
+    				parameters = parts[2].split("_");
+    				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "step":
+    				step(parts[1], parts[2]);
+    			break;
+    			case "setrandom":
+    				setrandom(parts[1], parts[2]);
+    			break;
+    			case "pandastep":
+    				pandastep(parts[1], parts[2]);
+    			break;
+    			case "beep":
+    				beep(parts[1]);
+    			break;
+    			case "jingle":
+    				jingle(parts[1]);
+    			break;
+    			case "stat":
+    				stat(parts[1]);
+    			break;
+    			default: break;
+        	}	
+        }
+	}
+	
+	public static void loadcommands(String cmd) {
+		Scanner in = null;
+    	switch(cmd) {
+			case "1": 
+			try {
+				in = new Scanner(new FileReader("In_VendingMachingBeepsOnPanda.txt"));
+			} catch (FileNotFoundException e4) {
+				// TODO Auto-generated catch block
+				e4.printStackTrace();
+			}
+			break;
+			case "2":
+				try {
+					in = new Scanner(new FileReader("In_VendingMachingBeepsOnOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "3": 
+				try {
+					in = new Scanner(new FileReader("In_VendingMachingBeepsOnJumperPandaWithWeakTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "4": 
+				try {
+					in = new Scanner(new FileReader("In_VendingMachingBeepsOnJumperPandaWithTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "5": 
+				try {
+					in = new Scanner(new FileReader("In_TileBreaksWithSingleOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "6": 
+				try {
+					in = new Scanner(new FileReader("In_TileBreaksWithPandaInChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "7": 
+				try {
+					in = new Scanner(new FileReader("In_TileBreaksWithOrangutanWithPandaChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "8": 
+				try {
+					in = new Scanner(new FileReader("In_TileBreaksWithFreePanda.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "9": 
+				try {
+					in = new Scanner(new FileReader("In_SlotMachineJinglesPanda.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "10": 
+				try {
+					in = new Scanner(new FileReader("In_SlotMachineJinglesOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "11": 
+				try {
+					in = new Scanner(new FileReader("In_SlotMachineJinglesFreeAfraid.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "12": 
+				try {
+					in = new Scanner(new FileReader("In_SlotMachineJinglesAfraidInChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "13": 
+				try {
+					in = new Scanner(new FileReader("In_SingleStunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "14": 
+				try {
+					in = new Scanner(new FileReader("In_SingleOrangutanMovesIntoSingleOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "15": 
+				try {
+					in = new Scanner(new FileReader("In_SingleNon-StunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "16": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToVendingMachine.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "17": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToSlotMachine.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "18": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToEntrance.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "19":
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToEmptyWeakTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "20": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToEmptyTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "21": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesToArmchair.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "22": 
+				try {
+					in = new Scanner(new FileReader("In_PandaMovesIntoPanda.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "23": 
+			try {
+				in = new Scanner(new FileReader("In_PandaMovesIntoOrangutan.txt"));
+			} catch (FileNotFoundException e4) {
+				// TODO Auto-generated catch block
+				e4.printStackTrace();
+			}
+			break;
+			case "24":
+				try {
+					in = new Scanner(new FileReader("In_PandaInChainMovesToWardrobe.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "25": 
+				try {
+					in = new Scanner(new FileReader("In_PandaInChainMovesToExit.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "26": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanWithPandaChainReleasesPandas.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "27": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoSingleOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "28": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoOrangutanWithPandaChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "29": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesWithPandaChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "30": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToWardrobe.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "31": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToVendingMachine.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "32": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToSlotMachine.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "33": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToExit.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "34": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToEntrance.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "35": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyWeakTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "36": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyTile.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "37": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesToArmchair.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "38": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesIntoPandaInChain.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "39": 
+				try {
+					in = new Scanner(new FileReader("In_OrangutanMovesIntoFreePanda.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "40":
+				try {
+					in = new Scanner(new FileReader("In_FreePandaMovesToWardrobe.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "41": 
+				try {
+					in = new Scanner(new FileReader("In_FreePandaMovesToExit.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "42": 
+				try {
+					in = new Scanner(new FileReader("In_ArmchairChecksTired.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "43": 
+				try {
+					in = new Scanner(new FileReader("In_ArmchairChecksPanda.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			case "44": 
+				try {
+					in = new Scanner(new FileReader("In_ArmchairChecksOrangutan.txt"));
+				} catch (FileNotFoundException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			break;
+			
+			case "45": System.exit(0);
+			break;
+    	}
+    	
+    	if(in != null) {
+			while (in.hasNext()) {
+				String line = in.nextLine();
+				String[] parts = line.split(" ");
+				String[] parameters = null;
+    		    switch(parts[0]) {
+        			case "makemap": 
+        				makemap(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+        			break;
+        			case "setbehind":
+        				setbehind(parts[1], parts[2]);
+        			break;
+        			case "setahead": 
+        				setahead(parts[1], parts[2]);
+        			break;
+        			case "releasepandas":
+        				releasepandas(parts[1]);
+        			break;
+        			case "setweaktile":
+        				parameters = parts[2].split("_");
+        				setweaktile(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setvendingmachine":
+        				parameters = parts[2].split("_");
+        				setvendingmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setslotmachine":
+        				parameters = parts[2].split("_");
+        				setslotmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setwardrobe":
+        				parameters = parts[2].split("_");
+        				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setarmchair":
+        				parameters = parts[2].split("_");
+        				setarmchair(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "check":
+        				check(parts[1]);
+        			break;
+        			case "setstunned":
+        				setstunned(parts[1], Integer.parseInt(parts[2]));
+        			break;
+        			case "setlife":
+        				setlife(parts[1], Integer.parseInt(parts[2]));
+        			break;
+        			case "setexit":
+        				parameters = parts[2].split("_");
+        				setexit(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setentrance":
+        				parameters = parts[2].split("_");
+        				setentrance(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setorangutan":
+        				parameters = parts[2].split("_");
+        				setorangutan(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "setpanda":
+        				parameters = parts[2].split("_");
+        				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
+        			case "step":
+        				step(parts[1], parts[2]);
+        			break;
+        			case "setrandom":
+        				setrandom(parts[1], parts[2]);
+        			break;
+        			case "pandastep":
+        				pandastep(parts[1], parts[2]);
+        			break;
+        			case "beep":
+        				beep(parts[1]);
+        			break;
+        			case "jingle":
+        				jingle(parts[1]);
+        			break;
+        			case "stat":
+        				stat(parts[1]);
+        			break;
+        			default: break;
+    		    }
+			}
+			in.close();
     	}
 	}
 }
