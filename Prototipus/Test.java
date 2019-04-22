@@ -142,10 +142,14 @@ public class Test {
         		e.printStackTrace();
         	}
         	String[] parts = cmd.split(" ");
+			System.out.println(parts[0]+ parts[1]);
+
         	Scanner in = null;
         	String[] parameters = null;
         	switch(parts[0]) {
 	        	case "loadcommands": 
+	    			System.out.println(parts[1]);
+
 	        		loadcommands(parts[1]);
 				break;
 	        	case "load": 
@@ -598,8 +602,10 @@ public class Test {
     	
     	if(in != null) {
 			while (in.hasNext()) {
-				String line = in.next();
+				String line = in.nextLine();
 				String[] parts = line.split(" ");
+				
+
 				String[] parameters = null;
     		    switch(parts[0]) {
         			case "makemap": 
@@ -678,11 +684,9 @@ public class Test {
         				stat(parts[1]);
         			break;
         			default: break;
-    		    	}
-    		 in.close();
+    		    }
 			}
-    		
+			in.close();
     	}
-    	
 	}
 }
