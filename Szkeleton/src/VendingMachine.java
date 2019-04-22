@@ -7,17 +7,12 @@ public class VendingMachine extends Thing{
 	}
 	
 	public void beep() {
-		Globals.tab++;
-		for(int i = 0; i<Globals.tab; i++)
-			System.out.print("\t");
-		System.out.println(name+" beep");
 		for(Direction d:Direction.values()) {
 			Tile t2=t.getNeighbour(d);
 			Animal a=t2.getAnimal();
 			if(a!=null)
 				a.hearBeep();
 		}
-		Globals.tab--;
 	}
 
 }
