@@ -87,8 +87,8 @@ public class Test {
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
         Globals.tab = 0;
         while(true) {
-        	System.out.println("A megfelelõ teszt beolvasásához, írd be a megfelelõ számot a 'loadcommands' parancs után!\n"
-        			+ " (pl: loadcommands 12)");
+        	System.out.println("A megfelelo teszt beolvasasahoz, irja be a megfelelo szamot a 'loadcommands' utan!\n"
+        			+ "(pl: loadcommands 12)\n");
         	System.out.println("1. In_VendingMachingBeepsOnPanda");
         	System.out.println("2. In_VendingMachingBeepsOnOrangutan");
         	System.out.println("3. In_VendingMachingBeepsOnJumperPandaWithWeakTile");
@@ -134,7 +134,7 @@ public class Test {
 			System.out.println("43. In_ArmchairChecksPanda");
 			System.out.println("44. In_ArmchairChecksOrangutan");
 
-        	System.out.println("Kilépéshez gépelje be az 'exit' parancsot");
+        	System.out.println("\nKilepeshez gepelje be az 'exit' parancsot");
         	try {
         		cmd = reader.readLine();
         	} catch (IOException e) {
@@ -142,14 +142,10 @@ public class Test {
         		e.printStackTrace();
         	}
         	String[] parts = cmd.split(" ");
-			System.out.println(parts[0]+ parts[1]);
-
         	Scanner in = null;
         	String[] parameters = null;
         	switch(parts[0]) {
 	        	case "loadcommands": 
-	    			System.out.println(parts[1]);
-
 	        		loadcommands(parts[1]);
 				break;
 	        	case "load": 
@@ -604,8 +600,6 @@ public class Test {
 			while (in.hasNext()) {
 				String line = in.nextLine();
 				String[] parts = line.split(" ");
-				
-
 				String[] parameters = null;
     		    switch(parts[0]) {
         			case "makemap": 
