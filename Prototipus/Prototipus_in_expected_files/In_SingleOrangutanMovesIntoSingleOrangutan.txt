@@ -1,6 +1,6 @@
 makemap 4 4
 setorangutan o1 t_1_1
 setorangutan o2 t_0_1
-step o1 left
+step o1 LEFT
 stat o1
 stat o2

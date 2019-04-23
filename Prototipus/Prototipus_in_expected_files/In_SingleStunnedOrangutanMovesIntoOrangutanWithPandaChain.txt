@@ -8,7 +8,7 @@ setahead p1 o2
 setbehind p1 o2
 setahead p2 p1
 setstunned o1 3
-step o1 left
+step o1 LEFT
 stat o1
 stat o2
 stat p1

@@ -7,7 +7,7 @@ setbehind o2 p1
 setahead p1 o2
 setbehind p1 o2
 setahead p2 p1
-step o2 right
+step o2 RIGHT
 stat o1
 stat o2
 stat p1

@@ -1,6 +1,6 @@
 makemap 4 4
 setrandom p1 off
 setpanda p1 t_1_1
-pandastep p1 left
+pandastep p1 LEFT
 stat t_1_1
 stat p1

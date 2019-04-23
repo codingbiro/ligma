@@ -3,6 +3,6 @@ setorangutan o1 t_0_1
 setpanda p1 t_0_2
 setbehind o1 p1
 setahead p1 o1
-step o1 up
+step o1 UP
 stat o1
 stat p1
