@@ -11,15 +11,15 @@ public class Test {
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
-	static ArrayList<Tile> tiles=new ArrayList<Tile>();
-	AfraidPanda af=new AfraidPanda("af");
-	JumperPanda jp=new JumperPanda("jf");
-	TiredPanda tp=new TiredPanda("tp");
-	Armchair ar=new Armchair("ar");
-	Entrance en=new Entrance("en");
+	//static ArrayList<Tile> tiles=new ArrayList<Tile>();
+	AfraidPanda af=new AfraidPanda("a1");
+	JumperPanda jp=new JumperPanda("j1");
+	TiredPanda tp=new TiredPanda("t1");
+	Armchair ar=new Armchair("ac");
+	Entrance en=new Entrance("e");
 	Exit ex=new Exit("ex");
 	GameController gc=new GameController("gc");
-	Map map=new Map();
+	static Map map;
 	SlotMachine sm=new SlotMachine("sm");
 	VendingMachine vm=new VendingMachine("vm");
 	Wardrobe w=new Wardrobe("w");
@@ -35,21 +35,26 @@ public class Test {
 		
 		things.add(new Thing("th"));
 		
-		tiles.add(new Tile("t1"));
-		tiles.add(new Tile("t2"));
-		tiles.add(new Tile("t3"));
+		//tiles.add(new Tile("t1"));
+		//tiles.add(new Tile("t2"));
+		//tiles.add(new Tile("t3"));
 		
 	}
 	
-	public void clear() {
+	public static void clear() {
 		pandas.clear();
 		orangutans.clear();
 		things.clear();
-		tiles.clear();
+		//tiles.clear();
 	}
 	
 	public static void makemap(int a, int b) {
-		
+		map=new Map(a,b);
+		for(int i=0;i<a;i++) {
+			for(int j=0;i<b;j++) {
+				map.tiles[i][j]=new Tile("t");
+			}
+		}
 	}
 	public static void setorangutan(String s, int a, int b) {
 		
@@ -64,10 +69,11 @@ public class Test {
 		}
 		if(o1!=null) {
 			o1.Move(Direction.valueOf(s2));
+			//System.out.println(s+" moves");
 		}
 	}
 	public static void setrandom(String s, String s2) {
-	
+		
 	}
 	public static void pandastep(String s, String s2) {
 		
@@ -284,7 +290,9 @@ public class Test {
 	}
 	
 	public static void loadcommands(String cmd) {
+		init();
 		Scanner in = null;
+		//System.out.println(cmd);
     	switch(cmd) {
 			case "1": 
 			try {
@@ -729,5 +737,6 @@ public class Test {
 			}
 			in.close();
     	}
+    	clear();
 	}
 }
