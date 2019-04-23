@@ -270,6 +270,7 @@ public class Test {
 			while (exp.hasNext()) {
 				if(i>=out.size()) return false;
 				String line = exp.nextLine();
+				System.out.print("comparing: "+out.get(i)+" and "+line);
 				if(!line.equals(out.get(i++))) return false;
 			}
 			return true;
