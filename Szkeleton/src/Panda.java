@@ -124,7 +124,7 @@ public class Panda extends Animal{
 	public String stat() {
 		// TODO Auto-generated method stub
 		String out = null;
-		out += "Tile: " + this.t1.name;
+		out += "Tile: " + ((this.t1 == null) ? null : this.t1.name);
 		out += "Behind: " + ((this.behind == null) ? null : this.behind.name);
 		out += "Ahead: " + ((this.ahead == null) ? null : this.ahead.name);
 		return out;
