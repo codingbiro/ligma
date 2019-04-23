@@ -15,15 +15,15 @@ public class Test {
 	AfraidPanda af=new AfraidPanda("a1");
 	JumperPanda jp=new JumperPanda("j1");
 	TiredPanda tp=new TiredPanda("t1");
-	Armchair ar=new Armchair("ac");
-	Entrance en=new Entrance("e");
-	Exit ex=new Exit("ex");
+	static Armchair ar=new Armchair("ac");
+	static Entrance en=new Entrance("e");
+	static Exit ex=new Exit("ex");
 	GameController gc=new GameController("gc");
 	static Map map;
-	SlotMachine sm=new SlotMachine("sm");
-	VendingMachine vm=new VendingMachine("vm");
-	Wardrobe w=new Wardrobe("w");
-	WeakTile wt=new WeakTile("wt");
+	static SlotMachine sm=new SlotMachine("sm");
+	static VendingMachine vm=new VendingMachine("vm");
+	static Wardrobe w=new Wardrobe("w");
+	static WeakTile wt=new WeakTile("wt");
 	
 	public static void init() {
 		pandas.add(new Panda("p1"));
@@ -51,16 +51,28 @@ public class Test {
 	public static void makemap(int a, int b) {
 		map=new Map(a,b);
 		for(int i=0;i<a;i++) {
-			for(int j=0;i<b;j++) {
+			for(int j=0;j<b;j++) {
 				map.tiles[i][j]=new Tile("t");
 			}
 		}
 	}
+	
 	public static void setorangutan(String s, int a, int b) {
-		
+		Orangutan o1 = null;
+		for(int i = 0; i < orangutans.size(); i++){
+			if(s.equals(orangutans.get(i).name)) o1=orangutans.get(i);
+		}
+		if(o1 != null)
+			map.tiles[a][b].setAnimal(o1);
 	}
+	
 	public static void setpanda(String s, int a, int b) {
-		
+		Panda p1 = null;
+		for(int i = 0; i < pandas.size(); i++){
+			if(s.equals(pandas.get(i).name)) p1=pandas.get(i);
+		}
+		if(p1 != null)
+			map.tiles[a][b].setAnimal(p1);
 	}
 	public static void step(String s, String s2) {
 		Orangutan o1=null;
@@ -72,65 +84,178 @@ public class Test {
 			//System.out.println(s+" moves");
 		}
 	}
+	
 	public static void setrandom(String s, String s2) {
 		
 	}
+	
 	public static void pandastep(String s, String s2) {
-		
+		Panda p1 = null;
+		for(int i = 0; i < pandas.size(); i++) {
+			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
+		}
+		if(p1!=null) {
+			p1.Move(Direction.valueOf(s2));
+		}
 	}
+	
 	public static void beep(String s) {
-		
+		vm.beep();
 	}
+	
 	public static void jingle(String s) {
-		
+		sm.jingle();
 	}
+	
 	public static void stat(String s) {
+		Panda p1 = null;
+		Thing t = null;
+		Orangutan o1 = null;
+		Tile ti = null;
+		for(int i = 0; i < pandas.size(); i++) {
+			if(s.equals(pandas.get(i).name)){
+				p1 = pandas.get(i);
+				p1.stat();
+				return;
+			}
+		}
 		
+		for(int i = 0; i < orangutans.size(); i++) {
+			if(s.equals(orangutans.get(i).name)){ 
+				o1 = orangutans.get(i);
+				o1.stat();
+				return;
+			}
+		}
+		
+		for(int i = 0; i < things.size(); i++) {
+			if(s.equals(things.get(i).name)){ 
+				t = things.get(i);
+				t.stat();
+				return;
+			}
+		}
+		
+		 for (int i = 0; i < map.tiles.length; i++) {
+			for (int j = 0; j < map.tiles[i].length; j++) {
+				if(s.equals(map.tiles[i][j].name)){
+					ti = map.tiles[i][j];
+					ti.stat();
+					return;
+				}
+			}
+		}
+
 	}
+	
 	public static void load(String s) {
 		
 	}
+	
 	public static void save(String s) {
 		
 	}
+	
 	public static void setbehind(String s, String s2) {
+		Orangutan o1 = null;
+		Panda p1 = null;
+		Panda p2 = null;
+		for(int i = 0; i < pandas.size(); i++) {
+			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
+			if(s2. equals(pandas.get(i).name)) p2 = pandas.get(i);
+		}
 		
+		for(int i = 0; i < orangutans.size(); i++) {
+			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+		}
+		
+		// orángután mögé kerül a panda
+		if(o1 != null && p1 == null && p2 != null){
+			o1.setBehind(p2);
+		// panda mögé kerül a panda
+		} else if(o1 == null && p1 != null && p2 != null){
+			p1.setBehind(p2);
+		}
 	}
+	
 	public static void setahead(String s, String s2) {
+		Panda p1 = null;
+		Panda p2 = null;
+		Orangutan o1 = null;
+		for(int i = 0; i < pandas.size(); i++) {
+			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
+			if(s2. equals(pandas.get(i).name)) p2 = pandas.get(i);
+		}
 		
+		for(int i = 0; i < orangutans.size(); i++) {
+			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+		}
+		
+		// orángutánt állít be maga elé a panda
+		if(p1 != null && p2 == null && o1 != null){
+			p1.setAhead(o1);
+		// pandát állít be maga elé a panda
+		} else if(p1 != null && p2 != null && o1 == null){
+			p1.setAhead(p2);
+		}
 	}
+	
 	public static void releasepandas(String s) {
+		Orangutan o1 = null;
+		for(int i = 0; i < orangutans.size(); i++) {
+			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+		}
 		
+		if(o1 != null){
+			o1.breakLine();
+		}
 	}
+	
 	public static void setweaktile(String s, int a, int b) {
-		
+		map.tiles[a][b] = wt;
 	}
+	
 	public static void setvendingmachine(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(vm);
 	}
+	
 	public static void setslotmachine(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(sm);
 	}
+	
 	public static void setwardrobe(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(w);
 	}
+	
 	public static void setarmchair(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(ar);
 	}
+	
 	public static void check(String s) {
-		
+		ar.check();
 	}
+	
 	public static void setstunned(String s, int a) {
+		Orangutan o1 = null;
+		for(int i = 0; i < orangutans.size(); i++) {
+			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+		}
 		
+		if(o1 != null){
+			o1.stunned = a;
+		}
 	}
+	
 	public static void setlife(String s, int a) {
-		
+		wt.life = a;
 	}
+	
 	public static void setexit(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(ex);
 	}
+	
 	public static void setentrance(String s, int a, int b) {
-		
+		map.tiles[a][b].setThing(en);
 	}
 
 
