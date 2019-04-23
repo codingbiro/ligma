@@ -51,6 +51,15 @@ public class Test {
 				map.tiles[i][j]=new Tile("t");
 			}
 		}
+		for(int i=0;i<a;i++) {
+			for(int j=0;j<b;j++) {
+				if(i>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i-1][j]);
+				if(j>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i][j-1]);
+				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i+1][j]);
+				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i][j+1]);
+				
+			}
+		}
 	}
 	
 	public static void setorangutan(String s, int a, int b) {
