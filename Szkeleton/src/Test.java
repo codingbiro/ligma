@@ -12,13 +12,13 @@ public class Test {
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
 	//static ArrayList<Tile> tiles=new ArrayList<Tile>();
-	AfraidPanda af=new AfraidPanda("a1");
-	JumperPanda jp=new JumperPanda("j1");
-	TiredPanda tp=new TiredPanda("t1");
+	static AfraidPanda af=new AfraidPanda("a1");
+	static JumperPanda jp=new JumperPanda("j1");
+	static TiredPanda tp=new TiredPanda("t1");
 	static Armchair ar=new Armchair("ac");
 	static Entrance en=new Entrance("e");
 	static Exit ex=new Exit("ex");
-	GameController gc=new GameController("gc");
+	static GameController gc=new GameController("gc");
 	static Map map;
 	static SlotMachine sm=new SlotMachine("sm");
 	static VendingMachine vm=new VendingMachine("vm");
@@ -35,17 +35,12 @@ public class Test {
 		
 		things.add(new Thing("th"));
 		
-		//tiles.add(new Tile("t1"));
-		//tiles.add(new Tile("t2"));
-		//tiles.add(new Tile("t3"));
-		
 	}
 	
 	public static void clear() {
 		pandas.clear();
 		orangutans.clear();
 		things.clear();
-		//tiles.clear();
 	}
 	
 	public static void makemap(int a, int b) {
@@ -74,6 +69,7 @@ public class Test {
 		if(p1 != null)
 			map.tiles[a][b].setAnimal(p1);
 	}
+	
 	public static void step(String s, String s2) {
 		Orangutan o1=null;
 		for(int i=0;i<orangutans.size();i++) {
@@ -81,7 +77,6 @@ public class Test {
 		}
 		if(o1!=null) {
 			o1.Move(Direction.valueOf(s2));
-			//System.out.println(s+" moves");
 		}
 	}
 	
@@ -259,6 +254,19 @@ public class Test {
 	}
 
 
+	public static boolean compare(Scanner exp, String[] out) {
+		if(exp != null) {
+			int i=0;
+			while (exp.hasNext()) {
+				if(out[i]==null) return false;
+				String line = exp.nextLine();
+				if(!line.equals(out[i++])) return false;
+			}
+			return true;
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		init();
 		String cmd = null;
@@ -417,11 +425,13 @@ public class Test {
 	public static void loadcommands(String cmd) {
 		init();
 		Scanner in = null;
+		Scanner exp = null;
 		//System.out.println(cmd);
     	switch(cmd) {
 			case "1": 
 			try {
 				in = new Scanner(new FileReader("In_VendingMachingBeepsOnPanda.txt"));
+				exp = new Scanner(new FileReader("Expected_VendingMachingBeepsOnPanda.txt"));
 			} catch (FileNotFoundException e4) {
 				// TODO Auto-generated catch block
 				e4.printStackTrace();
@@ -430,6 +440,7 @@ public class Test {
 			case "2":
 				try {
 					in = new Scanner(new FileReader("In_VendingMachingBeepsOnOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_VendingMachingBeepsOnOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -438,6 +449,7 @@ public class Test {
 			case "3": 
 				try {
 					in = new Scanner(new FileReader("In_VendingMachingBeepsOnJumperPandaWithWeakTile.txt"));
+					exp = new Scanner(new FileReader("Expected_VendingMachingBeepsOnJumperPandaWithWeakTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -446,6 +458,7 @@ public class Test {
 			case "4": 
 				try {
 					in = new Scanner(new FileReader("In_VendingMachingBeepsOnJumperPandaWithTile.txt"));
+					exp = new Scanner(new FileReader("Expected_VendingMachingBeepsOnJumperPandaWithTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -454,6 +467,7 @@ public class Test {
 			case "5": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithSingleOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_TileBreaksWithSingleOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -462,6 +476,7 @@ public class Test {
 			case "6": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithPandaInChain.txt"));
+					exp = new Scanner(new FileReader("Expected_TileBreaksWithPandaInChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -470,6 +485,7 @@ public class Test {
 			case "7": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithOrangutanWithPandaChain.txt"));
+					exp = new Scanner(new FileReader("Expected_TileBreaksWithOrangutanWithPandaChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -478,6 +494,7 @@ public class Test {
 			case "8": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithFreePanda.txt"));
+					exp = new Scanner(new FileReader("Expected_TileBreaksWithFreePanda.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -486,6 +503,7 @@ public class Test {
 			case "9": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesPanda.txt"));
+					exp = new Scanner(new FileReader("Expected_SlotMachineJinglesPanda.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -494,6 +512,7 @@ public class Test {
 			case "10": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_SlotMachineJinglesOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -502,6 +521,7 @@ public class Test {
 			case "11": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesFreeAfraid.txt"));
+					exp = new Scanner(new FileReader("Expected_SlotMachineJinglesFreeAfraid.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -510,6 +530,7 @@ public class Test {
 			case "12": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesAfraidInChain.txt"));
+					exp = new Scanner(new FileReader("Expected_SlotMachineJinglesAfraidInChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -518,6 +539,7 @@ public class Test {
 			case "13": 
 				try {
 					in = new Scanner(new FileReader("In_SingleStunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
+					exp = new Scanner(new FileReader("Expected_SingleStunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -526,6 +548,7 @@ public class Test {
 			case "14": 
 				try {
 					in = new Scanner(new FileReader("In_SingleOrangutanMovesIntoSingleOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_SingleOrangutanMovesIntoSingleOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -534,6 +557,7 @@ public class Test {
 			case "15": 
 				try {
 					in = new Scanner(new FileReader("In_SingleNon-StunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
+					exp = new Scanner(new FileReader("Expected_SingleNon-StunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -542,6 +566,7 @@ public class Test {
 			case "16": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToVendingMachine.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToVendingMachine.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -550,6 +575,7 @@ public class Test {
 			case "17": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToSlotMachine.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToSlotMachine.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -558,6 +584,7 @@ public class Test {
 			case "18": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEntrance.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToEntrance.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -566,6 +593,7 @@ public class Test {
 			case "19":
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEmptyWeakTile.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToEmptyWeakTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -574,6 +602,7 @@ public class Test {
 			case "20": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEmptyTile.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToEmptyTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -582,6 +611,7 @@ public class Test {
 			case "21": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToArmchair.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesToArmchair.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -590,6 +620,7 @@ public class Test {
 			case "22": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesIntoPanda.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaMovesIntoPanda.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -598,6 +629,7 @@ public class Test {
 			case "23": 
 			try {
 				in = new Scanner(new FileReader("In_PandaMovesIntoOrangutan.txt"));
+				exp = new Scanner(new FileReader("Expected_PandaMovesIntoOrangutan.txt"));
 			} catch (FileNotFoundException e4) {
 				// TODO Auto-generated catch block
 				e4.printStackTrace();
@@ -606,6 +638,7 @@ public class Test {
 			case "24":
 				try {
 					in = new Scanner(new FileReader("In_PandaInChainMovesToWardrobe.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaInChainMovesToWardrobe.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -614,6 +647,7 @@ public class Test {
 			case "25": 
 				try {
 					in = new Scanner(new FileReader("In_PandaInChainMovesToExit.txt"));
+					exp = new Scanner(new FileReader("Expected_PandaInChainMovesToExit.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -622,6 +656,7 @@ public class Test {
 			case "26": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainReleasesPandas.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanWithPandaChainReleasesPandas.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -630,6 +665,7 @@ public class Test {
 			case "27": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoSingleOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanWithPandaChainMovesIntoSingleOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -638,6 +674,7 @@ public class Test {
 			case "28": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoOrangutanWithPandaChain.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanWithPandaChainMovesIntoOrangutanWithPandaChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -646,6 +683,7 @@ public class Test {
 			case "29": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesWithPandaChain.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesWithPandaChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -654,6 +692,7 @@ public class Test {
 			case "30": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToWardrobe.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToWardrobe.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -662,6 +701,7 @@ public class Test {
 			case "31": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToVendingMachine.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToVendingMachine.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -670,6 +710,7 @@ public class Test {
 			case "32": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToSlotMachine.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToSlotMachine.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -678,6 +719,7 @@ public class Test {
 			case "33": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToExit.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToExit.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -686,6 +728,7 @@ public class Test {
 			case "34": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEntrance.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToEntrance.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -694,6 +737,7 @@ public class Test {
 			case "35": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyWeakTile.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToEmptyWeakTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -702,6 +746,7 @@ public class Test {
 			case "36": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyTile.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToEmptyTile.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -710,6 +755,7 @@ public class Test {
 			case "37": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToArmchair.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesToArmchair.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -718,6 +764,7 @@ public class Test {
 			case "38": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesIntoPandaInChain.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesIntoPandaInChain.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -726,6 +773,7 @@ public class Test {
 			case "39": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesIntoFreePanda.txt"));
+					exp = new Scanner(new FileReader("Expected_OrangutanMovesIntoFreePanda.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -734,6 +782,7 @@ public class Test {
 			case "40":
 				try {
 					in = new Scanner(new FileReader("In_FreePandaMovesToWardrobe.txt"));
+					exp = new Scanner(new FileReader("Expected_FreePandaMovesToWardrobe.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -742,6 +791,7 @@ public class Test {
 			case "41": 
 				try {
 					in = new Scanner(new FileReader("In_FreePandaMovesToExit.txt"));
+					exp = new Scanner(new FileReader("Expected_FreePandaMovesToExit.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -750,6 +800,7 @@ public class Test {
 			case "42": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksTired.txt"));
+					exp = new Scanner(new FileReader("Expected_ArmchairChecksTired.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -758,6 +809,7 @@ public class Test {
 			case "43": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksPanda.txt"));
+					exp = new Scanner(new FileReader("Expected_ArmchairChecksPanda.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -766,6 +818,7 @@ public class Test {
 			case "44": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksOrangutan.txt"));
+					exp = new Scanner(new FileReader("Expected_ArmchairChecksOrangutan.txt"));
 				} catch (FileNotFoundException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
@@ -861,6 +914,10 @@ public class Test {
     		    }
 			}
 			in.close();
+
+			if(!compare(exp,out)) System.out.println("Hiba a tesztesetben");
+			exp.close();
+			
     	}
     	clear();
 	}
