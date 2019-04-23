@@ -11,7 +11,6 @@ public class Test {
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
-	//static ArrayList<Tile> tiles=new ArrayList<Tile>();
 	static AfraidPanda af=new AfraidPanda("a1");
 	static JumperPanda jp=new JumperPanda("j1");
 	static TiredPanda tp=new TiredPanda("t1");
@@ -166,10 +165,10 @@ public class Test {
 			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
-		// orángután mögé kerül a panda
+		// orÃ¡ngutÃ¡n mÃ¶gÃ© kerÃ¼l a panda
 		if(o1 != null && p1 == null && p2 != null){
 			o1.setBehind(p2);
-		// panda mögé kerül a panda
+		// panda mÃ¶gÃ© kerÃ¼l a panda
 		} else if(o1 == null && p1 != null && p2 != null){
 			p1.setBehind(p2);
 		}
@@ -188,10 +187,10 @@ public class Test {
 			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
-		// orángutánt állít be maga elé a panda
+		// orÃ¡ngutÃ¡nt Ã¡llÃ­t be maga elÃ© a panda
 		if(p1 != null && p2 == null && o1 != null){
 			p1.setAhead(o1);
-		// pandát állít be maga elé a panda
+		// pandÃ¡t Ã¡llÃ­t be maga elÃ© a panda
 		} else if(p1 != null && p2 != null && o1 == null){
 			p1.setAhead(p2);
 		}
@@ -260,9 +259,9 @@ public class Test {
 		if(exp != null) {
 			int i=0;
 			while (exp.hasNext()) {
-				if(out[i]==null) return false;
+				if(i>=out.size()) return false;
 				String line = exp.nextLine();
-				if(!line.equals(out[i++])) return false;
+				if(!line.equals(out.get(i++))) return false;
 			}
 			return true;
 		}
