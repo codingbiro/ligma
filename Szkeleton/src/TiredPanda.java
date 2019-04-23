@@ -21,11 +21,13 @@ public class TiredPanda extends Panda{
 		naptime--;
 	}
 	
-	public void stat() {
-		System.out.println("Tile: " + ((this.t1.name == null) ? null : this.t1.name));
-		System.out.println("Behind: " + ((this.behind.name == null) ? null : this.behind.name));
-		System.out.println("Ahead: " + ((this.ahead.name == null) ? null : this.ahead.name));
-		System.out.println("Naptime: " + this.naptime);
+	public String stat() {
+		String out = null;
+		out += "Tile: " + ((this.t1.name == null) ? null : this.t1.name);
+		out += "Behind: " + ((this.behind.name == null) ? null : this.behind.name);
+		out += "Ahead: " + ((this.ahead.name == null) ? null : this.ahead.name);
+		out += "Naptime: " + this.naptime;
+		return out;
 	}
 	
 }

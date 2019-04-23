@@ -26,8 +26,10 @@ public class Thing {
 		t = _t;
 	}
 
-	public void stat() {
+	public String stat() {
 		// TODO Auto-generated method stub
-		System.out.println("Tile: " + ((this.t.name == null) ? null : this.t.name));
+		String out = null;
+		out += "Tile: " + ((this.t.name == null) ? null : this.t.name);
+		return out;
 	}
 }

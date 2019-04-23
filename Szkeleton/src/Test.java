@@ -25,6 +25,8 @@ public class Test {
 	static Wardrobe w=new Wardrobe("w");
 	static WeakTile wt=new WeakTile("wt");
 	
+	static ArrayList<String> out = new ArrayList<String>();
+	
 	public static void init() {
 		pandas.add(new Panda("p1"));
 		pandas.add(new Panda("p2"));
@@ -110,7 +112,7 @@ public class Test {
 		for(int i = 0; i < pandas.size(); i++) {
 			if(s.equals(pandas.get(i).name)){
 				p1 = pandas.get(i);
-				p1.stat();
+				out.add(p1.stat());
 				return;
 			}
 		}
@@ -118,7 +120,7 @@ public class Test {
 		for(int i = 0; i < orangutans.size(); i++) {
 			if(s.equals(orangutans.get(i).name)){ 
 				o1 = orangutans.get(i);
-				o1.stat();
+				out.add(o1.stat());
 				return;
 			}
 		}
@@ -126,7 +128,7 @@ public class Test {
 		for(int i = 0; i < things.size(); i++) {
 			if(s.equals(things.get(i).name)){ 
 				t = things.get(i);
-				t.stat();
+				out.add(t.stat());
 				return;
 			}
 		}
@@ -135,7 +137,7 @@ public class Test {
 			for (int j = 0; j < map.tiles[i].length; j++) {
 				if(s.equals(map.tiles[i][j].name)){
 					ti = map.tiles[i][j];
-					ti.stat();
+					out.add(ti.stat());
 					return;
 				}
 			}
@@ -254,7 +256,7 @@ public class Test {
 	}
 
 
-	public static boolean compare(Scanner exp, String[] out) {
+	public static boolean compare(Scanner exp, ArrayList<String> out) {
 		if(exp != null) {
 			int i=0;
 			while (exp.hasNext()) {
@@ -915,7 +917,7 @@ public class Test {
 			}
 			in.close();
 
-			if(!compare(exp,out)) System.out.println("Hiba a tesztesetben");
+			if(!compare(exp, out)) System.out.println("Hiba a tesztesetben");
 			exp.close();
 			
     	}
