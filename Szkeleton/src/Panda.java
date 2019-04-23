@@ -126,7 +126,7 @@ public class Panda extends Animal{
 		String out = null;
 		out += "Tile: " + this.t1.name;
 		out += "Behind: " + ((this.behind == null) ? null : this.behind.name);
-		out += "Ahead: " + this.ahead.name;
+		out += "Ahead: " + ((this.ahead == null) ? null : this.ahead.name);
 		return out;
 	}
 }
