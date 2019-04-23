@@ -9,7 +9,7 @@ public class VendingMachine extends Thing{
 	public void beep() {
 		for(Direction d:Direction.values()) {
 			Tile t2=t.getNeighbour(d);
-			Animal a=t2.getAnimal();
+			if(t2!=null) Animal a=t2.getAnimal();
 			if(a!=null)
 				a.hearBeep();
 		}
