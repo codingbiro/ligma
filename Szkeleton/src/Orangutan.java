@@ -2,6 +2,7 @@
 public class Orangutan extends Animal{
 	//Szkeleton
 	GameController g;
+	int stunned = 0;
 
 	public Orangutan(String s) {
 		super(s);
@@ -84,5 +85,21 @@ public class Orangutan extends Animal{
 		Tile ten = en.getTile();
 		Animal a = ten.getAnimal();		
 		ten.setAnimal(this);
+	}
+
+	public void stat() {
+		// TODO Auto-generated method stub
+		System.out.println("Tile: " + ((this.t1.name == null) ? null : this.t1.name));
+		System.out.println("Behind: " + ((this.behind.name == null) ? null : this.behind.name));
+		System.out.println("Stunned: " + stunned);
+	}
+
+	public void breakLine() {
+		// TODO Auto-generated method stub
+		Panda pb = getBehind();
+		if(pb!=null) {
+			pb.breakLine();
+		}
+		setBehind(null);
 	}
 }

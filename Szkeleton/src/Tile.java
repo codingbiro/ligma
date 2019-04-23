@@ -50,4 +50,12 @@ public class Tile {
 		}
 		th = t;
 	}
+
+	public void stat() {
+		// TODO Auto-generated method stub
+		System.out.println("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()].name == null) ? null : this.neighbour[Direction.UP.ordinal()].name));
+		System.out.println("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()].name == null) ? null : this.neighbour[Direction.DOWN.ordinal()].name));
+		System.out.println("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()].name == null) ? null : this.neighbour[Direction.LEFT.ordinal()].name));
+		System.out.println("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()].name == null) ? null : this.neighbour[Direction.RIGHT.ordinal()].name));
+	}
 }

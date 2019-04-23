@@ -120,5 +120,12 @@ public class Panda extends Animal{
 		}
 		
 	}
+
+	public void stat() {
+		// TODO Auto-generated method stub
+		System.out.println("Tile: " + ((this.t1.name == null) ? null : this.t1.name));
+		System.out.println("Behind: " + ((this.behind.name == null) ? null : this.behind.name));
+		System.out.println("Ahead: " + this.ahead.name);
+	}
 }
 	

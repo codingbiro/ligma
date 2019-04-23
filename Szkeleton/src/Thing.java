@@ -25,4 +25,9 @@ public class Thing {
 	public void setTile(Tile _t, boolean ts) {	
 		t = _t;
 	}
+
+	public void stat() {
+		// TODO Auto-generated method stub
+		System.out.println("Tile: " + ((this.t.name == null) ? null : this.t.name));
+	}
 }
