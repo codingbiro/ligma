@@ -11,7 +11,9 @@ public class Panda extends Animal{
 		boolean b1=true;
 		boolean b2=true;
 		// A szomszédos mezõ lekérése
-		Tile t2=t1.getNeighbour(d);
+		Tile t2 = null;
+		if(t1!=null)
+		t2=t1.getNeighbour(d);
 		boolean b=inLine();
 		
 		
