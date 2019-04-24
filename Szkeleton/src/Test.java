@@ -63,21 +63,15 @@ public class Test {
 	}
 	
 	public static void setorangutan(String s, int a, int b) {
-		Orangutan o1 = null;
 		for(int i = 0; i < orangutans.size(); i++){
-			if(s.equals(orangutans.get(i).name)) o1=orangutans.get(i);
-		}
-		if(o1 != null)
-			map.tiles[a][b].setAnimal(o1);
+			if(s.equals(orangutans.get(i).name)) map.tiles[a][b].setAnimal(orangutans.get(i));
+		}	
 	}
 	
 	public static void setpanda(String s, int a, int b) {
-		Panda p1 = null;
 		for(int i = 0; i < pandas.size(); i++){
-			if(s.equals(pandas.get(i).name)) p1=pandas.get(i);
-		}
-		if(p1 != null)
-			map.tiles[a][b].setAnimal(p1);
+			if(s.equals(pandas.get(i).name)) map.tiles[a][b].setAnimal(pandas.get(i));
+		}	
 	}
 	
 	public static void step(String s, String s2) {
@@ -273,6 +267,7 @@ public class Test {
 				System.out.print("comparing: "+out.get(i)+" and "+line);
 				if(!line.equals(out.get(i++))) return false;
 			}
+			System.out.println(" Sikeres teszt ");
 			return true;
 		}
 		return false;
