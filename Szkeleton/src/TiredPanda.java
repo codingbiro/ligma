@@ -23,10 +23,10 @@ public class TiredPanda extends Panda{
 	
 	public String stat() {
 		String out = null;
-		out += "Tile: " + ((this.t1.name == null) ? null : this.t1.name);
-		out += "Behind: " + ((this.behind.name == null) ? null : this.behind.name);
-		out += "Ahead: " + ((this.ahead.name == null) ? null : this.ahead.name);
-		out += "Naptime: " + this.naptime;
+		out += "tile: " + ((this.t1.name == null) ? "null" : this.t1.name);
+		out += "behind: " + ((this.behind.name == null) ? "null" : this.behind.name);
+		out += "ahead: " + ((this.ahead.name == null) ? "null" : this.ahead.name);
+		out += "naptime: " + this.naptime;
 		return out;
 	}
 	

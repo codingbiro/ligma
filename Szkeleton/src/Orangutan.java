@@ -90,9 +90,9 @@ public class Orangutan extends Animal{
 	public String stat() {
 		// TODO Auto-generated method stub
 		String out = null;
-		out += "Tile: " + ((this.t1.name == null) ? null : this.t1.name);
-		out += "Behind: " + ((this.behind.name == null) ? null : this.behind.name);
-		out += "Stunned: " + stunned;
+		out += "tile: " + ((this.t1.name == null) ? "null" : this.t1.name);
+		out += "behind: " + ((this.behind.name == null) ? "null" : this.behind.name);
+		out += "stunned: " + stunned;
 		return out;
 	}
 

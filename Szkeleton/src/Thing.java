@@ -29,7 +29,7 @@ public class Thing {
 	public String stat() {
 		// TODO Auto-generated method stub
 		String out = null;
-		out += "Tile: " + ((this.t.name == null) ? null : this.t.name);
+		out += "tile: " + ((this.t.name == null) ? "null" : this.t.name);
 		return out;
 	}
 }
