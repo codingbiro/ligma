@@ -51,10 +51,10 @@ public class WeakTile extends Tile {
 	
 	public ArrayList<String> stat() {
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()].name == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));
-		out.add("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()].name == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name));
-		out.add("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()].name == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name));
-		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()].name == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
+		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()] == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));
+		out.add("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()] == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name));
+		out.add("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()] == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name));
+		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()] == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
 		out.add("life: " + this.life);
 		return out;
 	}

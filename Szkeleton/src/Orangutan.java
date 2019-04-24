@@ -91,8 +91,8 @@ public class Orangutan extends Animal{
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((t1.name == null) ? "null" : this.t1.name));
-		out.add("behind: " + ((this.behind.name == null) ? "null" : this.behind.name));
+		out.add("tile: " + ((t1 == null) ? "null" : this.t1.name));
+		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
 		out.add("stunned: " + stunned);
 		return out;
 	}

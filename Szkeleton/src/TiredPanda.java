@@ -24,9 +24,9 @@ public class TiredPanda extends Panda{
 	
 	public ArrayList<String> stat() {
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.t1.name == null) ? "null" : this.t1.name));
-		out.add("behind: " + ((this.behind.name == null) ? "null" : this.behind.name));
-		out.add("ahead: " + ((this.ahead.name == null) ? "null" : this.ahead.name));
+		out.add("tile: " + ((this.t1 == null) ? "null" : this.t1.name));
+		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
+		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
 		out.add("naptime: " + this.naptime);
 		return out;
 	}

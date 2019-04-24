@@ -30,7 +30,7 @@ public class Thing {
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.t.name == null) ? "null" : this.t.name));
+		out.add("tile: " + ((this.t == null) ? "null" : this.t.name));
 		return out;
 	}
 }
