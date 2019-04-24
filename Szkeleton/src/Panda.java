@@ -1,4 +1,5 @@
-	
+import java.util.ArrayList;
+
 public class Panda extends Animal{
 
 	public Panda(String s) {
@@ -121,12 +122,12 @@ public class Panda extends Animal{
 		
 	}
 
-	public String stat() {
+	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
-		String out = null;
-		out += "tile: " + ((this.t1 == null) ? "null" : this.t1.name);
-		out += "behind: " + ((this.behind == null) ? "null" : this.behind.name);
-		out += "ahead: " + ((this.ahead == null) ? "null" : this.ahead.name);
+		ArrayList<String> out = new ArrayList<String>();
+		out.add("tile: " + ((this.t1 == null) ? "null" : this.t1.name));
+		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
+		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
 		return out;
 	}
 }

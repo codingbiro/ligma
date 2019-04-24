@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Tile {
 	String name;
@@ -51,13 +51,13 @@ public class Tile {
 		th = t;
 	}
 
-	public String stat() {
+	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
-		String out = null;
-		out += "neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()].name == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name);
-		out += "neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()].name == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name);
-		out += "neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()].name == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name);
-		out += "neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()].name == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name);
+		ArrayList<String> out = new ArrayList<String>();
+		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()].name == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));
+		out.add("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()].name == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name));
+		out.add("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()].name == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name));
+		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()].name == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
 		return out;
 	}
 }

@@ -120,7 +120,7 @@ public class Test {
 		for(int i = 0; i < pandas.size(); i++) {
 			if(s.equals(pandas.get(i).name)){
 				p1 = pandas.get(i);
-				out.add(p1.stat());
+				out.addAll(p1.stat());
 				return;
 			}
 		}
@@ -128,7 +128,7 @@ public class Test {
 		for(int i = 0; i < orangutans.size(); i++) {
 			if(s.equals(orangutans.get(i).name)){ 
 				o1 = orangutans.get(i);
-				out.add(o1.stat());
+				out.addAll(o1.stat());
 				return;
 			}
 		}
@@ -136,7 +136,7 @@ public class Test {
 		for(int i = 0; i < things.size(); i++) {
 			if(s.equals(things.get(i).name)){ 
 				t = things.get(i);
-				out.add(t.stat());
+				out.addAll(t.stat());
 				return;
 			}
 		}
@@ -145,7 +145,7 @@ public class Test {
 			for (int j = 0; j < map.tiles[i].length; j++) {
 				if(s.equals(map.tiles[i][j].name)){
 					ti = map.tiles[i][j];
-					out.add(ti.stat());
+					out.addAll(ti.stat());
 					return;
 				}
 			}

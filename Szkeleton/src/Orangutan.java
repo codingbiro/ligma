@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Orangutan extends Animal{
 	//Szkeleton
@@ -87,12 +88,12 @@ public class Orangutan extends Animal{
 		ten.setAnimal(this);
 	}
 
-	public String stat() {
+	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
-		String out = null;
-		out += "tile: " + ((this.t1.name == null) ? "null" : this.t1.name);
-		out += "behind: " + ((this.behind.name == null) ? "null" : this.behind.name);
-		out += "stunned: " + stunned;
+		ArrayList<String> out = new ArrayList<String>();
+		out.add("tile: " + ((t1.name == null) ? "null" : this.t1.name));
+		out.add("behind: " + ((this.behind.name == null) ? "null" : this.behind.name));
+		out.add("stunned: " + stunned);
 		return out;
 	}
 

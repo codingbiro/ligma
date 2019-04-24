@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Thing {
 	
@@ -26,10 +27,10 @@ public class Thing {
 		t = _t;
 	}
 
-	public String stat() {
+	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
-		String out = null;
-		out += "tile: " + ((this.t.name == null) ? "null" : this.t.name);
+		ArrayList<String> out = new ArrayList<String>();
+		out.add("tile: " + ((this.t.name == null) ? "null" : this.t.name));
 		return out;
 	}
 }
