@@ -67,9 +67,13 @@ public class Panda extends Animal{
 	
 	public Direction getDirection(Tile t) {
 		for(Direction d:Direction.values()) {
-			Tile t2=t1.getNeighbour(d);
+			Tile t2 = null;
+			if(t1 != null && t!=null) {
+			t2=t1.getNeighbour(d);
+			if(t2!=null) {
 			if(t2.equals(t)) {
 				return d;
+			}}
 			}
 		}
 		return Direction.UP;
