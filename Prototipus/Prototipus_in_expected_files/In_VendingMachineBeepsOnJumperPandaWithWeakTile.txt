@@ -1,0 +1,9 @@
+makemap 4 4
+setweaktile w1 t_1_1
+setjumper j1 t_1_1
+setvendingmachine vm t_0_1
+setrandom vm off
+beep vm
+stat w1
+stat j1
+stat vm
