@@ -11,7 +11,9 @@ public class Armchair extends Thing{
 		if(a2==null) {
 			for(Direction d:Direction.values()) {
 				Tile t2=t.getNeighbour(d);
-				Animal a=t2.getAnimal();
+				Animal a = null;
+				if(t2 != null)
+					a = t2.getAnimal();
 				if(a!=null)
 					a.Exhaust(t);
 			}
