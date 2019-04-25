@@ -20,10 +20,16 @@ public class Exit extends Thing{
 	}
 	
 	public boolean hitBy(Orangutan o) {
-		Entrance e = g.getEntrance();
-		o.setBehind(null);
-		Tile t1 = e.getTile();
-		t1.setAnimal(o);
+		Entrance e = null;
+		if(g!=null)
+			e = g.getEntrance();
+		if(o!=null)
+			o.setBehind(null);
+		Tile t1 = null;
+		if(e!=null)
+			t1 = e.getTile();
+		if(t1!=null)
+			t1.setAnimal(o);
 		return false;
 	}
 
