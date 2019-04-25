@@ -10,15 +10,24 @@ public class Wardrobe extends Thing{
 	}
 
 	public boolean hitBy(Orangutan a) {
-		Tile t2 = w2.getTile();
-		t2.setAnimal(a);
-		a.setTile(t2);
+		Tile t2 = null;
+		if(w2!=null)
+			t2 = w2.getTile();
+		if(t2!=null)
+			t2.setAnimal(a);
+		if(a!=null)
+			a.setTile(t2);
 		return true;
 	}
+	
 	public boolean hitBy(Panda a) {
-		Tile t2 = w2.getTile();
-		t2.setAnimal(a);
-		a.setTile(t2);
+		Tile t2 = null;
+		if(w2!=null)
+			t2 = w2.getTile();
+		if(t2!=null)
+			t2.setAnimal(a);
+		if(a!=null)
+			a.setTile(t2);
 		return true;
 	}
 	
