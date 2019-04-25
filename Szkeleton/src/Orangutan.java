@@ -45,7 +45,8 @@ public class Orangutan extends Animal{
 				}
 				
 				if(b1&&b2) {
-					t1.setAnimal(null);
+					if(t1!=null)
+						t1.setAnimal(null);
 					if(behind!=null) {
 						if(a2!=null) {
 							a2.caughtBy(this);
@@ -54,8 +55,7 @@ public class Orangutan extends Animal{
 							Direction d2=behind.getDirection(t1);
 							behind.Move(d2);
 						}
-					}
-					// 5.4.11-et es 5.4.12-t elrontja ez
+					}					
 					t2.setAnimal(this);
 				}
 			}
