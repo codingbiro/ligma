@@ -1,0 +1,8 @@
+neighbour_up: t_0_1
+neighbour_down: t_2_1
+neighbour_left: t_1_0
+neighbour_right: t_1_2
+life: 19
+tile: t_1_0
+behind: null
+stunned: 0

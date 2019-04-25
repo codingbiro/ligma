@@ -1,0 +1,6 @@
+tile: t_1_1
+behind: null
+ahead: null
+tile: t_1_0
+behind: null
+stunned: 0

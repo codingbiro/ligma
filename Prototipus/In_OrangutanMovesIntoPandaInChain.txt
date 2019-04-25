@@ -1,0 +1,9 @@
+makemap 4 4
+setorangutan o1 t_1_1
+setorangutan o2 t_0_0
+setpanda p1 t_0_1
+setbehind o2 p1
+setahead p1 o2
+step o1 LEFT
+stat o1
+stat p1

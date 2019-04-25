@@ -1,0 +1,8 @@
+neighbour_up: null
+neighbour_down: null
+neighbour_left: null
+neighbour_right: null
+life: 0
+tile: null
+behind: null
+ahead: null
