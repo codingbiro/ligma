@@ -1,6 +1,0 @@
-makemap 4 4
-setpanda p1 t_1_1
-setarmchair ac t_0_1
-check ac
-stat p1
-stat ac

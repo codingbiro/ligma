@@ -1,9 +1,0 @@
-makemap 4 4
-setorangutan o1 t_2_1
-setafraid a1 t_1_1
-setslotmachine sm t_0_1
-setrandom sm off
-jingle sm
-stat o1
-stat a1
-stat sm
