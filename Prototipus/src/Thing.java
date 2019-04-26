@@ -33,4 +33,5 @@ public class Thing {
 		out.add("tile: " + ((this.t == null) ? "null" : this.t.name));
 		return out;
 	}
+	public void check() {}
 }
