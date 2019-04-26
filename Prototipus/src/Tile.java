@@ -29,7 +29,12 @@ public class Tile {
 		return th;
 	}
 	
-	public void setAnimal(Animal a2) {	
+	public void setAnimal(Orangutan a2) {		
+		if(a2!=null) a2.setTile(this);
+		a=a2;
+	}
+	
+	public void setAnimal(Panda a2) {	
 		if(a2!=null) a2.setTile(this);
 		a=a2;
 	}
