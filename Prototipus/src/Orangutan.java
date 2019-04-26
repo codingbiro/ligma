@@ -47,16 +47,22 @@ public class Orangutan extends Animal{
 				if(b1&&b2) {
 					if(t1!=null)
 						t1.setAnimal(null);
-					if(behind!=null) {
-						if(a2!=null) {
+					if(behind!=null) {						
+						if(a2!=null) {							
 							a2.caughtBy(this);
 						}
 						else if(a2==null){
 							Direction d2=behind.getDirection(t1);
 							behind.Move(d2);
 						}
-					}					
-					t2.setAnimal(this);
+					}
+					//ezt az else-t a protonal irtam hozza, enelkul nem kapja el a pandat az orangutan
+					else {
+						if(a2!=null) {							
+							a2.caughtBy(this);
+						}
+					}
+					t2.setAnimal(this);					
 				}
 			}
 		}
