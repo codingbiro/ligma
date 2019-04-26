@@ -260,7 +260,7 @@ public class Test {
 	public static void check(String name) {
 		for(int i = 0; i < things.size(); i++) {
 			if(name.equals(things.get(i).name)){ 
-				Armchair ar = things.get(i);
+				Thing ar = things.get(i);
 				ar.check();
 			}
 		}
