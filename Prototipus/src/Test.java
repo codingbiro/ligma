@@ -27,6 +27,7 @@ public class Test {
 	static ArrayList<String> out = new ArrayList<String>();
 	
 	public static void init() {
+		/*
 		pandas.add(new Panda("p1"));
 		pandas.add(new Panda("p2"));
 		pandas.add(new Panda("p3"));
@@ -35,13 +36,14 @@ public class Test {
 		orangutans.add(new Orangutan("o2"));
 		
 		things.add(new Thing("th"));
-		
+		*/
 	}
 	
 	public static void clear() {
 		pandas.clear();
 		orangutans.clear();
 		things.clear();
+		out.clear();
 	}
 	
 	public static void makemap(int a, int b) {
@@ -53,94 +55,107 @@ public class Test {
 		}
 		for(int i=0;i<a;i++) {
 			for(int j=0;j<b;j++) {
+				/*
 				if(i>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i-1][j]);
 				if(j>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i][j-1]);
 				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i+1][j]);
 				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i][j+1]);
+				*/
+				if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
+				if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
+				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
+				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);
 				
 			}
 		}
 	}
 	
-	public static void setorangutan(String s, int a, int b) {
+	public static void setorangutan(String name, int a, int b) {
+		Orangutan o = new Orangutan(name);
+		orangutans.add(o);
+		map.tiles[a][b].setAnimal(o);
+		/*
 		for(int i = 0; i < orangutans.size(); i++){
 			if(s.equals(orangutans.get(i).name)) map.tiles[a][b].setAnimal(orangutans.get(i));
-		}	
+		}	*/
 	}
 	
-	public static void setpanda(String s, int a, int b) {
-		for(int i = 0; i < pandas.size(); i++){
+	public static void setpanda(String name, int a, int b) {
+		Panda p = new Panda(name);
+		pandas.add(p);
+		map.tiles[a][b].setAnimal(p);
+		/*for(int i = 0; i < pandas.size(); i++){
 			if(s.equals(pandas.get(i).name)) map.tiles[a][b].setAnimal(pandas.get(i));
-		}	
+		}	*/
 	}
 	
-	public static void step(String s, String s2) {
+	public static void step(String animal1, String direction) {
 		Orangutan o1=null;
 		for(int i=0;i<orangutans.size();i++) {
-			if(s.equals(orangutans.get(i).name)) o1=orangutans.get(i);
+			if(animal1.equals(orangutans.get(i).name)) o1=orangutans.get(i);
 		}
 		if(o1!=null) {
-			o1.Move(Direction.valueOf(s2));
+			o1.Move(Direction.valueOf(direction));
 		}
 	}
 	
-	public static void setrandom(String s, String s2) {
+	public static void setrandom(String animal, String random) {
 		
 	}
 	
-	public static void pandastep(String s, String s2) {
+	public static void pandastep(String panda, String direction) {
 		Panda p1 = null;
 		for(int i = 0; i < pandas.size(); i++) {
-			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
+			if(panda.equals(pandas.get(i).name)) p1 = pandas.get(i);
 		}
 		if(p1!=null) {
-			p1.Move(Direction.valueOf(s2));
+			p1.Move(Direction.valueOf(direction));
 		}
 	}
 	
-	public static void beep(String s) {
+	public static void beep(String name) {
 		vm.beep();
 	}
 	
-	public static void jingle(String s) {
+	public static void jingle(String name) {
 		sm.jingle();
 	}
 	
-	public static void stat(String s) {
+	public static void stat(String name) {
 		Panda p1 = null;
 		Thing t = null;
 		Orangutan o1 = null;
 		Tile ti = null;
 		for(int i = 0; i < pandas.size(); i++) {
-			if(s.equals(pandas.get(i).name)){
+			if(name.equals(pandas.get(i).name)){
 				p1 = pandas.get(i);
 				out.addAll(p1.stat());
-				return;
+				//return;
 			}
 		}
 		
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(s.equals(orangutans.get(i).name)){ 
+			if(name.equals(orangutans.get(i).name)){ 
 				o1 = orangutans.get(i);
 				out.addAll(o1.stat());
-				return;
+				//return;
 			}
 		}
 		
 		for(int i = 0; i < things.size(); i++) {
-			if(s.equals(things.get(i).name)){ 
+			if(name.equals(things.get(i).name)){ 
 				t = things.get(i);
 				out.addAll(t.stat());
-				return;
+				//return;
 			}
 		}
 		
 		 for (int i = 0; i < map.tiles.length; i++) {
 			for (int j = 0; j < map.tiles[i].length; j++) {
-				if(s.equals(map.tiles[i][j].name)){
+				if(name.equals(map.tiles[i][j].name)){
 					ti = map.tiles[i][j];
 					out.addAll(ti.stat());
-					return;
+					//return;
 				}
 			}
 		}
@@ -155,54 +170,54 @@ public class Test {
 		
 	}
 	
-	public static void setbehind(String s, String s2) {
+	public static void setbehind(String animal1, String animal2) {
 		Orangutan o1 = null;
 		Panda p1 = null;
 		Panda p2 = null;
 		for(int i = 0; i < pandas.size(); i++) {
-			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
-			if(s2. equals(pandas.get(i).name)) p2 = pandas.get(i);
+			if(animal1.equals(pandas.get(i).name)) p1 = pandas.get(i);
+			if(animal2. equals(pandas.get(i).name)) p2 = pandas.get(i);
 		}
 		
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(animal1.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
-		// orángután mögé kerül a panda
+		// orangutan moge kerul a panda
 		if(o1 != null && p1 == null && p2 != null){
 			o1.setBehind(p2);
-		// panda mögé kerül a panda
+		// panda moge kerul a panda
 		} else if(o1 == null && p1 != null && p2 != null){
 			p1.setBehind(p2);
 		}
 	}
 	
-	public static void setahead(String s, String s2) {
+	public static void setahead(String animal1, String animal2) {
 		Panda p1 = null;
 		Panda p2 = null;
 		Orangutan o1 = null;
 		for(int i = 0; i < pandas.size(); i++) {
-			if(s.equals(pandas.get(i).name)) p1 = pandas.get(i);
-			if(s2. equals(pandas.get(i).name)) p2 = pandas.get(i);
+			if(animal1.equals(pandas.get(i).name)) p1 = pandas.get(i);
+			if(animal2. equals(pandas.get(i).name)) p2 = pandas.get(i);
 		}
 		
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(animal1.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
-		// orángutánt állít be maga elé a panda
+		// a panda orangutant allit be maga ele
 		if(p1 != null && p2 == null && o1 != null){
 			p1.setAhead(o1);
-		// pandát állít be maga elé a panda
+		// pandat allit be maga ele a panda
 		} else if(p1 != null && p2 != null && o1 == null){
 			p1.setAhead(p2);
 		}
 	}
 	
-	public static void releasepandas(String s) {
+	public static void releasepandas(String name) {
 		Orangutan o1 = null;
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(name.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
 		if(o1 != null){
@@ -234,10 +249,10 @@ public class Test {
 		ar.check();
 	}
 	
-	public static void setstunned(String s, int a) {
+	public static void setstunned(String name, int a) {
 		Orangutan o1 = null;
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(s.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(name.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
 		if(o1 != null){
@@ -262,9 +277,12 @@ public class Test {
 		if(exp != null) {
 			int i=0;
 			while (exp.hasNext()) {
-				if(i>=out.size()) return false;
+				if(i>=out.size()) { 
+					System.out.println("A kimeneti stringnek nincs tobb sora, most kene: " + exp.nextLine());
+					return false;
+				}
 				String line = exp.nextLine();
-				System.out.print("comparing: "+out.get(i)+" and "+line);
+				System.out.println("comparing: "+out.get(i)+" and "+line);
 				if(!line.equals(out.get(i++))) return false;
 			}
 			System.out.println(" Sikeres teszt ");
