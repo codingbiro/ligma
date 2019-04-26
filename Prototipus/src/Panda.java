@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 public class Panda extends Animal{
-
+	
+	// most csak adtam egy random értéket
+	private int naptime=0;
+	
 	public Panda(String s) {
 		super(s);
 		// TODO Auto-generated constructor stub
@@ -134,6 +137,7 @@ public class Panda extends Animal{
 		out.add("tile: " + ((this.t1 == null) ? "null" : this.t1.name));
 		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
 		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
+		out.add("naptime: " + naptime);
 		return out;
 	}
 }
