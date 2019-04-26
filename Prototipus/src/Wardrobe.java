@@ -11,7 +11,7 @@ public class Wardrobe extends Thing{
 	
 	
 	public boolean Ward() {
-		return true;
+		return false;
 	}
 
 	public boolean hitBy(Orangutan a) {
