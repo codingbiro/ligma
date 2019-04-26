@@ -225,32 +225,43 @@ public class Test {
 		}
 	}
 	
-	public static void setweaktile(String s, int a, int b) {
+	public static void setweaktile(String name, int a, int b) {
+		map.tiles[a][b] = wt;
+		WeakTile wt = new WeakTile(name);
 		map.tiles[a][b] = wt;
 	}
 	
-	public static void setvendingmachine(String s, int a, int b) {
+	public static void setvendingmachine(String name, int a, int b) {
+		VendingMachine vm = new VendingMachine(name);
 		things.add(vm);
 		map.tiles[a][b].setThing(vm);
 	}
 	
-	public static void setslotmachine(String s, int a, int b) {
+	public static void setslotmachine(String name, int a, int b) {
+		SlotMachine sm = new SlotMachine(name);
 		things.add(sm);
 		map.tiles[a][b].setThing(sm);
 	}
 	
-	public static void setwardrobe(String s, int a, int b) {
+	public static void setwardrobe(String name, int a, int b) {
+		Wardrobe w = new Wardrobe(name);
 		things.add(w);
 		map.tiles[a][b].setThing(w);
 	}
 	
-	public static void setarmchair(String s, int a, int b) {
+	public static void setarmchair(String name, int a, int b) {
+		Armchair ar = new Armchair(name);
 		things.add(ar);
 		map.tiles[a][b].setThing(ar);
 	}
 	
-	public static void check(String s) {
-		ar.check();
+	public static void check(String name) {
+		for(int i = 0; i < things.size(); i++) {
+			if(name.equals(things.get(i).name)){ 
+				Armchair ar = things.get(i);
+				ar.check();
+			}
+		}
 	}
 	
 	public static void setstunned(String name, int a) {

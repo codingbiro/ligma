@@ -34,20 +34,8 @@ public class Tile {
 		a=a2;
 	}
 	
-	public void setAnimal(Animal a2, boolean st) {
-		if(a2!=null) a2.setTile(this, true);
-		a=a2;
-	}
-	
 	public void setThing(Thing t) {
 		if(t != null) t.setTile(this);
-		th = t;
-	}
-	
-	public void setThing(Thing t, boolean st) {		
-		if(t != null) {			
-			t.setTile(this, true);
-		}
 		th = t;
 	}
 
