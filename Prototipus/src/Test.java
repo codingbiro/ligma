@@ -130,7 +130,7 @@ public class Test {
 			if(name.equals(pandas.get(i).name)){
 				p1 = pandas.get(i);
 				out.addAll(p1.stat());
-				//return;
+				return;
 			}
 		}
 		
@@ -138,7 +138,7 @@ public class Test {
 			if(name.equals(orangutans.get(i).name)){ 
 				o1 = orangutans.get(i);
 				out.addAll(o1.stat());
-				//return;
+				return;
 			}
 		}
 		
@@ -146,7 +146,7 @@ public class Test {
 			if(name.equals(things.get(i).name)){ 
 				t = things.get(i);
 				out.addAll(t.stat());
-				//return;
+				return;
 			}
 		}
 		
@@ -155,7 +155,7 @@ public class Test {
 				if(name.equals(map.tiles[i][j].name)){
 					ti = map.tiles[i][j];
 					out.addAll(ti.stat());
-					//return;
+					return;
 				}
 			}
 		}
@@ -230,18 +230,22 @@ public class Test {
 	}
 	
 	public static void setvendingmachine(String s, int a, int b) {
+		things.add(vm);
 		map.tiles[a][b].setThing(vm);
 	}
 	
 	public static void setslotmachine(String s, int a, int b) {
+		things.add(sm);
 		map.tiles[a][b].setThing(sm);
 	}
 	
 	public static void setwardrobe(String s, int a, int b) {
+		things.add(w);
 		map.tiles[a][b].setThing(w);
 	}
 	
 	public static void setarmchair(String s, int a, int b) {
+		things.add(ar);
 		map.tiles[a][b].setThing(ar);
 	}
 	
@@ -265,10 +269,12 @@ public class Test {
 	}
 	
 	public static void setexit(String s, int a, int b) {
+		things.add(ex);
 		map.tiles[a][b].setThing(ex);
 	}
 	
 	public static void setentrance(String s, int a, int b) {
+		things.add(en);
 		map.tiles[a][b].setThing(en);
 	}
 
@@ -282,10 +288,10 @@ public class Test {
 					return false;
 				}
 				String line = exp.nextLine();
-				System.out.println("comparing: "+out.get(i)+" and "+line);
+				System.out.println("comparing: "+ line +" and "+ out.get(i));
 				if(!line.equals(out.get(i++))) return false;
 			}
-			System.out.println(" Sikeres teszt ");
+			System.out.println("Sikeres teszt!");
 			return true;
 		}
 		return false;
@@ -944,7 +950,7 @@ public class Test {
 				System.out.println(out.get(i));
 				i++;
 			}
-			
+			System.out.println("Az elvart es a kapott kimenet osszehasonlitasa:");
 			if(!compare(exp, out)) System.out.println("Hiba a tesztesetben");
 			exp.close();
 			
