@@ -9,6 +9,10 @@ public class Thing {
 		name=s;
 	}
 	
+	public boolean Ward() {
+		return false;
+	}
+	
 	public boolean hitBy(Panda a) {
 		return false;
 	}
