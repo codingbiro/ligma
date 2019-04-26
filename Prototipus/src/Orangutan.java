@@ -103,9 +103,7 @@ public class Orangutan extends Animal{
 		if(en!=null)
 			ten = en.getTile();
 		
-		Animal a = null;
-		if(ten!=null) {
-			a = ten.getAnimal(); ///////////////// Ez a line mi?
+		if(ten!=null) {			
 			ten.setAnimal(this);
 		}
 	}
