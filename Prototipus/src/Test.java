@@ -242,7 +242,16 @@ public class Test {
 		if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
 		if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
 		if(i<maxmapx-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
-		if(j<maxmapy-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);			
+		if(j<maxmapy-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);
+		for(i=0;i<maxmapx;i++) {
+			for(j=0;j<maxmapy;j++) {				
+				if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
+				if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
+				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
+				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);
+				
+			}
+		}
 		
 	}
 	
