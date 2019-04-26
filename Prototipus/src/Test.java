@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
-	
+	int maxmapy; //makemap a b-bol b merete
+	int maxmapx; //makemap a b-bol a merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
@@ -47,6 +48,8 @@ public class Test {
 	}
 	
 	public static void makemap(int a, int b) {
+		maxmapy = b;
+		maxmapx = a;
 		map=new Map(a,b);
 		for(int i=0;i<a;i++) {
 			for(int j=0;j<b;j++) {
@@ -231,10 +234,16 @@ public class Test {
 		}
 	}
 	
-	public static void setweaktile(String name, int a, int b) {
-		map.tiles[a][b] = wt;
+	public static void setweaktile(String name, int a, int b) {		
 		WeakTile wt = new WeakTile(name);
 		map.tiles[a][b] = wt;
+		int i = a;
+		int j = b;
+		if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
+		if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
+		if(i<maxmapx-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
+		if(j<maxmapy-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);			
+		
 	}
 	
 	public static void setvendingmachine(String name, int a, int b) {
