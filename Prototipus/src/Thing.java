@@ -10,7 +10,7 @@ public class Thing {
 	}
 	
 	public boolean Ward() {
-		return false;
+		return true;
 	}
 	
 	public boolean hitBy(Panda a) {
