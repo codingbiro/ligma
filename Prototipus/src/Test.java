@@ -89,6 +89,12 @@ public class Test {
 		}	*/
 	}
 	
+	public static void settired(String name, int a, int b) {
+		TiredPanda p = new TiredPanda(name);
+		pandas.add(p);
+		map.tiles[a][b].setAnimal(p);
+	}
+	
 	public static void step(String animal1, String direction) {
 		Orangutan o1=null;
 		for(int i=0;i<orangutans.size();i++) {
@@ -447,6 +453,10 @@ public class Test {
     			case "setpanda":
     				parameters = parts[2].split("_");
     				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+			case "settired":
+    				parameters = parts[2].split("_");
+    				settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
     			case "step":
     				step(parts[1], parts[2]);
@@ -947,6 +957,10 @@ public class Test {
         				parameters = parts[2].split("_");
         				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+				case "settired":
+    					parameters = parts[2].split("_");
+    					settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    				break;
         			case "step":
         				step(parts[1], parts[2]);
         			break;
