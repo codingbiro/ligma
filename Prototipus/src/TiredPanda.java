@@ -13,6 +13,7 @@ public class TiredPanda extends Panda{
 		}
 		t1.setAnimal(null);
 		tar.setAnimal(this);
+		naptime = 5;
 	}
 
 	public void reduceTime() {
