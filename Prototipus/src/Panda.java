@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Panda extends Animal{
 	
-	// most csak adtam egy random értéket
+	// mivel az expectedeknel valaki valamikor igy talalta ki, a naptime ide kerul, mert nem csak tired pandaknal volt kimenet - tetszes szerint valtoztathato
 	protected int naptime=0;
 	
 	public Panda(String s) {
