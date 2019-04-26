@@ -23,13 +23,15 @@ public class WeakTile extends Tile {
 		
 	}
 	
-	public void setAnimal(Panda a) {		
+		public void setAnimal(Panda a) {		
 		if(a!=null && life != 0) {
 			decreaseLife();
+			a.setTile(this);
+			this.a=a;
 		}
 		
 		if(life == 0)
-			a.die();
+			a.die();	
 	}
 	
 	public void setThing(Thing t) {
