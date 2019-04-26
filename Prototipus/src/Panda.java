@@ -13,6 +13,7 @@ public class Panda extends Animal{
 	public void Move(Direction d) {
 		boolean b1=true;
 		boolean b2=true;
+		boolean wardrobex=true; //wardrobe eseten tuti nem kell belemenni az utolso agba
 		// A szomszédos mezõ lekérése
 		Tile t2 = null;
 		if(t1!=null)
@@ -40,10 +41,11 @@ public class Panda extends Animal{
 					if(th!=null) {
 						// Ha csak tárgy van
 						b2=th.hitBy(this);
+						wardrobex=th.Ward();
 					}
 				}
 				
-				if(b1&&b2) {
+				if(b1&&b2&&wardrobex) {
 					t1.setAnimal(null);
 					if(behind!=null) {
 						if(a2!=null) {
