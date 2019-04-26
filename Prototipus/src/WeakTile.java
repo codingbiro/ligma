@@ -11,7 +11,19 @@ public class WeakTile extends Tile {
 		life--;
 	}
 	
-	public void setAnimal(Animal a) {
+	public void setAnimal(Orangutan a) {		
+		if(a!=null && life != 0) {
+			decreaseLife();
+			a.setTile(this);
+			this.a=a;
+		}
+		
+		if(life == 0)
+			a.die();	
+		
+	}
+	
+	public void setAnimal(Panda a) {		
 		if(a!=null && life != 0) {
 			decreaseLife();
 		}
