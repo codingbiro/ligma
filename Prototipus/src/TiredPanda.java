@@ -2,9 +2,6 @@ import java.util.ArrayList;
 
 public class TiredPanda extends Panda{
 	
-	// most csak adtam egy random értéket
-	private int naptime=3;
-
 	public TiredPanda(String s) {
 		super(s);
 		// TODO Auto-generated constructor stub
