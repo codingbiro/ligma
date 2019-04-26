@@ -8,6 +8,11 @@ public class Wardrobe extends Thing{
 		super(s);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public boolean Ward() {
+		return true;
+	}
 
 	public boolean hitBy(Orangutan a) {
 		Tile t2 = null;
