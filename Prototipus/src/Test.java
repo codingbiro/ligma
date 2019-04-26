@@ -243,10 +243,12 @@ public class Test {
 		map.tiles[a][b].setThing(sm);
 	}
 	
-	public static void setwardrobe(String name, int a, int b) {
+	public static void setwardrobe(String name, int a, int b, int c, int d) {
 		Wardrobe w = new Wardrobe(name);
 		things.add(w);
 		map.tiles[a][b].setThing(w);
+		
+		if(c!=-1) w.w2 = (Wardrobe)map.tiles[c][d].getThing();
 	}
 	
 	public static void setarmchair(String name, int a, int b) {
@@ -371,6 +373,7 @@ public class Test {
         	String[] parts = cmd.split(" ");
         	Scanner in = null;
         	String[] parameters = null;
+		String[] parameters2 = null;
         	switch(parts[0]) {
 	        	case "loadcommands": 
 	        		loadcommands(parts[1]);
@@ -408,9 +411,14 @@ public class Test {
     				setslotmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
     			case "setwardrobe":
-    				parameters = parts[2].split("_");
-    				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
-    			break;
+        				parameters = parts[2].split("_");
+        				if(parts.length > 3) parameters2 = parts[3].split("_");
+        				else {
+        					String partsx = "t_-1_-1";
+        					parameters2 = partsx.split("_");
+        				}
+        				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]), Integer.parseInt(parameters2[1]), Integer.parseInt(parameters2[2]));
+        			break;
     			case "setarmchair":
     				parameters = parts[2].split("_");
     				setarmchair(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
@@ -875,6 +883,7 @@ public class Test {
 				String line = in.nextLine();
 				String[] parts = line.split(" ");
 				String[] parameters = null;
+				String[] parameters2 = null;
     		    switch(parts[0]) {
         			case "makemap": 
         				makemap(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
@@ -902,7 +911,12 @@ public class Test {
         			break;
         			case "setwardrobe":
         				parameters = parts[2].split("_");
-        				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        				if(parts.length > 3) parameters2 = parts[3].split("_");
+        				else {
+        					String partsx = "t_-1_-1";
+        					parameters2 = partsx.split("_");
+        				}
+        				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]), Integer.parseInt(parameters2[1]), Integer.parseInt(parameters2[2]));
         			break;
         			case "setarmchair":
         				parameters = parts[2].split("_");
