@@ -11,7 +11,8 @@ public class TiredPanda extends Panda{
 		if(inLine()) {
 			breakLine();
 		}
-		t1.setAnimal(null);
+		Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
+		t1.setAnimal(anull);
 		tar.setAnimal(this);
 		naptime = 5;
 	}
