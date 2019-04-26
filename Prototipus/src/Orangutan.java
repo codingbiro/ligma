@@ -45,8 +45,9 @@ public class Orangutan extends Animal{
 				}
 				
 				if(b1&&b2) {
+					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(t1!=null)
-						t1.setAnimal(null);
+						t1.setAnimal(anull);
 					if(behind!=null) {						
 						if(a2!=null) {							
 							a2.caughtBy(this);
@@ -67,7 +68,8 @@ public class Orangutan extends Animal{
 			}
 		}
 		else if(b){
-			t1.setAnimal(null);
+			Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
+			t1.setAnimal(anull);
 			if(behind!=null) {
 				Direction d2=behind.getDirection(t1);
 				behind.Move(d2);
