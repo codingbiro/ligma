@@ -189,12 +189,12 @@ public class Test {
 		}
 		
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(animal1.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(animal1.equals(orangutans.get(i).name)) {o1 = orangutans.get(i);}
 		}
 		
 		// orangutan moge kerul a panda
-		if(o1 != null && p1 == null && p2 != null){
-			o1.setBehind(p2);
+		if(o1 != null && p1 == null){
+			o1.setBehind(p1);
 		// panda moge kerul a panda
 		} else if(o1 == null && p1 != null && p2 != null){
 			p1.setBehind(p2);
@@ -211,16 +211,16 @@ public class Test {
 		}
 		
 		for(int i = 0; i < orangutans.size(); i++) {
-			if(animal1.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
+			if(animal2.equals(orangutans.get(i).name)) o1 = orangutans.get(i);
 		}
 		
 		// a panda orangutant allit be maga ele
-		if(p1 != null && p2 == null && o1 != null){
+		if(p1 != null && o1 != null){
 			p1.setAhead(o1);
 		// pandat allit be maga ele a panda
 		} else if(p1 != null && p2 != null && o1 == null){
 			p1.setAhead(p2);
-		}
+		} else System.out.println("Test::setahead nem definialt agan vagy - check source code");
 	}
 	
 	public static void releasepandas(String name) {
