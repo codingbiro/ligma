@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
-	int maxmapy; //makemap a b-bol b merete
-	int maxmapx; //makemap a b-bol a merete
+	static int maxmapy; //makemap a b-bol b merete
+	static int maxmapx; //makemap a b-bol a merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
