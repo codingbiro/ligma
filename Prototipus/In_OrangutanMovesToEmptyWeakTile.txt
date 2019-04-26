@@ -1,6 +1,6 @@
 makemap 4 4
-setweaktile w1 t_1_1
+setweaktile w1 t_0_1
 setorangutan o1 t_1_1
-step o1 LEFT
+step o1 UP
 stat w1
 stat o1
