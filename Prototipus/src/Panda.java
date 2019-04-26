@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Panda extends Animal{
 	
 	// most csak adtam egy random értéket
-	private int naptime=0;
+	protected int naptime=0;
 	
 	public Panda(String s) {
 		super(s);
