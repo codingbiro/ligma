@@ -6,4 +6,4 @@ setbehind o2 p1
 setahead p1 o2
 step o1 LEFT
 stat o1
-stat p1
+stat p1
