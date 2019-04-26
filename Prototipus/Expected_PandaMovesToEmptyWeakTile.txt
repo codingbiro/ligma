@@ -1,8 +1,9 @@
-neighbour_up: t_0_1
-neighbour_down: t_2_1
-neighbour_left: t_1_0
-neighbour_right: t_1_2
+neighbour_up: null
+neighbour_down: t_1_1
+neighbour_left: t_0_0
+neighbour_right: t_0_2
 life: 19
-tile: t_1_0
+tile: w1
 behind: null
-ahead: null
+ahead: null
+naptime: 0
