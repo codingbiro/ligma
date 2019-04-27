@@ -8,7 +8,7 @@ public class AfraidPanda extends Panda{
 	}
 	
 	// Ha csilingelést hall megijed és elszakítja a láncot
-	public void hearJingle() {
+	public void hearJingle() {		
 		breakLine();
 	}
 

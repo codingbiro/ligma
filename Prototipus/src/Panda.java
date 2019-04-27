@@ -119,6 +119,8 @@ public class Panda extends Animal{
 	}
 	
 	public void breakLine() {
+		Animal aa = getAhead();
+		if(aa!=null) aa.behind = null;
 		setAhead(null);
 		Panda pb = getBehind();
 		if(pb!=null) {
