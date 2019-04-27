@@ -16,8 +16,8 @@ public class Orangutan extends Animal{
 		
 		// A szomszédos mezõ lekérése
 		Tile t2 = null;
-		if(t1!=null)
-			t2=t1.getNeighbour(d);
+		if(tile!=null)
+			t2=tile.getNeighbour(d);
 		boolean b=inLine();
 		
 		if(!b) {
@@ -46,14 +46,14 @@ public class Orangutan extends Animal{
 				
 				if(b1&&b2) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
-					if(t1!=null)
-						t1.setAnimal(anull);
+					if(tile!=null)
+						tile.setAnimal(anull);
 					if(behind!=null) {						
 						if(a2!=null) {							
 							a2.caughtBy(this);
 						}
 						else if(a2==null){
-							Direction d2=behind.getDirection(t1);
+							Direction d2=behind.getDirection(tile);
 							behind.Move(d2);
 						}
 					}
@@ -69,9 +69,9 @@ public class Orangutan extends Animal{
 		}
 		else if(b){
 			Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
-			t1.setAnimal(anull);
+			tile.setAnimal(anull);
 			if(behind!=null) {
-				Direction d2=behind.getDirection(t1);
+				Direction d2=behind.getDirection(tile);
 				behind.Move(d2);
 			}
 			t2.setAnimal(this);
@@ -108,7 +108,7 @@ public class Orangutan extends Animal{
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((t1 == null) ? "null" : this.t1.name));
+		out.add("tile: " + ((tile == null) ? "null" : this.tile.name));
 		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
 		out.add("stunned: " + stunned);
 		return out;

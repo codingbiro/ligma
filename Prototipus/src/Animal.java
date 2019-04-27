@@ -3,7 +3,7 @@
 public abstract class Animal {
 	// Az állatok állnak valamilyen mezõn, állhatnak a sorban elõttük és utánuk
 	String name;
-	Tile t1;
+	Tile tile;
 	Panda behind;
 	Animal ahead;
 	
@@ -28,11 +28,11 @@ public abstract class Animal {
 	}
 	
 	public void setTile(Tile t) {
-		t1=t;
+		tile=t;
 	}
 	public void setTile(Tile t, boolean tt) {
 		
-		t1=t;
+		tile=t;
 	}
 	
 	public Panda getBehind() {
@@ -56,7 +56,7 @@ public abstract class Animal {
 	}
 	
 	public Tile getTile() {
-		return t1;
+		return tile;
 	}
 	
 	public void Exhaust(Tile t) {

@@ -5,10 +5,10 @@ setpanda p1 t_0_2
 setpanda p2 t_0_3
 setbehind o2 p1
 setahead p1 o2
-setbehind p1 o2
+setbehind p1 p2
 setahead p2 p1
 setstunned o1 3
-step o1 LEFT
+step o1 UP
 stat o1
 stat o2
 stat p1

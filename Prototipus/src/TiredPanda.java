@@ -12,7 +12,7 @@ public class TiredPanda extends Panda{
 			breakLine();
 		}
 		Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
-		t1.setAnimal(anull);
+		tile.setAnimal(anull);
 		tar.setAnimal(this);
 		naptime = 5;
 	}
@@ -23,7 +23,7 @@ public class TiredPanda extends Panda{
 	
 	public ArrayList<String> stat() {
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.t1 == null) ? "null" : this.t1.name));
+		out.add("tile: " + ((this.tile == null) ? "null" : this.tile.name));
 		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
 		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
 		out.add("naptime: " + this.naptime);

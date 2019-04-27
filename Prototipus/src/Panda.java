@@ -16,8 +16,8 @@ public class Panda extends Animal{
 		boolean wardrobex=true; //wardrobe eseten tuti nem kell belemenni az utolso agba
 		// A szomszedos mezo lekerese
 		Tile t2 = null;
-		if(t1!=null)
-		t2=t1.getNeighbour(d);
+		if(tile!=null)
+		t2=tile.getNeighbour(d);
 		boolean b=inLine();
 		
 		
@@ -47,13 +47,13 @@ public class Panda extends Animal{
 				
 				if(b1&&b2&&wardrobex) {
 					Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
-					t1.setAnimal(anull);
+					tile.setAnimal(anull);
 					if(behind!=null) {
 						if(a2!=null) {
 							a2.caughtBy(this);
 						}
 						else if(a2==null){
-							Direction d2=behind.getDirection(t1);
+							Direction d2=behind.getDirection(tile);
 							behind.Move(d2);
 						}
 					}
@@ -63,9 +63,9 @@ public class Panda extends Animal{
 		}
 		else if(b){
 			Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
-			t1.setAnimal(anull);
+			tile.setAnimal(anull);
 			if(behind!=null) {
-				Direction d2=behind.getDirection(t1);
+				Direction d2=behind.getDirection(tile);
 				behind.Move(d2);
 			}
 			t2.setAnimal(this);
@@ -75,8 +75,8 @@ public class Panda extends Animal{
 	public Direction getDirection(Tile t) {
 		for(Direction d:Direction.values()) {
 			Tile t2 = null;
-			if(t1 != null && t!=null) {
-			t2=t1.getNeighbour(d);
+			if(tile != null && t!=null) {
+			t2=tile.getNeighbour(d);
 			if(t2!=null) {
 			if(t2.equals(t)) {
 				return d;
@@ -132,13 +132,13 @@ public class Panda extends Animal{
 		if(pb!=null) {
 			pb.breakLine();
 		}
-		
+		tile = null;
 	}
 
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.t1 == null) ? "null" : this.t1.name));
+		out.add("tile: " + ((this.tile == null) ? "null" : this.tile.name));
 		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
 		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
 		out.add("naptime: " + naptime);

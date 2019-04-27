@@ -11,6 +11,6 @@ public class JumperPanda extends Panda{
 	}
 	
 	public void jump() {
-		t1.setAnimal(this);
+		tile.setAnimal(this);
 	}
 }
