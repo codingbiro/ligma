@@ -18,10 +18,9 @@ public class Panda extends Animal{
 		Tile t2 = null;
 		if(tile!=null)
 		t2=tile.getNeighbour(d);
-		boolean b=inLine();
 		
 		
-		if(!b) {
+		if(!inLine()) {
 			if(t2!=null) {				
 				// HA nem all elotte senki és van a valasztott iranyban szomszedos mezo,akkor elkeri az azon allo thinget es animalt
 				Animal a2=t2.getAnimal();
@@ -61,7 +60,7 @@ public class Panda extends Animal{
 				}
 			}
 		}
-		else if(b){			
+		else if(inLine()){			
 			Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
 			tile.setAnimal(anull);
 			if(behind!=null) {				
