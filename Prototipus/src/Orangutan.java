@@ -91,7 +91,7 @@ public class Orangutan extends Animal{
 	
 	public boolean hitBy(Orangutan o) {
 		Panda pb1 = o.getBehind();
-		if(pb1 == null && this.behind != null) {
+		if(pb1 == null && this.behind != null && o.stunned == 0) {
 			behind.setAhead(o);
 			o.setBehind(behind);
 			behind = null;
