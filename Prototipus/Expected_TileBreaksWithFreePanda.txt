@@ -6,3 +6,4 @@ life: 0
 tile: null
 behind: null
 ahead: null
+naptime: 0
