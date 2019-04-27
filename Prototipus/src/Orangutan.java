@@ -96,10 +96,7 @@ public class Orangutan extends Animal{
 	}
 
 	public void die() {
-		Panda pb = getBehind();
-		if(pb!=null)
-			pb.breakLine();
-				
+		breakLine();			
 		if(g!=null) {
 			g.decreasePoints();
 			Entrance en = g.getEntrance();

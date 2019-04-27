@@ -101,10 +101,6 @@ public class Panda extends Animal{
 		ahead= a;
 	}
 	
-	public void setAhead(Animal a, boolean set) {
-		ahead= a;
-	}
-	
 	public Animal getAhead() {
 		return ahead;
 	}
@@ -119,10 +115,12 @@ public class Panda extends Animal{
 	}
 	
 	public void breakLine() {
+		ahead.setBehind(null);
 		setAhead(null);
 		Panda pb = getBehind();
 		if(pb!=null) {
 			pb.breakLine();
+			setBehind(null);
 		}
 	}
 	
@@ -139,10 +137,7 @@ public class Panda extends Animal{
 	}
 	
 	public void die() {
-		Panda pb = getBehind();
-		if(pb!=null) {
-			pb.breakLine();
-		}
+		breakLine();
 		tile = null;
 	}
 
