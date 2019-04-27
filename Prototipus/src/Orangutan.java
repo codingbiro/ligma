@@ -10,7 +10,11 @@ public class Orangutan extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void Move(Direction d) {
+	public boolean inLine() {
+		return behind!=null;
+	} 
+	
+	public void Move(Direction d) {		
 		boolean b1=true;
 		boolean b2=true;
 		
@@ -19,9 +23,11 @@ public class Orangutan extends Animal{
 		if(tile!=null)
 			t2=tile.getNeighbour(d);
 		boolean b=inLine();
+		boolean wardrobex=true; //Exit es Wardrobe eseten visszarakna a program algoritmusa a moveolt helyre (pair-ra vagy Entrancera)		
 		
 		if(!b) {
 			if(t2!=null) {
+				
 				// Ha nem áll elõtte senki és van a választott irányban szomszédos mezõ akkor elkéri az azon álló dolgot és állatot
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
@@ -38,13 +44,14 @@ public class Orangutan extends Animal{
 				}
 				
 				else if(a2==null){
-					if(th!=null) {
+					if(th!=null) {						
 						// Ha csak tárgy van
 						b2=th.hitBy(this);
+						wardrobex=th.Ward();
 					}
 				}
 				
-				if(b1&&b2) {
+				if(b1&&b2&&wardrobex) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(tile!=null)
 						tile.setAnimal(anull);
@@ -67,13 +74,14 @@ public class Orangutan extends Animal{
 				}
 			}
 		}
-		else if(b){
+		else if(b){			
 			Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 			tile.setAnimal(anull);
 			if(behind!=null) {
 				Direction d2=behind.getDirection(tile);
 				behind.Move(d2);
 			}
+			if(t2!=null)
 			t2.setAnimal(this);
 		}
 		

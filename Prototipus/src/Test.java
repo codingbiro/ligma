@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Test {
+public class Test {	
 	static int maxmapy; //makemap (a b)-bol 'b' merete
 	static int maxmapx; //makemap (a b)-bol 'a' merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
@@ -201,8 +201,8 @@ public class Test {
 		}
 		
 		// orangutan moge kerul a panda
-		if(o1 != null && p1 == null){
-			o1.setBehind(p1);
+		if(o1 != null && p2 != null){			
+			o1.setBehind(p2);
 		// panda moge kerul a panda
 		} else if(o1 == null && p1 != null && p2 != null){
 			p1.setBehind(p2);

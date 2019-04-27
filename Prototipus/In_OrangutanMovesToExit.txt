@@ -1,8 +1,8 @@
 makemap 4 4
-setorangutan p1 t_1_1
+setorangutan o1 t_1_1
 setexit ex t_0_1
 setentrance e t_3_2
-step o1 LEFT
+step o1 UP
 stat o1
 stat ex
 stat e

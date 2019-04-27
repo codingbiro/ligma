@@ -30,7 +30,7 @@ public class Thing {
 	public void setTile(Tile _t, boolean ts) {	
 		t = _t;
 	}
-
+	
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();

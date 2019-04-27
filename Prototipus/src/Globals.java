@@ -1,5 +1,3 @@
-/*
-public class Globals {
-	public static int tab = 0;
+class Globals{
+	public static GameController g = new GameController("g");
 }
-*/
