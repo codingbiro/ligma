@@ -16,7 +16,7 @@ public class Exit extends Thing{
 		}
 	}
 	
-	public boolean Exx() {
+	public boolean Ward() {
 		return false;
 	}
 	

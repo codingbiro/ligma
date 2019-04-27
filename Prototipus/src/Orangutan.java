@@ -23,7 +23,7 @@ public class Orangutan extends Animal{
 		if(t1!=null)
 			t2=t1.getNeighbour(d);
 		boolean b=inLine();
-		boolean exit=true;
+		boolean wardrobex=true; //Exit es Wardrobe eseten visszarakna a program algoritmusa a moveolt helyre (pair-ra vagy Entrancera)		
 		
 		if(!b) {
 			if(t2!=null) {
@@ -47,11 +47,11 @@ public class Orangutan extends Animal{
 					if(th!=null) {						
 						// Ha csak tárgy van
 						b2=th.hitBy(this);
-						exit=th.Exx();
+						wardrobex=th.Ward();
 					}
 				}
 				
-				if(b1&&b2&&exit) {
+				if(b1&&b2&&wardrobex) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(t1!=null)
 						t1.setAnimal(anull);
