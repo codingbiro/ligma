@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Test {
+public class Test {	
 	static int maxmapy; //makemap (a b)-bol 'b' merete
 	static int maxmapx; //makemap (a b)-bol 'a' merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
@@ -322,6 +322,7 @@ public class Test {
 	
 	public static void setentrance(String name, int a, int b) {
 		Entrance en = new Entrance(name);
+		Globals.g.e=en;
 		things.add(en);
 		map.tiles[a][b].setThing(en);
 	}

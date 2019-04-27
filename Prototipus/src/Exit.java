@@ -1,8 +1,5 @@
 
 public class Exit extends Thing{
-
-	//Szkeleton
-	GameController g;
 	
 	public Exit(String s) {
 		super(s);
@@ -14,15 +11,19 @@ public class Exit extends Thing{
 			return false;
 		}
 		else {
-			g.addPoints();
+			Globals.g.addPoints();
 			return true;
 		}
 	}
 	
+	public boolean Exx() {
+		return false;
+	}
+	
 	public boolean hitBy(Orangutan o) {
 		Entrance e = null;
-		if(g!=null)
-			e = g.getEntrance();
+		if(Globals.g!=null)
+			e = Globals.g.getEntrance();
 		if(o!=null)
 			o.setBehind(null);
 		Tile t1 = null;
@@ -30,7 +31,7 @@ public class Exit extends Thing{
 			t1 = e.getTile();
 		if(t1!=null)
 			t1.setAnimal(o);
-		return false;
+		return true;
 	}
 
 }

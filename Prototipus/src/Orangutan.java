@@ -14,7 +14,7 @@ public class Orangutan extends Animal{
 		return behind!=null;
 	} 
 	
-	public void Move(Direction d) {
+	public void Move(Direction d) {		
 		boolean b1=true;
 		boolean b2=true;
 		
@@ -23,6 +23,7 @@ public class Orangutan extends Animal{
 		if(t1!=null)
 			t2=t1.getNeighbour(d);
 		boolean b=inLine();
+		boolean exit=true;
 		
 		if(!b) {
 			if(t2!=null) {
@@ -43,13 +44,14 @@ public class Orangutan extends Animal{
 				}
 				
 				else if(a2==null){
-					if(th!=null) {
+					if(th!=null) {						
 						// Ha csak tárgy van
 						b2=th.hitBy(this);
+						exit=th.Exx();
 					}
 				}
 				
-				if(b1&&b2) {
+				if(b1&&b2&&exit) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(t1!=null)
 						t1.setAnimal(anull);

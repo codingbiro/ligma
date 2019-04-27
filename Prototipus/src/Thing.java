@@ -31,6 +31,10 @@ public class Thing {
 		t = _t;
 	}
 
+	public boolean Exx() {
+		return true;
+	}
+
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
