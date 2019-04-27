@@ -280,7 +280,10 @@ public class Test {
 		things.add(w);
 		map.tiles[a][b].setThing(w);
 		
-		if(c!=-1) w.w2 = (Wardrobe)map.tiles[c][d].getThing();
+		if(c!=-1) {
+			w.w2 = (Wardrobe)map.tiles[c][d].getThing();
+			w.w2.w2 = w;
+		}
 	}
 	
 	public static void setarmchair(String name, int a, int b) {
