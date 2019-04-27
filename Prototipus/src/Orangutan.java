@@ -88,24 +88,21 @@ public class Orangutan extends Animal{
 	}
 
 	public void die() {
-		if(g!=null)
-			g.decreasePoints();
-		
 		Panda pb = getBehind();
 		if(pb!=null)
 			pb.breakLine();
-		
-		Entrance en = null;
-		if(g!=null) 
-			en = g.getEntrance();
-
-		Tile ten = null;
-		if(en!=null)
-			ten = en.getTile();
-		
-		if(ten!=null) {			
-			ten.setAnimal(this);
-		}
+				
+		if(g!=null) {
+			g.decreasePoints();
+			Entrance en = g.getEntrance();
+			Tile ten = null;
+			if(en!=null) {
+				ten = en.getTile();
+				if(ten!=null) {			
+					ten.setAnimal(this);
+				}
+			}	
+		}	
 	}
 
 	public ArrayList<String> stat() {

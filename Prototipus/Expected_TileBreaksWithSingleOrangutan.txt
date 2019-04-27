@@ -3,6 +3,7 @@ neighbour_down: null
 neighbour_left: null
 neighbour_right: null
 life: 0
-tile: null
+tile: t_3_3
+tile: t_3_3
 behind: null
 stunned: 0

@@ -13,13 +13,14 @@ public class Test {
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
 	static Map map;
+	static GameController gc=new GameController("gc");
 	/*static AfraidPanda af=new AfraidPanda("a1");
 	static JumperPanda jp=new JumperPanda("j1");
 	static TiredPanda tp=new TiredPanda("t1");
 	static Armchair ar=new Armchair("ac");
 	static Entrance en=new Entrance("e");
 	static Exit ex=new Exit("ex");
-	static GameController gc=new GameController("gc");
+	
 	
 	static SlotMachine sm=new SlotMachine("sm");
 	static VendingMachine vm=new VendingMachine("vm");
@@ -46,6 +47,10 @@ public class Test {
 		orangutans.clear();
 		things.clear();
 		out.clear();
+		gc.e = null;
+		map = null;
+		maxmapy = 0;
+		maxmapx = 0;
 	}
 	
 	public static void makemap(int a, int b) {
@@ -69,6 +74,7 @@ public class Test {
 	
 	public static void setorangutan(String name, int a, int b) {
 		Orangutan o = new Orangutan(name);
+		o.g = gc;
 		orangutans.add(o);
 		map.tiles[a][b].setAnimal(o);
 	}
@@ -322,6 +328,7 @@ public class Test {
 	
 	public static void setentrance(String name, int a, int b) {
 		Entrance en = new Entrance(name);
+		gc.e = en;
 		things.add(en);
 		map.tiles[a][b].setThing(en);
 	}
@@ -410,7 +417,7 @@ public class Test {
         	String[] parameters = null;
         	String[] parameters2 = null;
         	switch(parts[0]) {
-	        	case "loadcommands": 
+	        	case "l": 
 	        		loadcommands(parts[1]);
 				break;
 	        	case "load": 

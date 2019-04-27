@@ -18,8 +18,13 @@ public class WeakTile extends Tile {
 			this.a=a;
 		}
 		
-		if(life == 0)
-			a.die();	
+		if(life == 0) {
+			a.die();
+			for (Direction d : Direction.values()) {
+				this.setNeighbour(d, null);
+			}	
+		}
+				
 		
 	}
 	
@@ -30,8 +35,12 @@ public class WeakTile extends Tile {
 			this.a=a;
 		}
 		
-		if(life == 0)
-			a.die();	
+		if(life == 0) {
+			a.die();
+			for (Direction d : Direction.values()) {
+				this.setNeighbour(d, null);
+			}	
+		}	
 	}
 	
 	public void setThing(Thing t) {
