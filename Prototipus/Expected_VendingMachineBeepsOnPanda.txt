@@ -1,4 +1,5 @@
 tile: t_1_1
 behind: null
 ahead: null
+naptime: 0
 tile: t_0_1

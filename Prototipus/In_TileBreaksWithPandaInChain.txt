@@ -1,6 +1,6 @@
 makemap 4 4
 setweaktile t1 t_0_0
-sethealth t1 2
+setlife t1 2
 setorangutan o1 t_0_0
 setpanda p1 t_0_1
 setpanda p2 t_0_2

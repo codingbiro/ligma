@@ -7,23 +7,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
-	static int maxmapy; //makemap a b-bol b merete
-	static int maxmapx; //makemap a b-bol a merete
+	static int maxmapy; //makemap (a b)-bol 'b' merete
+	static int maxmapx; //makemap (a b)-bol 'a' merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
-	static AfraidPanda af=new AfraidPanda("a1");
+	static Map map;
+	/*static AfraidPanda af=new AfraidPanda("a1");
 	static JumperPanda jp=new JumperPanda("j1");
 	static TiredPanda tp=new TiredPanda("t1");
 	static Armchair ar=new Armchair("ac");
 	static Entrance en=new Entrance("e");
 	static Exit ex=new Exit("ex");
 	static GameController gc=new GameController("gc");
-	static Map map;
+	
 	static SlotMachine sm=new SlotMachine("sm");
 	static VendingMachine vm=new VendingMachine("vm");
 	static Wardrobe w=new Wardrobe("w");
-	static WeakTile wt=new WeakTile("wt");
+	static WeakTile wt=new WeakTile("wt");*/
 	
 	static ArrayList<String> out = new ArrayList<String>();
 	
@@ -58,17 +59,10 @@ public class Test {
 		}
 		for(int i=0;i<a;i++) {
 			for(int j=0;j<b;j++) {
-				/*
-				if(i>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i-1][j]);
-				if(j>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i][j-1]);
-				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i+1][j]);
-				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i][j+1]);
-				*/
 				if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
 				if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
 				if(i<a-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
-				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);
-				
+				if(j<b-1) map.tiles[i][j].setNeighbour(Direction.RIGHT, map.tiles[i][j+1]);			
 			}
 		}
 	}
@@ -77,25 +71,24 @@ public class Test {
 		Orangutan o = new Orangutan(name);
 		orangutans.add(o);
 		map.tiles[a][b].setAnimal(o);
-		/*
-		for(int i = 0; i < orangutans.size(); i++){
-			if(s.equals(orangutans.get(i).name)) map.tiles[a][b].setAnimal(orangutans.get(i));
-		}	*/
 	}
 	
 	public static void setpanda(String name, int a, int b) {
 		Panda p = new Panda(name);
 		pandas.add(p);
 		map.tiles[a][b].setAnimal(p);
-		/*for(int i = 0; i < pandas.size(); i++){
-			if(s.equals(pandas.get(i).name)) map.tiles[a][b].setAnimal(pandas.get(i));
-		}	*/
 	}
 	
 	public static void settired(String name, int a, int b) {
-		TiredPanda p = new TiredPanda(name);
-		pandas.add(p);
-		map.tiles[a][b].setAnimal(p);
+		TiredPanda tp = new TiredPanda(name);
+		pandas.add(tp);
+		map.tiles[a][b].setAnimal(tp);
+	}
+	
+	public static void setjumper(String name, int a, int b) {
+		JumperPanda jp = new JumperPanda(name);
+		pandas.add(jp);
+		map.tiles[a][b].setAnimal(jp);
 	}
 	
 	public static void step(String animal1, String direction) {
@@ -123,11 +116,20 @@ public class Test {
 	}
 	
 	public static void beep(String name) {
-		vm.beep();
+		for(int i = 0; i < things.size(); i++) {
+			if(name.equals(things.get(i).name)){ 
+				things.get(i).beep();
+			}
+		}
+		
 	}
 	
 	public static void jingle(String name) {
-		sm.jingle();
+		for(int i = 0; i < things.size(); i++) {
+			if(name.equals(things.get(i).name)){ 
+				things.get(i).jingle();
+			}
+		}
 	}
 	
 	public static void stat(String name) {
@@ -159,8 +161,8 @@ public class Test {
 			}
 		}
 		
-		 for (int i = 0; i < map.tiles.length; i++) {
-			for (int j = 0; j < map.tiles[i].length; j++) {
+		 for (int i = 0; i < maxmapx; i++) {
+			for (int j = 0; j < maxmapy; j++) {
 				if(name.equals(map.tiles[i][j].name)){
 					ti = map.tiles[i][j];
 					out.addAll(ti.stat());
@@ -239,6 +241,7 @@ public class Test {
 		map.tiles[a][b] = wt;
 		int i = a;
 		int j = b;
+		
 		if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
 		if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
 		if(i<maxmapx-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
@@ -301,16 +304,24 @@ public class Test {
 		}
 	}
 	
-	public static void setlife(String s, int a) {
-		wt.life = a;
+	public static void setlife(String name, int life) {
+		for(int i=0;i<maxmapx;i++) {
+			for(int j=0;j<maxmapy;j++) {				
+				if(name.equals(map.tiles[i][j].name)){
+					map.tiles[i][j].setLife(life);
+				}
+			}
+		}
 	}
 	
-	public static void setexit(String s, int a, int b) {
+	public static void setexit(String name, int a, int b) {
+		Exit ex = new Exit(name);
 		things.add(ex);
 		map.tiles[a][b].setThing(ex);
 	}
 	
-	public static void setentrance(String s, int a, int b) {
+	public static void setentrance(String name, int a, int b) {
+		Entrance en = new Entrance(name);
 		things.add(en);
 		map.tiles[a][b].setThing(en);
 	}
@@ -397,7 +408,7 @@ public class Test {
         	String[] parts = cmd.split(" ");
         	Scanner in = null;
         	String[] parameters = null;
-		String[] parameters2 = null;
+        	String[] parameters2 = null;
         	switch(parts[0]) {
 	        	case "loadcommands": 
 	        		loadcommands(parts[1]);
@@ -472,9 +483,13 @@ public class Test {
     				parameters = parts[2].split("_");
     				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
-			case "settired":
+    			case "settired":
     				parameters = parts[2].split("_");
     				settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;
+    			case "setjumper":
+    				parameters = parts[2].split("_");
+    				setjumper(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
     			case "step":
     				step(parts[1], parts[2]);
@@ -975,10 +990,14 @@ public class Test {
         				parameters = parts[2].split("_");
         				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
-				case "settired":
+        			case "settired":
     					parameters = parts[2].split("_");
     					settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     				break;
+        			case "setjumper":
+        				parameters = parts[2].split("_");
+        				setjumper(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
         			case "step":
         				step(parts[1], parts[2]);
         			break;

@@ -38,4 +38,8 @@ public class Thing {
 		return out;
 	}
 	public void check() {}
+	public void beep() {}
+	public void jingle() {}
+	
+	
 }

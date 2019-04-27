@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class WeakTile extends Tile {
-	int life = 20;
+	int life;
 	public WeakTile(String s) {
 		super(s);
-		// TODO Auto-generated constructor stub
+		life = 20;
 	}
 	
 	public void decreaseLife() {
@@ -39,6 +39,10 @@ public class WeakTile extends Tile {
 			t.setTile(this);
 		}
 		th = t;
+	}
+	
+	public void setLife(int l) {
+		life = l;
 	}
 	
 	public ArrayList<String> stat() {

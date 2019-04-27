@@ -43,6 +43,8 @@ public class Tile {
 		if(t != null) t.setTile(this);
 		th = t;
 	}
+	
+	public void setLife(int l) {}
 
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub

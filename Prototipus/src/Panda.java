@@ -14,7 +14,7 @@ public class Panda extends Animal{
 		boolean b1=true;
 		boolean b2=true;
 		boolean wardrobex=true; //wardrobe eseten tuti nem kell belemenni az utolso agba
-		// A szomszédos mezõ lekérése
+		// A szomszedos mezo lekerese
 		Tile t2 = null;
 		if(t1!=null)
 		t2=t1.getNeighbour(d);
@@ -23,23 +23,23 @@ public class Panda extends Animal{
 		
 		if(!b) {
 			if(t2!=null) {
-				// Ha nem áll elõtte senki és van a választott irányban szomszédos mezõ akkor elkéri az azon álló dolgot és állatot
+				// HA nem all elotte senki �s van a valasztott iranyban szomszedos mezo,akkor elkeri az azon allo thinget es animalt
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
 				if(a2!=null) {
 					if(th!=null) {
-						// Ha állat és dolog is van
+						// ha animal es thing is van
 						b1=a2.hitBy(this);
 						b2=th.hitBy(this);
 					}
-					// Ha csak állat van
+					// Ha csak animal van
 					else if(th==null){
 						b1=a2.hitBy(this);
 					}
 				}
 				else if(a2==null){
 					if(th!=null) {
-						// Ha csak tárgy van
+						// Ha csak targy van
 						b2=th.hitBy(this);
 						wardrobex=th.Ward();
 					}
