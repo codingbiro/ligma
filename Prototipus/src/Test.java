@@ -88,6 +88,12 @@ public class Test {
 		TiredPanda tp = new TiredPanda(name);
 		pandas.add(tp);
 		map.tiles[a][b].setAnimal(tp);
+	}	
+	
+	public static void setafraid(String name, int a, int b) {
+		AfraidPanda ap = new AfraidPanda(name);
+		pandas.add(ap);
+		map.tiles[a][b].setAnimal(ap);
 	}
 	
 	public static void setjumper(String name, int a, int b) {
@@ -495,6 +501,10 @@ public class Test {
     			case "settired":
     				parameters = parts[2].split("_");
     				settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+    			break;    			
+    			case "setafraid":
+    				parameters = parts[2].split("_");
+    				setafraid(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
     			case "setjumper":
     				parameters = parts[2].split("_");
@@ -1003,6 +1013,10 @@ public class Test {
     					parameters = parts[2].split("_");
     					settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     				break;
+        			case "setafraid":
+        				parameters = parts[2].split("_");
+        				setafraid(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
+        			break;
         			case "setjumper":
         				parameters = parts[2].split("_");
         				setjumper(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
