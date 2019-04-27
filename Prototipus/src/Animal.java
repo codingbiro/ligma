@@ -6,6 +6,7 @@ public abstract class Animal {
 	Tile tile;
 	Panda behind;
 	Animal ahead;
+	public String random;
 	
 	public Animal(String s) {
 		name = s;

@@ -97,9 +97,22 @@ public class Test {
 			o1.Move(Direction.valueOf(direction));
 		}
 	}
-	
+	//Randmoizáció beállítása
 	public static void setrandom(String animal, String random) {
-		
+		Orangutan o1=null;
+		for(int i=0;i<orangutans.size();i++) {
+			if(animal.equals(orangutans.get(i).name)) o1=orangutans.get(i);
+		}
+		if(o1!=null) {
+			o1.random = random;
+		}
+		Panda p1 = null;
+		for(int i = 0; i < pandas.size(); i++) {
+			if(animal.equals(pandas.get(i).name)) p1 = pandas.get(i);
+		}
+		if(p1!=null) {
+			p1.random = random;
+		}
 	}
 	
 	// Panda léptetése megadott irányba
@@ -177,14 +190,10 @@ public class Test {
 		}
 
 	}
-	
-	public static void load(String s) {
-		
-	}
-	
-	public static void save(String s) {
-		
-	}
+	//Allapot visszatöltése
+	public static void load(String s) {}
+	//Allapot mentese
+	public static void save(String s) {}
 	
 	// Az állat mögött álló panda beállítása
 	public static void setbehind(String animal1, String animal2) {
@@ -365,6 +374,7 @@ public class Test {
 			}
 			// Ha egyezik minden sor és nincs több sor hátra
 			System.out.println("Sikeres teszt!");
+			System.out.println("-".repeat(80));
 			return true;
 		}
 		return false;
@@ -437,7 +447,7 @@ public class Test {
         	String[] parameters2 = null;
         	// A begépelt parancstól függõen a megfelelõ függvények meghívása
         	switch(parts[0]) {
-	        	case "l": 
+	        	case "loadcommands": 
 	        		loadcommands(parts[1]);
 				break;
 	        	case "load": 
@@ -473,14 +483,14 @@ public class Test {
     				setslotmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     			break;
     			case "setwardrobe":
-        				parameters = parts[2].split("_");
-        				if(parts.length > 3) parameters2 = parts[3].split("_");
-        				else {
-        					String partsx = "t_-1_-1";
-        					parameters2 = partsx.split("_");
-        				}
-        				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]), Integer.parseInt(parameters2[1]), Integer.parseInt(parameters2[2]));
-        			break;
+    				parameters = parts[2].split("_");
+    				if(parts.length > 3) parameters2 = parts[3].split("_");
+    				else {
+    					String partsx = "t_-1_-1";
+    					parameters2 = partsx.split("_");
+    				}
+    				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]), Integer.parseInt(parameters2[1]), Integer.parseInt(parameters2[2]));
+    			break;
     			case "setarmchair":
     				parameters = parts[2].split("_");
     				setarmchair(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
@@ -545,11 +555,13 @@ public class Test {
         }
 	}
 	
-	// Az elõre elkészített bementi fájlok betöltése a begépelt sorszám alapján
+	// Az elõre elkészített bementi fájlok betöltése
 	public static void loadcommands(String cmd) {
 		Scanner in = null;
 		Scanner exp = null;
+		// Az elõre elkészített bementi fájlok betöltése a begépelt sorszám alapján
     	switch(cmd) {
+    		// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "1": 
 			try {
 				in = new Scanner(new FileReader("In_VendingMachineBeepsOnPanda.txt"));
@@ -559,6 +571,7 @@ public class Test {
 				e4.printStackTrace();
 			}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "2":
 				try {
 					in = new Scanner(new FileReader("In_VendingMachineBeepsOnOrangutan.txt"));
@@ -568,6 +581,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "3": 
 				try {
 					in = new Scanner(new FileReader("In_VendingMachineBeepsOnJumperPandaWithWeakTile.txt"));
@@ -577,6 +591,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "4": 
 				try {
 					in = new Scanner(new FileReader("In_VendingMachineBeepsOnJumperPandaWithTile.txt"));
@@ -586,6 +601,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "5": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithSingleOrangutan.txt"));
@@ -595,6 +611,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "6": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithPandaInChain.txt"));
@@ -604,6 +621,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "7": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithOrangutanWithPandaChain.txt"));
@@ -613,6 +631,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "8": 
 				try {
 					in = new Scanner(new FileReader("In_TileBreaksWithFreePanda.txt"));
@@ -622,6 +641,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "9": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesPanda.txt"));
@@ -631,6 +651,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "10": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesOrangutan.txt"));
@@ -640,6 +661,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "11": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesFreeAfraid.txt"));
@@ -649,6 +671,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "12": 
 				try {
 					in = new Scanner(new FileReader("In_SlotMachineJinglesAfraidInChain.txt"));
@@ -658,6 +681,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "13": 
 				try {
 					in = new Scanner(new FileReader("In_SingleStunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
@@ -667,6 +691,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "14": 
 				try {
 					in = new Scanner(new FileReader("In_SingleOrangutanMovesIntoSingleOrangutan.txt"));
@@ -676,6 +701,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "15": 
 				try {
 					in = new Scanner(new FileReader("In_SingleNon-StunnedOrangutanMovesIntoOrangutanWithPandaChain.txt"));
@@ -685,6 +711,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "16": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToVendingMachine.txt"));
@@ -694,6 +721,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "17": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToSlotMachine.txt"));
@@ -703,6 +731,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "18": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEntrance.txt"));
@@ -712,6 +741,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "19":
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEmptyWeakTile.txt"));
@@ -721,6 +751,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "20": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToEmptyTile.txt"));
@@ -730,6 +761,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "21": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesToArmchair.txt"));
@@ -739,6 +771,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "22": 
 				try {
 					in = new Scanner(new FileReader("In_PandaMovesIntoPanda.txt"));
@@ -748,6 +781,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "23": 
 			try {
 				in = new Scanner(new FileReader("In_PandaMovesIntoOrangutan.txt"));
@@ -757,6 +791,7 @@ public class Test {
 				e4.printStackTrace();
 			}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "24":
 				try {
 					in = new Scanner(new FileReader("In_PandaInChainMovesToWardrobe.txt"));
@@ -766,6 +801,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "25": 
 				try {
 					in = new Scanner(new FileReader("In_PandaInChainMovesToExit.txt"));
@@ -775,6 +811,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "26": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainReleasesPandas.txt"));
@@ -784,6 +821,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "27": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoSingleOrangutan.txt"));
@@ -793,6 +831,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "28": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanWithPandaChainMovesIntoOrangutanWithPandaChain.txt"));
@@ -802,6 +841,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "29": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesWithPandaChain.txt"));
@@ -811,6 +851,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "30": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToWardrobe.txt"));
@@ -820,6 +861,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "31": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToVendingMachine.txt"));
@@ -829,6 +871,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "32": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToSlotMachine.txt"));
@@ -838,6 +881,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "33": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToExit.txt"));
@@ -847,6 +891,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "34": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEntrance.txt"));
@@ -856,6 +901,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "35": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyWeakTile.txt"));
@@ -865,6 +911,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "36": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToEmptyTile.txt"));
@@ -874,6 +921,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "37": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesToArmchair.txt"));
@@ -883,6 +931,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "38": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesIntoPandaInChain.txt"));
@@ -892,6 +941,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "39": 
 				try {
 					in = new Scanner(new FileReader("In_OrangutanMovesIntoFreePanda.txt"));
@@ -901,6 +951,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "40":
 				try {
 					in = new Scanner(new FileReader("In_FreePandaMovesToWardrobe.txt"));
@@ -910,6 +961,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "41": 
 				try {
 					in = new Scanner(new FileReader("In_FreePandaMovesToExit.txt"));
@@ -919,6 +971,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "42": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksTired.txt"));
@@ -928,6 +981,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "43": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksPanda.txt"));
@@ -937,6 +991,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
+			// A sorszamhoz tartozo bemeneti es kimeneti fajlok betoltese
 			case "44": 
 				try {
 					in = new Scanner(new FileReader("In_ArmchairChecksOrangutan.txt"));
@@ -946,8 +1001,7 @@ public class Test {
 					e4.printStackTrace();
 				}
 			break;
-			
-			case "45": System.exit(0);
+			default:
 			break;
     	}
     	
@@ -960,30 +1014,38 @@ public class Test {
 				String[] parameters2 = null;
 				// A sor elsõ eleme a parancs, a többi a szükséges paraméterek
     		    switch(parts[0]) {
+					//A parancsnak megfelelõ függvény meghívása
         			case "makemap": 
         				makemap(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setbehind":
         				setbehind(parts[1], parts[2]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setahead": 
         				setahead(parts[1], parts[2]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "releasepandas":
         				releasepandas(parts[1]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setweaktile":
         				parameters = parts[2].split("_");
         				setweaktile(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setvendingmachine":
         				parameters = parts[2].split("_");
         				setvendingmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setslotmachine":
         				parameters = parts[2].split("_");
         				setslotmachine(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setwardrobe":
         				parameters = parts[2].split("_");
         				if(parts.length > 3) parameters2 = parts[3].split("_");
@@ -993,75 +1055,89 @@ public class Test {
         				}
         				setwardrobe(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]), Integer.parseInt(parameters2[1]), Integer.parseInt(parameters2[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setarmchair":
         				parameters = parts[2].split("_");
         				setarmchair(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "check":
         				check(parts[1]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setstunned":
         				setstunned(parts[1], Integer.parseInt(parts[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setlife":
         				setlife(parts[1], Integer.parseInt(parts[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setexit":
         				parameters = parts[2].split("_");
         				setexit(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setentrance":
         				parameters = parts[2].split("_");
         				setentrance(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setorangutan":
         				parameters = parts[2].split("_");
         				setorangutan(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setpanda":
         				parameters = parts[2].split("_");
         				setpanda(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "settired":
     					parameters = parts[2].split("_");
     					settired(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
     				break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setafraid":
         				parameters = parts[2].split("_");
         				setafraid(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setjumper":
         				parameters = parts[2].split("_");
         				setjumper(parts[1], Integer.parseInt(parameters[1]), Integer.parseInt(parameters[2]));
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "step":
         				step(parts[1], parts[2]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "setrandom":
         				setrandom(parts[1], parts[2]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "pandastep":
         				pandastep(parts[1], parts[2]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "beep":
         				beep(parts[1]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "jingle":
         				jingle(parts[1]);
         			break;
+    				//A parancsnak megfelelõ függvény meghívása
         			case "stat":
         				stat(parts[1]);
         			break;
+    				//Ha elirta valaki a parancsot ne tortenjen semmi
         			default: break;
     		    }
 			}
+			//scanner bezarasa
 			in.close();
 
-			int i=0;
-			while(out.size()-1>=i) {
-				System.out.println(out.get(i));
-				i++;
-			}
 			// Az összehasonlítás elvégzése
 			System.out.println("Az elvart es a kapott kimenet osszehasonlitasa:");
 			if(!compare(exp, out)) System.out.println("Hiba a tesztesetben");
