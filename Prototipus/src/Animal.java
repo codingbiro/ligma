@@ -30,23 +30,13 @@ public abstract class Animal {
 	public void setTile(Tile t) {
 		t1=t;
 	}
-	public void setTile(Tile t, boolean tt) {
-		
-		t1=t;
-	}
 	
 	public Panda getBehind() {
 		return behind;
 	}
 	
 	public void setBehind(Panda p) {
-		behind = p;
-	}
-	
-	public void setBehind(Panda p, boolean set) {
-		
-		behind = p;
-		
+		this.behind = p;		
 	}
 	
 	public void hearBeep() {

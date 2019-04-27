@@ -1,9 +1,6 @@
-tile: t_2_2
-behind: p1
-stunned: 0
 tile: t_3_2
 behind: null
 ahead: o1
 naptime: 0
 tile: t_0_1
-tile: t_3_2
+tile: t_3_2

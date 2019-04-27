@@ -195,8 +195,8 @@ public class Test {
 		}
 		
 		// orangutan moge kerul a panda
-		if(o1 != null && p1 == null){
-			o1.setBehind(p1);
+		if(o1 != null && p2 != null){			
+			o1.setBehind(p2);
 		// panda moge kerul a panda
 		} else if(o1 == null && p1 != null && p2 != null){
 			p1.setBehind(p2);

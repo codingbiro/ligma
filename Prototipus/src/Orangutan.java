@@ -10,6 +10,10 @@ public class Orangutan extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public boolean inLine() {
+		return behind!=null;
+	} 
+	
 	public void Move(Direction d) {
 		boolean b1=true;
 		boolean b2=true;
@@ -22,6 +26,7 @@ public class Orangutan extends Animal{
 		
 		if(!b) {
 			if(t2!=null) {
+				
 				// Ha nem áll elõtte senki és van a választott irányban szomszédos mezõ akkor elkéri az azon álló dolgot és állatot
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
@@ -67,13 +72,14 @@ public class Orangutan extends Animal{
 				}
 			}
 		}
-		else if(b){
+		else if(b){			
 			Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 			t1.setAnimal(anull);
 			if(behind!=null) {
 				Direction d2=behind.getDirection(t1);
 				behind.Move(d2);
 			}
+			if(t2!=null)
 			t2.setAnimal(this);
 		}
 		

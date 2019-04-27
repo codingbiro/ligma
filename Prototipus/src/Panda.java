@@ -10,7 +10,7 @@ public class Panda extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void Move(Direction d) {
+	public void Move(Direction d) {		
 		boolean b1=true;
 		boolean b2=true;
 		boolean wardrobex=true; //wardrobe eseten tuti nem kell belemenni az utolso agba
@@ -22,12 +22,12 @@ public class Panda extends Animal{
 		
 		
 		if(!b) {
-			if(t2!=null) {
+			if(t2!=null) {				
 				// HA nem all elotte senki és van a valasztott iranyban szomszedos mezo,akkor elkeri az azon allo thinget es animalt
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
-				if(a2!=null) {
-					if(th!=null) {
+				if(a2!=null) {					
+					if(th!=null) {						
 						// ha animal es thing is van
 						b1=a2.hitBy(this);
 						b2=th.hitBy(this);
@@ -37,15 +37,15 @@ public class Panda extends Animal{
 						b1=a2.hitBy(this);
 					}
 				}
-				else if(a2==null){
-					if(th!=null) {
+				else {					
+					if(th!=null) {						
 						// Ha csak targy van
 						b2=th.hitBy(this);
 						wardrobex=th.Ward();
 					}
-				}
+				}				
 				
-				if(b1&&b2&&wardrobex) {
+				if(b1&&b2&&wardrobex) {					
 					Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
 					t1.setAnimal(anull);
 					if(behind!=null) {
@@ -61,14 +61,25 @@ public class Panda extends Animal{
 				}
 			}
 		}
-		else if(b){
+		else if(b){			
 			Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
 			t1.setAnimal(anull);
-			if(behind!=null) {
+			if(behind!=null) {				
 				Direction d2=behind.getDirection(t1);
 				behind.Move(d2);
+			}		
+			
+			//wardrobe eseten modositani kell
+			Thing th=t2.getThing();
+			boolean wardr;
+			if(th==null) wardr = true;
+			else wardr=th.Ward();
+			if(!wardr) {				
+				th.hitBy(this);			
 			}
-			t2.setAnimal(this);
+			else {
+				t2.setAnimal(this);
+			}
 		}
 	}
 	
