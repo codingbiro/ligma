@@ -7,17 +7,21 @@ public class WeakTile extends Tile {
 		life = 20;
 	}
 	
+	// Élettartam csökkentése
 	public void decreaseLife() {
 		life--;
 	}
 	
+	// Orángután beállítása
 	public void setAnimal(Orangutan a) {		
 		if(a!=null && life != 0) {
+			// Ha rálépnek akkor csökken az élettartam
 			decreaseLife();
 			a.setTile(this);
 			this.a=a;
 		}
 		
+		// Ha eléri az élettartam a 0-t akkor a csempe eltörik
 		if(life == 0) {
 			a.die();
 			for (Direction d : Direction.values()) {
@@ -28,13 +32,16 @@ public class WeakTile extends Tile {
 		
 	}
 	
+	// Panda beállítása
 		public void setAnimal(Panda a) {		
 		if(a!=null && life != 0) {
+			// Ha rálépnek akkor csökken az élettartam
 			decreaseLife();
 			a.setTile(this);
 			this.a=a;
 		}
 		
+		// Ha eléri az élettartam a 0-t akkor a csempe eltörik
 		if(life == 0) {
 			a.die();
 			for (Direction d : Direction.values()) {
@@ -43,6 +50,7 @@ public class WeakTile extends Tile {
 		}	
 	}
 	
+		// Tárgy beállítása
 	public void setThing(Thing t) {
 		if(t!= null) {
 			t.setTile(this);
@@ -50,10 +58,12 @@ public class WeakTile extends Tile {
 		th = t;
 	}
 	
+	// Élettartam beállítása
 	public void setLife(int l) {
 		life = l;
 	}
 	
+	// Tulajdonságok kiírása
 	public ArrayList<String> stat() {
 		ArrayList<String> out = new ArrayList<String>();
 		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()] == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));

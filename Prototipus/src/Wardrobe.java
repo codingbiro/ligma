@@ -9,11 +9,12 @@ public class Wardrobe extends Thing{
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	// Szekrény vagy kijárat-e
 	public boolean Ward() {
 		return false;
 	}
 
+	// Ha nekimegy az orángután akkor átkerül a szekrény párjába
 	public boolean hitBy(Orangutan a) {
 		Tile t2 = null;
 		if(w2!=null)
@@ -25,6 +26,7 @@ public class Wardrobe extends Thing{
 		return true;
 	}
 	
+	// Ha nekimegy a panda akkor átkerül a szekrény párjába
 	public boolean hitBy(Panda a) {
 		Tile t2 = null;
 		if(w2!=null)

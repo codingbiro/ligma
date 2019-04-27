@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Thing {
 	
+	// A tárgy áll egy csempén és van neve
 	String name;
 	Tile t;
 	
@@ -9,10 +10,12 @@ public class Thing {
 		name=s;
 	}
 	
+	// Exit vagy szekrény-e (megtévesztõ de a true itt az hogy nem)
 	public boolean Ward() {
 		return true;
 	}
 	
+	// Alapvetõen nem mehet tárgynak állat pár kivétellel
 	public boolean hitBy(Panda a) {
 		return false;
 	}
@@ -20,23 +23,24 @@ public class Thing {
 		return false;
 	}
 	
+	// Csempét visszaadja
 	public Tile getTile() {
 		return t;
 	}
 	
+	// Csempe beállítása
 	public void setTile(Tile _t) {
 		t = _t;
 	}
-	public void setTile(Tile _t, boolean ts) {	
-		t = _t;
-	}
 	
+	// A tulajdonságainak kiírása
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
 		out.add("tile: " + ((this.t == null) ? "null" : this.t.name));
 		return out;
 	}
+	// A speciális mûködések
 	public void check() {}
 	public void beep() {}
 	public void jingle() {}

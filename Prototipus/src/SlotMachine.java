@@ -6,6 +6,7 @@ public class SlotMachine extends Thing{
 		// TODO Auto-generated constructor stub
 	}
 	
+	// A csilingelést minden irányba hallják
 	public void jingle() {
 		for(Direction d:Direction.values()) {
 			Tile t2 = null;
@@ -14,6 +15,7 @@ public class SlotMachine extends Thing{
 			Animal a = null;
 			if(t2!=null)
 			a=t2.getAnimal();
+			// Ha létezik a szomszédos mezõ és van rajta állat akkor csilingelést hall
 			if(a!=null)
 				a.hearJingle();
 		}

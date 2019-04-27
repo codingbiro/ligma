@@ -7,61 +7,41 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {	
+	// Segédváltozók a program mûködéséhez
 	static int maxmapy; //makemap (a b)-bol 'b' merete
 	static int maxmapx; //makemap (a b)-bol 'a' merete
 	static ArrayList<Panda> pandas=new ArrayList<Panda>();
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
 	static Map map;
-	/*static AfraidPanda af=new AfraidPanda("a1");
-	static JumperPanda jp=new JumperPanda("j1");
-	static TiredPanda tp=new TiredPanda("t1");
-	static Armchair ar=new Armchair("ac");
-	static Entrance en=new Entrance("e");
-	static Exit ex=new Exit("ex");
-	
-	
-	static SlotMachine sm=new SlotMachine("sm");
-	static VendingMachine vm=new VendingMachine("vm");
-	static Wardrobe w=new Wardrobe("w");
-	static WeakTile wt=new WeakTile("wt");*/
-	
 	static ArrayList<String> out = new ArrayList<String>();
 	
-	public static void init() {
-		/*
-		pandas.add(new Panda("p1"));
-		pandas.add(new Panda("p2"));
-		pandas.add(new Panda("p3"));
-		
-		orangutans.add(new Orangutan("o1"));
-		orangutans.add(new Orangutan("o2"));
-		
-		things.add(new Thing("th"));
-		*/
-	}
-	
+	// kitisztítja az arraylisteket a tesztesetek között
 	public static void clear() {
 		pandas.clear();
 		orangutans.clear();
 		things.clear();
 		out.clear();
+		// a tesztesetek között reseteli a változókat
 		Globals.g.e = null;
 		map = null;
 		maxmapy = 0;
 		maxmapx = 0;
 	}
 	
+	// A pálya elkészítése paraéterbõl kapott mérettel
 	public static void makemap(int a, int b) {
 		maxmapy = b;
 		maxmapx = a;
 		map=new Map(a,b);
 		for(int i=0;i<a;i++) {
+			// Az új mezõk létrehozása
 			for(int j=0;j<b;j++) {
 				map.tiles[i][j]=new Tile("t_" + i + "_" + j);
 			}
 		}
 		for(int i=0;i<a;i++) {
+			// Mezõk szomszédjainak beállítása
 			for(int j=0;j<b;j++) {
 				if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
 				if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
@@ -71,6 +51,7 @@ public class Test {
 		}
 	}
 	
+	// Orángután beállítása paraméterül kapott koordinátákra
 	public static void setorangutan(String name, int a, int b) {
 		Orangutan o = new Orangutan(name);
 		o.g = Globals.g;
@@ -78,30 +59,35 @@ public class Test {
 		map.tiles[a][b].setAnimal(o);
 	}
 	
+	// Panda beállítása paraméterül kapott koordinátákra 
 	public static void setpanda(String name, int a, int b) {
 		Panda p = new Panda(name);
 		pandas.add(p);
 		map.tiles[a][b].setAnimal(p);
 	}
 	
+	//Fáradt panda beállítása paraméterül kapott koordinátákra 
 	public static void settired(String name, int a, int b) {
 		TiredPanda tp = new TiredPanda(name);
 		pandas.add(tp);
 		map.tiles[a][b].setAnimal(tp);
 	}	
 	
+	//Ijedt panda beállítása paraméterül kapott koordinátákra 
 	public static void setafraid(String name, int a, int b) {
 		AfraidPanda ap = new AfraidPanda(name);
 		pandas.add(ap);
 		map.tiles[a][b].setAnimal(ap);
 	}
 	
+	//Ugró panda beállítása paraméterül kapott koordinátákra 
 	public static void setjumper(String name, int a, int b) {
 		JumperPanda jp = new JumperPanda(name);
 		pandas.add(jp);
 		map.tiles[a][b].setAnimal(jp);
 	}
 	
+	// Állat léptetése megadott irányba
 	public static void step(String animal1, String direction) {
 		Orangutan o1=null;
 		for(int i=0;i<orangutans.size();i++) {
@@ -116,6 +102,7 @@ public class Test {
 		
 	}
 	
+	// Panda léptetése megadott irányba
 	public static void pandastep(String panda, String direction) {
 		Panda p1 = null;
 		for(int i = 0; i < pandas.size(); i++) {
@@ -126,6 +113,7 @@ public class Test {
 		}
 	}
 	
+	// Sípolás kiváltása a paraméterül kapott gépen
 	public static void beep(String name) {
 		for(int i = 0; i < things.size(); i++) {
 			if(name.equals(things.get(i).name)){ 
@@ -135,6 +123,7 @@ public class Test {
 		
 	}
 	
+	// Csilingelés kiváltása a paraméterül kapott gépen
 	public static void jingle(String name) {
 		for(int i = 0; i < things.size(); i++) {
 			if(name.equals(things.get(i).name)){ 
@@ -143,11 +132,13 @@ public class Test {
 		}
 	}
 	
+	// Objektumok adatainak kiírása egy ArrayListbe amit késõbb összehasonlít a program az elvárt kimenettel
 	public static void stat(String name) {
 		Panda p1 = null;
 		Thing t = null;
 		Orangutan o1 = null;
 		Tile ti = null;
+		// Ha panda a kapott paraméter 
 		for(int i = 0; i < pandas.size(); i++) {
 			if(name.equals(pandas.get(i).name)){
 				p1 = pandas.get(i);
@@ -156,6 +147,7 @@ public class Test {
 			}
 		}
 		
+		// Ha orángután a kapott paraméter
 		for(int i = 0; i < orangutans.size(); i++) {
 			if(name.equals(orangutans.get(i).name)){ 
 				o1 = orangutans.get(i);
@@ -164,6 +156,7 @@ public class Test {
 			}
 		}
 		
+		// Ha tárgy a kapott paraméter
 		for(int i = 0; i < things.size(); i++) {
 			if(name.equals(things.get(i).name)){ 
 				t = things.get(i);
@@ -172,6 +165,7 @@ public class Test {
 			}
 		}
 		
+		// Ha csempe a kapott paraméter
 		 for (int i = 0; i < maxmapx; i++) {
 			for (int j = 0; j < maxmapy; j++) {
 				if(name.equals(map.tiles[i][j].name)){
@@ -192,6 +186,7 @@ public class Test {
 		
 	}
 	
+	// Az állat mögött álló panda beállítása
 	public static void setbehind(String animal1, String animal2) {
 		Orangutan o1 = null;
 		Panda p1 = null;
@@ -214,6 +209,7 @@ public class Test {
 		}
 	}
 	
+	// Az állat elõtt álló állat beállítása
 	public static void setahead(String animal1, String animal2) {
 		Panda p1 = null;
 		Panda p2 = null;
@@ -236,6 +232,7 @@ public class Test {
 		} else System.out.println("Test::setahead nem definialt agan vagy - check source code");
 	}
 	
+	// Elengedi a paraméterül kapott orángután a pandák kezeit
 	public static void releasepandas(String name) {
 		Orangutan o1 = null;
 		for(int i = 0; i < orangutans.size(); i++) {
@@ -247,12 +244,14 @@ public class Test {
 		}
 	}
 	
+	// Gyenge csempe beállítása a paraméterül kapott koordinátákra
 	public static void setweaktile(String name, int a, int b) {		
 		WeakTile wt = new WeakTile(name);
 		map.tiles[a][b] = wt;
 		int i = a;
 		int j = b;
 		
+		// Szomszédok beállítása
 		if(i>0) map.tiles[i][j].setNeighbour(Direction.UP, map.tiles[i-1][j]);
 		if(j>0) map.tiles[i][j].setNeighbour(Direction.LEFT, map.tiles[i][j-1]);
 		if(i<maxmapx-1) map.tiles[i][j].setNeighbour(Direction.DOWN, map.tiles[i+1][j]);
@@ -269,18 +268,21 @@ public class Test {
 		
 	}
 	
+	// Csokiautomata beállítása a paraméterül kapott koordinátákra
 	public static void setvendingmachine(String name, int a, int b) {
 		VendingMachine vm = new VendingMachine(name);
 		things.add(vm);
 		map.tiles[a][b].setThing(vm);
 	}
 	
+	// Játékgép beállítása a paraméterül kapott koordinátákra
 	public static void setslotmachine(String name, int a, int b) {
 		SlotMachine sm = new SlotMachine(name);
 		things.add(sm);
 		map.tiles[a][b].setThing(sm);
 	}
 	
+	// Szekrény és párja beállítása a paraméterül kapott koordinátákra
 	public static void setwardrobe(String name, int a, int b, int c, int d) {
 		Wardrobe w = new Wardrobe(name);
 		things.add(w);
@@ -292,12 +294,14 @@ public class Test {
 		}
 	}
 	
+	// Fotel beállítása a paraméterül kapott koordinátákra
 	public static void setarmchair(String name, int a, int b) {
 		Armchair ar = new Armchair(name);
 		things.add(ar);
 		map.tiles[a][b].setThing(ar);
 	}
 	
+	// A fotel megnézi, hogy áll-e mellette fáradt panda
 	public static void check(String name) {
 		for(int i = 0; i < things.size(); i++) {
 			if(name.equals(things.get(i).name)){ 
@@ -307,6 +311,7 @@ public class Test {
 		}
 	}
 	
+	// Az orángután kábultságát beállítja, vagyis hogy mennyi idõ múlva foghat újra pandát
 	public static void setstunned(String name, int a) {
 		Orangutan o1 = null;
 		for(int i = 0; i < orangutans.size(); i++) {
@@ -318,6 +323,7 @@ public class Test {
 		}
 	}
 	
+	// A gyenge csempe élethosszát állítja be
 	public static void setlife(String name, int life) {
 		for(int i=0;i<maxmapx;i++) {
 			for(int j=0;j<maxmapy;j++) {				
@@ -328,12 +334,14 @@ public class Test {
 		}
 	}
 	
+	// A megadott koordinátákra beállítja a kijáratot
 	public static void setexit(String name, int a, int b) {
 		Exit ex = new Exit(name);
 		things.add(ex);
 		map.tiles[a][b].setThing(ex);
 	}
 	
+	// A megadott koordinátákra beállítja a bejáratot
 	public static void setentrance(String name, int a, int b) {
 		Entrance en = new Entrance(name);
 		Globals.g.e = en;
@@ -341,12 +349,13 @@ public class Test {
 		map.tiles[a][b].setThing(en);
 	}
 
-
+	// Elvégzi a fájlból kapott kimenet és a program által adott kimenet összehasonlításást
 	public static boolean compare(Scanner exp, ArrayList<String> out) {
 		if(exp != null) {
 			int i=0;
 			while (exp.hasNext()) {
 				if(i>=out.size()) { 
+					// Ha elfogyott a program által kapott kimenet de a fájlnak még lenne sora
 					System.out.println("A kimeneti stringnek nincs tobb sora, most kene: " + exp.nextLine());
 					return false;
 				}
@@ -354,6 +363,7 @@ public class Test {
 				System.out.println("comparing: "+ line +" and "+ out.get(i));
 				if(!line.equals(out.get(i++))) return false;
 			}
+			// Ha egyezik minden sor és nincs több sor hátra
 			System.out.println("Sikeres teszt!");
 			return true;
 		}
@@ -361,9 +371,9 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
-		init();
 		String cmd = null;
 		String p = null;
+		// Kiírja a konzolra a választható opciókat és instrukciókat
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
         while(true) {
         	System.out.println("A megfelelo teszt beolvasasahoz, irja be a megfelelo szamot a 'loadcommands' utan!\n"
@@ -420,10 +430,12 @@ public class Test {
         		// TODO Auto-generated catch block
         		e.printStackTrace();
         	}
+        	// A begépelt parancs feldarabolása
         	String[] parts = cmd.split(" ");
         	Scanner in = null;
         	String[] parameters = null;
         	String[] parameters2 = null;
+        	// A begépelt parancstól függõen a megfelelõ függvények meghívása
         	switch(parts[0]) {
 	        	case "l": 
 	        		loadcommands(parts[1]);
@@ -533,11 +545,10 @@ public class Test {
         }
 	}
 	
+	// Az elõre elkészített bementi fájlok betöltése a begépelt sorszám alapján
 	public static void loadcommands(String cmd) {
-		init();
 		Scanner in = null;
 		Scanner exp = null;
-		//System.out.println(cmd);
     	switch(cmd) {
 			case "1": 
 			try {
@@ -940,12 +951,14 @@ public class Test {
 			break;
     	}
     	
+    	// A bementi fájl értelmezése
     	if(in != null) {
 			while (in.hasNext()) {
 				String line = in.nextLine();
 				String[] parts = line.split(" ");
 				String[] parameters = null;
 				String[] parameters2 = null;
+				// A sor elsõ eleme a parancs, a többi a szükséges paraméterek
     		    switch(parts[0]) {
         			case "makemap": 
         				makemap(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
@@ -1049,11 +1062,13 @@ public class Test {
 				System.out.println(out.get(i));
 				i++;
 			}
+			// Az összehasonlítás elvégzése
 			System.out.println("Az elvart es a kapott kimenet osszehasonlitasa:");
 			if(!compare(exp, out)) System.out.println("Hiba a tesztesetben");
 			exp.close();
 			
     	}
+    	// A tesztesetek közti resetelés elvégzése
     	clear();
 	}
 }

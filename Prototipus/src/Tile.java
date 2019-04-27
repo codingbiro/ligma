@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 
 public class Tile {
+	// A csempén állhat egy állat és egy tárgy
 	String name;
 	Animal a;
 	Thing th;
 
+	// Szomszédok
 	Tile neighbour[];
 	
 	public Tile(String s) {
@@ -12,40 +14,49 @@ public class Tile {
 		neighbour = new Tile[Direction.values().length];
 	}
 	
+	// Szomszéd beállítása
 	public void setNeighbour(Direction d, Tile t) {
 		neighbour[d.ordinal()]  = t;
 	}
 	
+	// Állat visszaadása
 	public Animal getAnimal() {
 		return a;
 		
 	}
 	
+	// Szomszéd visszaadása
 	public Tile getNeighbour(Direction d) {
 		return neighbour[d.ordinal()];
 	}
 	
+	// Tárgy visszaadása
 	public Thing getThing() {
 		return th;
 	}
 	
+	// Orángután beállítása
 	public void setAnimal(Orangutan a2) {		
 		if(a2!=null) a2.setTile(this);
 		a=a2;
 	}
 	
+	// Panda beállítása
 	public void setAnimal(Panda a2) {	
 		if(a2!=null) a2.setTile(this);
 		a=a2;
 	}
 	
+	// Tárgy beállítása
 	public void setThing(Thing t) {
 		if(t != null) t.setTile(this);
 		th = t;
 	}
 	
+	// Csempe élettartamának beállítása
 	public void setLife(int l) {}
 
+	// Tulajdonságainak kiírása
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();

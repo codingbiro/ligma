@@ -10,6 +10,7 @@ public class Panda extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 	
+	// Panda mozgásáért felelõs függvény
 	public void Move(Direction d) {		
 		boolean b1=true;
 		boolean b2=true;
@@ -60,6 +61,7 @@ public class Panda extends Animal{
 				}
 			}
 		}
+		// Ha sorban áll akkor mozog az elõtte lévõ állat mezõjére
 		else if(inLine()){			
 			Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
 			tile.setAnimal(anull);
@@ -82,6 +84,7 @@ public class Panda extends Animal{
 		}
 	}
 	
+	// Elõtte álló állat irányának lekérése
 	public Direction getDirection(Tile t) {
 		for(Direction d:Direction.values()) {
 			Tile t2 = null;
@@ -96,23 +99,28 @@ public class Panda extends Animal{
 		return Direction.UP;
 	}
 	
+	// Elõtte lévõ beállítása
 	public void setAhead(Animal a) {
 		ahead= a;
 	}
 	
+	// // Elõtte lévõ visszaadása
 	public Animal getAhead() {
 		return ahead;
 	}
 
+	// Ha pandák ütköznek nem történik semmi és ottmaradnak
 	public boolean hitBy(Panda p) {
 		return false;
 	}
 	
+	// Ha orángután ütközik vele akkor a kimenetelt az határozza meg, hogy sorban áll-e
 	public boolean hitBy(Orangutan o) {
 		boolean b=inLine();
 		return !b;
 	}
 	
+	// Sor megbontása
 	public void breakLine() {
 		if(ahead!=null) ahead.setBehind(null);
 		setAhead(null);
@@ -123,23 +131,27 @@ public class Panda extends Animal{
 		}
 	}
 	
+	// Ha elkapja egy orángután
 	public void caughtBy(Animal a) {
 		Tile t = a.getTile();
 		t.setAnimal(this);
 		setAhead(a);
 		Panda pb=a.getBehind();
 		if(pb!=null) {
+			// Beállítja az elõtte és utána lévõ állatokat megfelelõen
 			setBehind(pb);
 			pb.setAhead(this);
 		}
 		a.setBehind(this);
 	}
 	
+	// ha meghal a panda akkor megtörik a lánc
 	public void die() {
 		breakLine();
 		tile = null;
 	}
 
+	// tulajdonságok kiírásához szükséges függvény
 	public ArrayList<String> stat() {
 		// TODO Auto-generated method stub
 		ArrayList<String> out = new ArrayList<String>();
