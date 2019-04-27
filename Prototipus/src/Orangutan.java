@@ -14,7 +14,9 @@ public class Orangutan extends Animal{
 		return behind!=null;
 	} 
 	
-	public void Move(Direction d) {		
+	public void Move(Direction d) {
+		if(stunned != 0)
+			stunned--;
 		boolean b1=true;
 		boolean b2=true;
 		
