@@ -6,6 +6,7 @@ setahead p1 o1
 setexit ex t_0_1
 setentrance e t_3_2
 step o1 UP
+pandastep p1 UP
 stat o1
 stat p1
 stat ex
