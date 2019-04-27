@@ -12,6 +12,7 @@ public class Exit extends Thing{
 		}
 		else {
 			Globals.g.addPoints();
+			p.die();
 			return true;
 		}
 	}
@@ -24,8 +25,10 @@ public class Exit extends Thing{
 		Entrance e = null;
 		if(Globals.g!=null)
 			e = Globals.g.getEntrance();
-		if(o!=null)
+		if(o!=null) {
+			if(o.getBehind()!=null) o.getBehind().Move(o.getBehind().getDirection(o.getTile()));
 			o.setBehind(null);
+		}
 		Tile t1 = null;
 		if(e!=null)
 			t1 = e.getTile();

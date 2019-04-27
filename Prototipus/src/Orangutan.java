@@ -53,7 +53,7 @@ public class Orangutan extends Animal{
 					}
 				}
 				
-				if(b1&&b2&&wardrobex) {
+				if(b1&&b2) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(tile!=null)
 						tile.setAnimal(anull);
@@ -72,6 +72,7 @@ public class Orangutan extends Animal{
 							a2.caughtBy(this);
 						}
 					}
+					if(wardrobex)
 					t2.setAnimal(this);					
 				}
 			}
