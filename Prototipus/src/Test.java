@@ -13,7 +13,6 @@ public class Test {
 	static ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 	static ArrayList<Thing> things=new ArrayList<Thing>();
 	static Map map;
-	static GameController gc=new GameController("gc");
 	/*static AfraidPanda af=new AfraidPanda("a1");
 	static JumperPanda jp=new JumperPanda("j1");
 	static TiredPanda tp=new TiredPanda("t1");
@@ -47,7 +46,7 @@ public class Test {
 		orangutans.clear();
 		things.clear();
 		out.clear();
-		gc.e = null;
+		Globals.g.e = null;
 		map = null;
 		maxmapy = 0;
 		maxmapx = 0;
@@ -74,7 +73,7 @@ public class Test {
 	
 	public static void setorangutan(String name, int a, int b) {
 		Orangutan o = new Orangutan(name);
-		o.g = gc;
+		o.g = Globals.g;
 		orangutans.add(o);
 		map.tiles[a][b].setAnimal(o);
 	}
@@ -328,7 +327,7 @@ public class Test {
 	
 	public static void setentrance(String name, int a, int b) {
 		Entrance en = new Entrance(name);
-		gc.e = en;
+		Globals.g.e = en;
 		things.add(en);
 		map.tiles[a][b].setThing(en);
 	}
