@@ -2,6 +2,6 @@ makemap 4 4
 setweaktile t1 t_0_1
 setlife t1 1
 setpanda p1 t_1_1
-step p1 UP
+pandastep p1 UP
 stat t1
 stat p1
