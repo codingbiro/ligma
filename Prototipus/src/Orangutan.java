@@ -90,6 +90,16 @@ public class Orangutan extends Animal{
 	}
 	
 	public boolean hitBy(Orangutan o) {
+		Panda pb1 = o.getBehind();
+		if(pb1 == null && this.behind != null) {
+			behind.setAhead(o);
+			o.setBehind(behind);
+			behind = null;
+			Tile t1 = o.getTile();
+			tile.setAnimal(o);
+			t1.setAnimal(this);
+			stunned = 3;
+		}
 		return false;
 	}
 	
@@ -129,4 +139,5 @@ public class Orangutan extends Animal{
 		}
 		setBehind(null);
 	}
+	
 }
