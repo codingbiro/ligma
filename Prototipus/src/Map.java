@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class Map {
 	// A pályát alkotó csempék
 	public Tile[][] tiles;

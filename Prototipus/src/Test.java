@@ -6,6 +6,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Kevin
+ *
+ */
 public class Test {	
 	// Segédváltozók a program mûködéséhez
 	static int maxmapy; //makemap (a b)-bol 'b' merete

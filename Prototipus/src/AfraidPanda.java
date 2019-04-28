@@ -1,5 +1,9 @@
 
 // A félõs pandákat reprezentáló osztály
+/**
+ * @author Kevin
+ *
+ */
 public class AfraidPanda extends Panda{
 
 	public AfraidPanda(String s) {

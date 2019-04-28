@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class JumperPanda extends Panda{
 
 	public JumperPanda(String s) {

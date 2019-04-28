@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class Armchair extends Thing{
 
 	public Armchair(String s) {

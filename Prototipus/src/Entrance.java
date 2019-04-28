@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class Entrance extends Thing{
 
 	public Entrance(String s) {

@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class Orangutan extends Animal{
 	//Szkeleton
 	GameController g;

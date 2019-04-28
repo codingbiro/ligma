@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class GameController {
 	String name;
 	int points=0;

@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class Tile {
 	// A csempén állhat egy állat és egy tárgy
 	String name;
@@ -55,6 +59,11 @@ public class Tile {
 	
 	// Csempe élettartamának beállítása
 	public void setLife(int l) {}
+	
+	//a weaktile feluldefinialja, itt nem csinal semmit
+	public boolean hasLife() {
+		return true;
+	}
 
 	// Tulajdonságainak kiírása
 	public ArrayList<String> stat() {

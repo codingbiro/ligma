@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class Panda extends Animal{
 	
 	// mivel az expectedeknel valaki valamikor igy talalta ki, a naptime ide kerul, mert nem csak tired pandaknal volt kimenet - tetszes szerint valtoztathato

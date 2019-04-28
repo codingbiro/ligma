@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class SlotMachine extends Thing{
 
 	public SlotMachine(String s) {

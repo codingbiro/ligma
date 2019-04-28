@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class WeakTile extends Tile {
 	int life;
 	public WeakTile(String s) {
@@ -44,7 +48,24 @@ public class WeakTile extends Tile {
 		// Ha eléri az élettartam a 0-t akkor a csempe eltörik
 		if(life == 0) {
 			a.die();
+			//negighbouroknek be kel allitani hogy a weak tileos neighborjuk null legyen
 			for (Direction d : Direction.values()) {
+				//mindig az ellentetes oldalu neighbour lesz a weaktile
+				switch(d.toString()) {
+					case "UP":
+						neighbour[d.ordinal()].setNeighbour(Direction.DOWN, null);
+					break;
+					case "DOWN":
+						neighbour[d.ordinal()].setNeighbour(Direction.UP, null);
+					break;
+					case "LEFT":
+						neighbour[d.ordinal()].setNeighbour(Direction.RIGHT, null);
+					break;
+					case "RIGHT":
+						neighbour[d.ordinal()].setNeighbour(Direction.LEFT, null);
+					break;
+				}
+				//a weaktilenak is beallitjuk nullra a neighbourjeit
 				this.setNeighbour(d, null);
 			}	
 		}	
@@ -62,6 +83,11 @@ public class WeakTile extends Tile {
 	public void setLife(int l) {
 		life = l;
 	}
+	
+	//kirajzolához megnezi hogy van e elete, hogy kell e x-et rajzolni
+	public boolean hasLife() {
+		return life!=0;
+	}	
 	
 	// Tulajdonságok kiírása
 	public ArrayList<String> stat() {

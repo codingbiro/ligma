@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class Wardrobe extends Thing{
 
 	//Szkeleton

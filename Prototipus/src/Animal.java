@@ -1,5 +1,9 @@
 
 // Az állatokat reprezentáló osztály
+/**
+ * @author Kevin
+ *
+ */
 public abstract class Animal {
 	// Az állatok állnak valamilyen mezõn, állhatnak a sorban elõttük és utánuk
 	String name;

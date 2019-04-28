@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class Thing {
 	
 	// A tárgy áll egy csempén és van neve

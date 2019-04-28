@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class Exit extends Thing{
 	
 	public Exit(String s) {

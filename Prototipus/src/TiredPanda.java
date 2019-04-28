@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * @author Kevin
+ *
+ */
 public class TiredPanda extends Panda{
 	
 	public TiredPanda(String s) {

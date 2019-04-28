@@ -1,4 +1,8 @@
 
+/**
+ * @author Kevin
+ *
+ */
 public class VendingMachine extends Thing{
 
 	public VendingMachine(String s) {
