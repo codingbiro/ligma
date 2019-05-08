@@ -4,7 +4,7 @@
  * @author Kevin
  *
  */
-public abstract class Animal {
+public abstract class Animal implements IViewable {
 	// Az állatok állnak valamilyen mezõn, állhatnak a sorban elõttük és utánuk
 	String name;
 	Tile tile;
@@ -73,5 +73,9 @@ public abstract class Animal {
 	
 	// A pihenési idõt csökkentõ függvény, sima állatnál nem csinál semmit
 	public void reduceTime() {
+	}
+	
+	public void shouldDraw(View v) {
+		
 	}
 }

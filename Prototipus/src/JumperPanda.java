@@ -19,4 +19,8 @@ public class JumperPanda extends Panda{
 	public void jump() {
 		tile.setAnimal(this);
 	}
+	
+	public void shouldDraw(View v) {
+		v.drawJumper();
+	}
 }

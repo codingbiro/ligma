@@ -75,4 +75,16 @@ public class Tile {
 		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()] == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
 		return out;
 	}
+	
+	public void shouldDraw(View v) {
+		if(!hasLife())
+			v.drawWeakTileBroken();
+		
+		if(a != null)
+			a.shouldDraw(v);
+	}
+	
+	public boolean hasLife() {
+		
+	}
 }

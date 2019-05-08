@@ -165,5 +165,9 @@ public class Panda extends Animal{
 		out.add("naptime: " + naptime);
 		return out;
 	}
+	
+	public void shouldDraw(View v) {
+		v.drawPanda();
+	}
 }
 	

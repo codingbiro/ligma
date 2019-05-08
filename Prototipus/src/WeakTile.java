@@ -99,5 +99,10 @@ public class WeakTile extends Tile {
 		out.add("life: " + this.life);
 		return out;
 	}
+	
+	public void shouldDraw(View v) {
+		if(!hasLife())
+			v.drawWeakTileBroken();
+	}
 
 }

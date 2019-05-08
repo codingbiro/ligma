@@ -38,4 +38,8 @@ public class TiredPanda extends Panda{
 		return out;
 	}
 	
+	public void shouldDraw(View v) {
+		v.drawTired();
+	}
+	
 }

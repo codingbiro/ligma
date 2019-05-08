@@ -5,7 +5,8 @@
  */
 public class GameController {
 	String name;
-	int points=0;
+	private int points=0;
+	private View view;
 	
 	//Szkeleton
 	Entrance e;
@@ -29,7 +30,13 @@ public class GameController {
 		return e;
 	}
 	
+	public int getPoints() {
+		return points;
+	}
 	
+	public void drawRequiredFor(Tile t) {
+		
+	}
 	
 
 }

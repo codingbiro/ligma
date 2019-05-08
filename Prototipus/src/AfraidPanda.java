@@ -15,5 +15,9 @@ public class AfraidPanda extends Panda{
 	public void hearJingle() {		
 		breakLine();
 	}
+	
+	public void shouldDraw(View v) {
+		v.drawAfraid();
+	}
 
 }

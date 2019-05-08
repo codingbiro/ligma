@@ -157,4 +157,8 @@ public class Orangutan extends Animal{
 		setBehind(null);
 	}
 	
+	public void shouldDraw(View v) {
+		v.drawOrangutan();
+	}
+	
 }
