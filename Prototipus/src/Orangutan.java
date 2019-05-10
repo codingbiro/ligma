@@ -6,13 +6,8 @@ import java.util.ArrayList;
  */
 public class Orangutan extends Animal{
 	//Szkeleton
-	GameController g;
+	GameController gc;
 	int stunned = 0;
-
-	public Orangutan(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
 	
 	// A sorban állást mondja meg
 	public boolean inLine() {
@@ -124,9 +119,9 @@ public class Orangutan extends Animal{
 	public void die() {
 		// Elveszti a pandáit is
 		breakLine();			
-		if(g!=null) {
-			g.decreasePoints();
-			Entrance en = g.getEntrance();
+		if(gc!=null) {
+			gc.decreasePoints();
+			Entrance en = gc.getEntrance();
 			Tile ten = null;
 			if(en!=null) {
 				ten = en.getTile();
@@ -135,16 +130,6 @@ public class Orangutan extends Animal{
 				}
 			}	
 		}	
-	}
-
-	// Tuljadonságainak kiírását végzi
-	public ArrayList<String> stat() {
-		// TODO Auto-generated method stub
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((tile == null) ? "null" : this.tile.name));
-		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
-		out.add("stunned: " + stunned);
-		return out;
 	}
 
 	// Felbontja a panda sorát
@@ -156,8 +141,9 @@ public class Orangutan extends Animal{
 		}
 		setBehind(null);
 	}
-	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
+		//kirajzoltatja magat a kapott viewval
 		v.drawOrangutan();
 	}
 	

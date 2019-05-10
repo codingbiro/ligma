@@ -4,6 +4,6 @@
  *
  */
 public enum Direction {
-	// Az irányokat jelölõ enumeráció, Fel, Le, Balra, Jobbra
-	UP, DOWN, LEFT, RIGHT
+	// Az irányokat jelölõ enumeráció
+	ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
 }

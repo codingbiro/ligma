@@ -1,9 +1,0 @@
-neighbour_up: null
-neighbour_down: t_1_1
-neighbour_left: t_0_0
-neighbour_right: t_0_2
-life: 19
-tile: w1
-behind: null
-ahead: null
-naptime: 0

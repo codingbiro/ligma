@@ -4,11 +4,6 @@
  *
  */
 public class SlotMachine extends Thing{
-
-	public SlotMachine(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
 	
 	// A csilingelést minden irányba hallják
 	public void jingle() {

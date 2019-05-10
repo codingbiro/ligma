@@ -1,9 +1,0 @@
-makemap 4 4
-setpanda p1 t_1_1
-setrandom p1 off
-setwardrobe w2 t_3_2
-setwardrobe w1 t_0_1 t_3_2
-pandastep p1 UP
-stat p1
-stat w1
-stat w2

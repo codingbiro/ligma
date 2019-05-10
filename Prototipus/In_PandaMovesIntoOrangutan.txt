@@ -1,7 +1,0 @@
-makemap 4 4
-setpanda p1 t_1_1
-setrandom p1 off
-setorangutan o1 t_1_0
-pandastep p1 LEFT
-stat p1
-stat o1

@@ -4,14 +4,9 @@
  *
  */
 public class Wardrobe extends Thing{
-
-	//Szkeleton
-	Wardrobe w2;
 	
-	public Wardrobe(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
+	//A szekreny parja
+	Wardrobe w2;
 	
 	// Szekrény vagy kijárat-e
 	public boolean Ward() {

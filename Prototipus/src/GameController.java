@@ -4,16 +4,11 @@
  *
  */
 public class GameController {
-	String name;
 	private int points=0;
 	private View view;
 	
 	//Szkeleton
 	Entrance e;
-
-	public GameController(String s) {
-		name=s;
-	}
 	
 	// A pontok hozzáadását végzõ függvény
 	public void addPoints() {
@@ -33,10 +28,19 @@ public class GameController {
 	public int getPoints() {
 		return points;
 	}
-	
+	//egy mezot megker arra, hogy rajzoljon
 	public void drawRequiredFor(Tile t) {
-		
+		t.shouldDraw(view);
 	}
-	
+	//meghatarozza, hogy vege van e a jateknak
+	public boolean isGameOver() {
+		return false;
+	}
 
+	//Main
+	public static void main(String[] args) {
+		//view letrehozasa
+		View v = new View();
+		v.drawMap();
+	}
 }

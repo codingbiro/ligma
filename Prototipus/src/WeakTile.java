@@ -6,8 +6,18 @@ import java.util.ArrayList;
  */
 public class WeakTile extends Tile {
 	int life;
-	public WeakTile(String s) {
-		super(s);
+	//deafult konstruktor
+	public WeakTile() {
+		//os konstruktor meghivasa
+		super();
+		//kezdo elet beallitasa
+		life = 20;
+	}
+	//konstruktor a csempe kozepenek megadasaval egyutt
+	public WeakTile(int posx, int posy){
+		//os konstruktor meghivasa
+		super(posx, posy);
+		//kezdo elet beallitasa
 		life = 20;
 	}
 	
@@ -32,8 +42,6 @@ public class WeakTile extends Tile {
 				this.setNeighbour(d, null);
 			}	
 		}
-				
-		
 	}
 	
 	// Panda beállítása
@@ -52,18 +60,14 @@ public class WeakTile extends Tile {
 			for (Direction d : Direction.values()) {
 				//mindig az ellentetes oldalu neighbour lesz a weaktile
 				switch(d.toString()) {
-					case "UP":
-						neighbour[d.ordinal()].setNeighbour(Direction.DOWN, null);
-					break;
-					case "DOWN":
-						neighbour[d.ordinal()].setNeighbour(Direction.UP, null);
-					break;
-					case "LEFT":
-						neighbour[d.ordinal()].setNeighbour(Direction.RIGHT, null);
-					break;
-					case "RIGHT":
-						neighbour[d.ordinal()].setNeighbour(Direction.LEFT, null);
-					break;
+				//TODO: Ha kesz a map akkor lehet ezt megmondani
+				//A problema az, hogyha eltorik egy weaktile, akkor minden szomszednak
+				//be kell allitani, abba a directionbe egy null negihbour, amerre
+				//a weaktile van hozza kepest
+				/*
+					case "ONE":
+						neighbour[d.ordinal()].setNeighbour(Direction.ONE, null);
+					break;*/
 				}
 				//a weaktilenak is beallitjuk nullra a neighbourjeit
 				this.setNeighbour(d, null);
@@ -89,20 +93,14 @@ public class WeakTile extends Tile {
 		return life!=0;
 	}	
 	
-	// Tulajdonságok kiírása
-	public ArrayList<String> stat() {
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()] == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));
-		out.add("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()] == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name));
-		out.add("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()] == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name));
-		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()] == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
-		out.add("life: " + this.life);
-		return out;
-	}
-	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
 		if(!hasLife())
-			v.drawWeakTileBroken();
+			//ha eltorott a csempe, akkor kirajzoltatja az eltorest a view-al
+			v.drawWeakTileBroken();		
+		if(a != null)
+			//jelzi a rajta allo allatnak hogy ki kell ot rajzolni
+			a.shouldDraw(v);
 	}
 
 }

@@ -1,8 +1,0 @@
-makemap 4 4
-setorangutan o1 t_1_1
-setwardrobe w2 t_3_2
-setwardrobe w1 t_0_1 t_3_2
-step o1 UP
-stat o1
-stat w1
-stat w2

@@ -9,11 +9,6 @@ public class Panda extends Animal{
 	// mivel az expectedeknel valaki valamikor igy talalta ki, a naptime ide kerul, mert nem csak tired pandaknal volt kimenet - tetszes szerint valtoztathato
 	protected int naptime=0;
 	
-	public Panda(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
-	
 	// Panda mozgásáért felelõs függvény
 	public void Move(Direction d) {		
 		boolean b1=true;
@@ -93,14 +88,14 @@ public class Panda extends Animal{
 		for(Direction d:Direction.values()) {
 			Tile t2 = null;
 			if(tile != null && t!=null) {
-			t2=tile.getNeighbour(d);
-			if(t2!=null) {
-			if(t2.equals(t)) {
-				return d;
-			}}
+				t2=tile.getNeighbour(d);
+				if(t2!=null)
+					if(t2.equals(t))
+						return d;
 			}
 		}
-		return Direction.UP;
+		//ha nem talalt szomszedot nullal ter vissza, de ilyennek nem szabadna lennie
+		return null;
 	}
 	
 	// Elõtte lévõ beállítása
@@ -154,19 +149,10 @@ public class Panda extends Animal{
 		breakLine();
 		tile = null;
 	}
-
-	// tulajdonságok kiírásához szükséges függvény
-	public ArrayList<String> stat() {
-		// TODO Auto-generated method stub
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.tile == null) ? "null" : this.tile.name));
-		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
-		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
-		out.add("naptime: " + naptime);
-		return out;
-	}
 	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
+		//kirajzoltatja magat a kapott viewval
 		v.drawPanda();
 	}
 }

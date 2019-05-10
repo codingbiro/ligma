@@ -1,6 +1,0 @@
-makemap 4 4
-setorangutan o1 t_1_1
-setarmchair ac t_0_1
-check ac
-stat o1
-stat ac

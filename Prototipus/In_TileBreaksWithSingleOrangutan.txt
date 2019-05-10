@@ -1,9 +1,0 @@
-makemap 4 4
-setweaktile t1 t_0_1
-setlife t1 1
-setentrance en t_3_3
-setorangutan o1 t_1_1
-step o1 UP
-stat t1
-stat en
-stat o1

@@ -4,11 +4,6 @@
  *
  */
 public class JumperPanda extends Panda{
-
-	public JumperPanda(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
 	
 	// Ha sípolást hall akkor ugrik egyet
 	public void hearBeep() {
@@ -19,8 +14,9 @@ public class JumperPanda extends Panda{
 	public void jump() {
 		tile.setAnimal(this);
 	}
-	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
+		//kirajzoltatja magat a kapott viewval
 		v.drawJumper();
 	}
 }

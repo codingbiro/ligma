@@ -5,11 +5,6 @@
  */
 public class Exit extends Thing{
 	
-	public Exit(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
-	
 	// Ha panda ütközik vele
 	public boolean hitBy(Panda p) {
 		//Ha nincs sorban nem léphet rá panda
@@ -18,7 +13,7 @@ public class Exit extends Thing{
 		}
 		// Ha sorban van akkor kivezetik a kijáraton, tehát a játékos pontot kap és a panda elpusztul
 		else {
-			Globals.g.addPoints();
+			Globals.gc.addPoints();
 			p.die();
 			return true;
 		}
@@ -33,8 +28,8 @@ public class Exit extends Thing{
 	public boolean hitBy(Orangutan o) {
 		Entrance e = null;
 		// Lekéri a controllertõl a bejáratot
-		if(Globals.g!=null)
-			e = Globals.g.getEntrance();
+		if(Globals.gc!=null)
+			e = Globals.gc.getEntrance();
 		if(o!=null) {
 			// Mozgatja a mögötte álló pandákat
 			if(o.getBehind()!=null) o.getBehind().Move(o.getBehind().getDirection(o.getTile()));

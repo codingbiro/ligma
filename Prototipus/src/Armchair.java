@@ -4,11 +4,6 @@
  *
  */
 public class Armchair extends Thing{
-
-	public Armchair(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
 	
 	// A fotel a környezõ pandákat fárasztja
 	public void check() {

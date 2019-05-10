@@ -6,11 +6,6 @@ import java.util.ArrayList;
  */
 public class TiredPanda extends Panda{
 	
-	public TiredPanda(String s) {
-		super(s);
-		// TODO Auto-generated constructor stub
-	}
-	
 	// Ha egy fotel mellett van ami elfárasztja akkor megtöri a sort és beleül a fotelbe
 	public void Exhaust(Tile tar) {
 		if(inLine()) {
@@ -27,18 +22,9 @@ public class TiredPanda extends Panda{
 	public void reduceTime() {
 		naptime--;
 	}
-	
-	// Tulajdonságok kiírása
-	public ArrayList<String> stat() {
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.tile == null) ? "null" : this.tile.name));
-		out.add("behind: " + ((this.behind == null) ? "null" : this.behind.name));
-		out.add("ahead: " + ((this.ahead == null) ? "null" : this.ahead.name));
-		out.add("naptime: " + this.naptime);
-		return out;
-	}
-	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
+		//kirajzoltatja magat a kapott viewval
 		v.drawTired();
 	}
 	

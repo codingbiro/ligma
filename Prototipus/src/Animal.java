@@ -6,16 +6,10 @@
  */
 public abstract class Animal implements IViewable {
 	// Az állatok állnak valamilyen mezõn, állhatnak a sorban elõttük és utánuk
-	String name;
 	Tile tile;
 	Panda behind;
 	Animal ahead;
 	public String random;
-	
-	public Animal(String s) {
-		name = s;
-	}
-	
 
 	// Az állatok mozgását jelölõ absztrakt függvény
 	public abstract void Move(Direction d);
@@ -74,7 +68,7 @@ public abstract class Animal implements IViewable {
 	// A pihenési idõt csökkentõ függvény, sima állatnál nem csinál semmit
 	public void reduceTime() {
 	}
-	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
 		
 	}

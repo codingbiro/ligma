@@ -6,13 +6,8 @@ import java.util.ArrayList;
  */
 public class Thing {
 	
-	// A tárgy áll egy csempén és van neve
-	String name;
+	// A tárgy áll egy csempén
 	Tile t;
-	
-	public Thing(String s) {
-		name=s;
-	}
 	
 	// Exit vagy szekrény-e (megtévesztõ de a true itt az hogy nem)
 	public boolean Ward() {
@@ -44,7 +39,7 @@ public class Thing {
 		out.add("tile: " + ((this.t == null) ? "null" : this.t.name));
 		return out;
 	}
-	// A speciális mûködések
+	// A speciális mûködések, gyermekek irjak felul
 	public void check() {}
 	public void beep() {}
 	public void jingle() {}

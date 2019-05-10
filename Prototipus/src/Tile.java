@@ -9,15 +9,37 @@ public class Tile {
 	String name;
 	Animal a;
 	Thing th;
-
+	//csempe kozepenek koordinatai
+	private int[] centerPos = new int[2];
+	
 	// Szomszédok
 	Tile neighbour[];
-	
-	public Tile(String s) {
-		name = s;
+	//deafult konstruktor
+	public Tile() {
+		neighbour = new Tile[Direction.values().length];
+	}
+	//konstruktor a csempe kozepenek megadasaval egyutt
+	public Tile(int posx, int posy) {
+		//csempe kozepenek beallitasa
+		centerPos = new int[] {posx, posy};
 		neighbour = new Tile[Direction.values().length];
 	}
 	
+	//Koordinatak beallitasa
+	public void setCenter(int posx, int posy) {
+		centerPos = new int[] {posx, posy};
+	}
+	
+	//x koordinata lekerese
+	public int posX() {
+		return centerPos[0];
+	}
+	
+	//y koordinata lekerese
+	public int posY() {
+		return centerPos[1];
+	}
+		
 	// Szomszéd beállítása
 	public void setNeighbour(Direction d, Tile t) {
 		neighbour[d.ordinal()]  = t;
@@ -25,8 +47,7 @@ public class Tile {
 	
 	// Állat visszaadása
 	public Animal getAnimal() {
-		return a;
-		
+		return a;	
 	}
 	
 	// Szomszéd visszaadása
@@ -60,31 +81,18 @@ public class Tile {
 	// Csempe élettartamának beállítása
 	public void setLife(int l) {}
 	
+	/*
 	//a weaktile feluldefinialja, itt nem csinal semmit
 	public boolean hasLife() {
 		return true;
 	}
-
-	// Tulajdonságainak kiírása
-	public ArrayList<String> stat() {
-		// TODO Auto-generated method stub
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("neighbour_up: " + ((this.neighbour[Direction.UP.ordinal()] == null) ? "null" : this.neighbour[Direction.UP.ordinal()].name));
-		out.add("neighbour_down: " + ((this.neighbour[Direction.DOWN.ordinal()] == null) ? "null" : this.neighbour[Direction.DOWN.ordinal()].name));
-		out.add("neighbour_left: " + ((this.neighbour[Direction.LEFT.ordinal()] == null) ? "null" : this.neighbour[Direction.LEFT.ordinal()].name));
-		out.add("neighbour_right: " + ((this.neighbour[Direction.RIGHT.ordinal()] == null) ? "null" : this.neighbour[Direction.RIGHT.ordinal()].name));
-		return out;
-	}
+	*/
 	
+	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
-		if(!hasLife())
-			v.drawWeakTileBroken();
-		
 		if(a != null)
+			//jelzi a rajta allo allatnak hogy ki kell ot rajzolni
 			a.shouldDraw(v);
 	}
 	
-	public boolean hasLife() {
-		
-	}
 }
