@@ -6,7 +6,6 @@ import java.util.ArrayList;
  */
 public class Tile {
 	// A csempén állhat egy állat és egy tárgy
-	String name;
 	Animal a;
 	Thing th;
 	//csempe kozepenek koordinatai

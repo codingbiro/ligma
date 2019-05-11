@@ -32,13 +32,6 @@ public class Thing {
 		t = _t;
 	}
 	
-	// A tulajdonságainak kiírása
-	public ArrayList<String> stat() {
-		// TODO Auto-generated method stub
-		ArrayList<String> out = new ArrayList<String>();
-		out.add("tile: " + ((this.t == null) ? "null" : this.t.name));
-		return out;
-	}
 	// A speciális mûködések, gyermekek irjak felul
 	public void check() {}
 	public void beep() {}

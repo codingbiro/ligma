@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 public class GameController {
 	private int points=0;
 	private View view;
-	
+	public int time_left = 1000;
 	//Szkeleton
 	Entrance e;
 	
@@ -43,7 +43,7 @@ public class GameController {
 	}
 	//meghatarozza, hogy vege van e a jateknak
 	public boolean isGameOver() {
-		return false;
+		return time_left<=0;
 	}
 
 	//Main
@@ -51,6 +51,10 @@ public class GameController {
 		//view letrehozasa
 		View v = new View();
 		v.drawMap();
+		Map m = new Map();
+		m.init();
+		m.tiles.get(36).getThing().check();
+		System.out.println(m.tiles.get(0).getAnimal().getTile().getNeighbour(Direction.FOUR).posX());
 		
 		JFrame obj = new JFrame();
 		obj.setSize(222,147);

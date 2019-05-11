@@ -17,6 +17,7 @@ public class Armchair extends Thing{
 					a = t2.getAnimal();
 				if(a!=null)
 					a.Exhaust(t);
+				System.out.println("checgking");
 			}
 		}
 		// Ha ül már benne panda akkor csökkenti a pihenõidejét
