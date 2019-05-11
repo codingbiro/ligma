@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -16,6 +17,11 @@ public class GameController {
 	private int points=0;
 	private View view;
 	public int time_left = 1000;
+	//a palyan levo pandak
+	public ArrayList<Panda> pandas = new ArrayList<Panda>();
+	//palyan levo pandak szama
+	int pandaCnt = 5;
+	
 	//Szkeleton
 	Entrance e;
 	
@@ -41,9 +47,9 @@ public class GameController {
 	public void drawRequiredFor(Tile t) {
 		t.shouldDraw(view);
 	}
-	//meghatarozza, hogy vege van e a jateknak
+	//a jateknak vege van ha elfogy az ido, vagy a pandak
 	public boolean isGameOver() {
-		return time_left<=0;
+		return time_left<=0 || pandaCnt == 0;
 	}
 
 	//Main

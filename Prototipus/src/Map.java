@@ -39,7 +39,10 @@ public class Map {
 		tiles.add(new Tile(43,105));
 		//tile with TiredPanda
 		Tile ttp = new Tile(77,39);
-		ttp.setAnimal(new TiredPanda());
+		Panda tp = new TiredPanda();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.pandas.add(tp);
+		ttp.setAnimal(tp);
 		tiles.add(ttp);
 		//basic tile
 		tiles.add(new Tile(74,87));
@@ -55,14 +58,20 @@ public class Map {
 		tiles.add(new Tile(93,65));
 		//Tile with panda
 		Tile tp1 = new Tile(91,94);
-		tp1.setAnimal(new Panda());
+		Panda p1 = new Panda();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.pandas.add(p1);
+		tp1.setAnimal(p1);
 		tiles.add(tp1);
 		//basic tiles
 		tiles.add(new Tile(80,108));
 		tiles.add(new Tile(80,127));
 		//tile with JumperPanda
 		Tile tjp = new Tile(112,41);
-		tjp.setAnimal(new JumperPanda());
+		Panda jp = new JumperPanda();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.pandas.add(jp);
+		tjp.setAnimal(jp);
 		tiles.add(tjp);
 		//basic tiles
 		tiles.add(new Tile(111,89));
@@ -84,7 +93,10 @@ public class Map {
 		tiles.add(new Tile(159,59));
 		//Tile with panda
 		Tile tp2 = new Tile(159,77);
-		tp2.setAnimal(new Panda());
+		Panda p2 = new Panda();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.pandas.add(p2);
+		tp2.setAnimal(p2);
 		tiles.add(tp2);
 		//basic tiles
 		tiles.add(new Tile(147,91));
@@ -97,7 +109,10 @@ public class Map {
 		tiles.add(new Tile(168,92));
 		//Tile with AfraidPanda
 		Tile tap = new Tile(174,112);
-		tap.setAnimal(new AfraidPanda());
+		Panda ap = new AfraidPanda();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.pandas.add(ap);
+		tap.setAnimal(ap);
 		tiles.add(tap);
 		//Tile with Armchair
 		Tile tar = new Tile(174,131);

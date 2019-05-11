@@ -16,69 +16,69 @@ public class Panda extends Animal{
 		boolean wardrobex=true; //wardrobe eseten tuti nem kell belemenni az utolso agba
 		// A szomszedos mezo lekerese
 		Tile t2 = null;
-		if(tile!=null)
-		t2=tile.getNeighbour(d);
-		
-		
-		if(!inLine()) {
-			if(t2!=null) {				
-				// HA nem all elotte senki és van a valasztott iranyban szomszedos mezo,akkor elkeri az azon allo thinget es animalt
-				Animal a2=t2.getAnimal();
-				Thing th=t2.getThing();
-				if(a2!=null) {					
-					if(th!=null) {						
-						// ha animal es thing is van
-						b1=a2.hitBy(this);
-						b2=th.hitBy(this);
+		if(tile!=null) {
+			t2=tile.getNeighbour(d);
+			//szabad panda eseten
+			if(!inLine()) {
+				if(t2!=null) {				
+					// Ha nem all elotte senki és van a valasztott iranyban szomszedos mezo,akkor elkeri az azon allo thinget es animalt
+					Animal a2=t2.getAnimal();
+					Thing th=t2.getThing();
+					if(a2!=null) {					
+						if(th!=null) {						
+							// ha animal es thing is van
+							b1=a2.hitBy(this);
+							b2=th.hitBy(this);
+						}
+						// Ha csak animal van
+						else if(th==null){
+							b1=a2.hitBy(this);
+						}
 					}
-					// Ha csak animal van
-					else if(th==null){
-						b1=a2.hitBy(this);
+					else {					
+						if(th!=null) {						
+							// Ha csak targy van
+							b2=th.hitBy(this);
+							wardrobex=th.Ward();
+						}
+					}				
+					
+					if(b1&&b2&&wardrobex) {					
+						Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
+						tile.setAnimal(anull);
+						if(behind!=null) {
+							if(a2!=null) {
+								a2.caughtBy(this);
+							}
+							else if(a2==null){
+								Direction d2=behind.getDirection(tile);
+								behind.Move(d2);
+							}
+						}
+						t2.setAnimal(this);
 					}
 				}
-				else {					
-					if(th!=null) {						
-						// Ha csak targy van
-						b2=th.hitBy(this);
-						wardrobex=th.Ward();
-					}
-				}				
+			}
+			// Ha sorban áll akkor mozog az elõtte lévõ állat mezõjére
+			else if(inLine()){			
+				Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
+				tile.setAnimal(anull);
+				if(behind!=null) {				
+					Direction d2=behind.getDirection(tile);
+					behind.Move(d2);
+				}		
 				
-				if(b1&&b2&&wardrobex) {					
-					Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
-					tile.setAnimal(anull);
-					if(behind!=null) {
-						if(a2!=null) {
-							a2.caughtBy(this);
-						}
-						else if(a2==null){
-							Direction d2=behind.getDirection(tile);
-							behind.Move(d2);
-						}
-					}
+				//wardrobe eseten modositani kell
+				Thing th=t2.getThing();
+				boolean wardr;
+				if(th==null) wardr = true;
+				else wardr=th.Ward();
+				if(!wardr) {				
+					th.hitBy(this);			
+				}
+				else {
 					t2.setAnimal(this);
 				}
-			}
-		}
-		// Ha sorban áll akkor mozog az elõtte lévõ állat mezõjére
-		else if(inLine()){			
-			Panda anull = null; //The method setAnimal(Panda) is ambiguous for the type Tile - elkerules miatt
-			tile.setAnimal(anull);
-			if(behind!=null) {				
-				Direction d2=behind.getDirection(tile);
-				behind.Move(d2);
-			}		
-			
-			//wardrobe eseten modositani kell
-			Thing th=t2.getThing();
-			boolean wardr;
-			if(th==null) wardr = true;
-			else wardr=th.Ward();
-			if(!wardr) {				
-				th.hitBy(this);			
-			}
-			else {
-				t2.setAnimal(this);
 			}
 		}
 	}
@@ -148,6 +148,7 @@ public class Panda extends Animal{
 	public void die() {
 		breakLine();
 		tile = null;
+		Globals.gc.pandaCnt--;
 	}
 	
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al

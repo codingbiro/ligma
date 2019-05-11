@@ -10,8 +10,8 @@ import javax.swing.WindowConstants;
 
 public class Gui extends JFrame{
 	Container cp;
-	public static final int xdim=1280;
-	public static final int ydim=720;
+	public static final int xdim=300;
+	public static final int ydim=300;
 	
 	private GameGraphics gg;
 	View v;
@@ -52,6 +52,10 @@ public class Gui extends JFrame{
 	
 	public static void main(String[] args) {
 		Gui g=new Gui();
+		//palya letehozasa
+		Map map = new Map();
+		//palya inicializalasa, ez hoz letre mindent
+		map.init();
 	}
 	
 }
