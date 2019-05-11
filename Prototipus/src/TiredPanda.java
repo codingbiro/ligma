@@ -25,7 +25,7 @@ public class TiredPanda extends Panda{
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawTired();
+		v.drawTired(tile.posX(),tile.posY());
 	}
 	
 }

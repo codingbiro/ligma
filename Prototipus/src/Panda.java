@@ -153,7 +153,7 @@ public class Panda extends Animal{
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawPanda();
+		v.drawPanda(tile.posX(),tile.posY());
 	}
 }
 	

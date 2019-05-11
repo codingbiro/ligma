@@ -17,7 +17,7 @@ public class AfraidPanda extends Panda{
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawAfraid();
+		v.drawAfraid(tile.posX(),tile.posY());
 	}
 
 }

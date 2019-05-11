@@ -28,7 +28,7 @@ public class View {
 	
 	public void init() {
 		//kezdeti palya kirajzolasa
-		drawMap();
+		//drawMap();
 		//dinamikusan kirajzolando kepek
 		//orangutan kepe
 		try {
@@ -59,31 +59,31 @@ public class View {
 		update();
 	}
 	
-	public void drawOrangutan() {
+	public void drawOrangutan(int x, int y) {
 		
 	}
 	
-	public void drawPanda() {
+	public void drawPanda(int x, int y) {
 		
 	}
 	
-	public void drawTired() {
+	public void drawTired(int x, int y) {
 		
 	}
 	
-	public void drawAfraid() {
+	public void drawAfraid(int x, int y) {
 		
 	}
 	
-	public void drawJumper() {
+	public void drawJumper(int x, int y) {
 		
 	}
 	
-	public void drawTile() {
+	public void drawTile(int x, int y) {
 		
 	}
 	
-	public void drawWeakTileBroken() {
+	public void drawWeakTileBroken(int x, int y) {
 		/*
 		BufferedImage img = null;
 		try {
@@ -95,13 +95,15 @@ public class View {
 		 
 	}
 	
-	public void drawMap() {
+	public void drawMap(Graphics g) {
 		BufferedImage img = null;
 		try {
 		    img = ImageIO.read(new File("images/map_default.jpg"));
+		    System.out.println("sikeres beolvasas");
 		} catch (IOException e) {
+			System.out.println("sikertelen beolvasas");
 		}
-		//g.drawImage(img, 0, 0, null);
+		g.drawImage(img, 0, 0, null);
 	}
 	
 	
