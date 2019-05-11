@@ -56,18 +56,28 @@ public class WeakTile extends Tile {
 		// Ha eléri az élettartam a 0-t akkor a csempe eltörik
 		if(life == 0) {
 			a.die();
-			//negighbouroknek be kel allitani hogy a weak tileos neighborjuk null legyen
+			//minden iranyban vegigmegyunk a szomszedokon
 			for (Direction d : Direction.values()) {
-				//mindig az ellentetes oldalu neighbour lesz a weaktile
 				switch(d.toString()) {
-				//TODO: Ha kesz a map akkor lehet ezt megmondani
-				//A problema az, hogyha eltorik egy weaktile, akkor minden szomszednak
-				//be kell allitani, abba a directionbe egy null negihbour, amerre
+				//Hogyha eltorik egy weaktile, akkor minden szomszednak
+				//be kell allitani, abba a directionbe egy null negihbourz, amerre
 				//a weaktile van hozza kepest
-				/*
-					case "ONE":
+					case "TWO":
+						neighbour[d.ordinal()].setNeighbour(Direction.SEVEN, null);
+						break;
+					case "FOUR":
+						neighbour[d.ordinal()].setNeighbour(Direction.EIGHT, null);
+						break;
+					case "SIX":
 						neighbour[d.ordinal()].setNeighbour(Direction.ONE, null);
-					break;*/
+						break;
+					case "SEVEN":
+						neighbour[d.ordinal()].setNeighbour(Direction.THREE, null);
+						break;
+					case "NINE":
+						neighbour[d.ordinal()].setNeighbour(Direction.FIVE, null);
+						break;
+					default: break;
 				}
 				//a weaktilenak is beallitjuk nullra a neighbourjeit
 				this.setNeighbour(d, null);

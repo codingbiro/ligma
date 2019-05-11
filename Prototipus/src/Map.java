@@ -182,12 +182,12 @@ public class Map {
 					break;
 				case 7://a palyanak megfelelo szomszedok beallitasa
 					tiles.get(i).setNeighbour(Direction.TWO, tiles.get(6));
-					tiles.get(i).setNeighbour(Direction.FOUR, tiles.get(11));
+					tiles.get(i).setNeighbour(Direction.FIVE, tiles.get(11));
 					tiles.get(i).setNeighbour(Direction.SEVEN, tiles.get(4));
 					tiles.get(i).setNeighbour(Direction.NINE, tiles.get(1));
 					break;
 				case 8://a palyanak megfelelo szomszedok beallitasa
-					tiles.get(i).setNeighbour(Direction.TWO, tiles.get(11));
+					tiles.get(i).setNeighbour(Direction.THREE, tiles.get(11));
 					tiles.get(i).setNeighbour(Direction.NINE, tiles.get(4));
 					break;
 				case 9://a palyanak megfelelo szomszedok beallitasa
