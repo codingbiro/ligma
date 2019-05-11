@@ -98,7 +98,7 @@ public class View {
 	public void drawMap() {
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("images/map_deafult.jpg"));
+		    img = ImageIO.read(new File("images/map_default.jpg"));
 		} catch (IOException e) {
 		}
 		//g.drawImage(img, 0, 0, null);
