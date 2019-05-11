@@ -97,7 +97,7 @@ public class WeakTile extends Tile {
 	public void shouldDraw(View v) {
 		if(!hasLife())
 			//ha eltorott a csempe, akkor kirajzoltatja az eltorest a view-al
-			v.drawWeakTileBroken();		
+			v.drawWeakTileBroken(posX(),posY());		
 		if(a != null)
 			//jelzi a rajta allo allatnak hogy ki kell ot rajzolni
 			a.shouldDraw(v);

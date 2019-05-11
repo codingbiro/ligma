@@ -47,7 +47,7 @@ public class GameController {
 	}
 
 	//Main
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//view letrehozasa
 		View v = new View();
 		v.drawMap();
@@ -76,6 +76,6 @@ public class GameController {
 		}
         canvas.getGraphics().drawImage(img, 0, 0, null);
 		obj.pack();
-	}
+	}*/
 	
 }
