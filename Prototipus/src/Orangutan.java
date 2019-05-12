@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
@@ -142,9 +143,9 @@ public class Orangutan extends Animal{
 		setBehind(null);
 	}
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawOrangutan(tile.posX(),tile.posY());
+		v.drawOrangutan(tile.posX(),tile.posY(), g);
 	}
 	
 }

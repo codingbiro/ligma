@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 
 // A félõs pandákat reprezentáló osztály
 /**
@@ -15,9 +16,9 @@ public class AfraidPanda extends Panda{
 		breakLine();
 	}
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawAfraid(tile.posX(),tile.posY());
+		v.drawAfraid(tile.posX(),tile.posY(), g);
 	}
 
 }

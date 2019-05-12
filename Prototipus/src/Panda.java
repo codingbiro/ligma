@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
@@ -152,9 +153,9 @@ public class Panda extends Animal{
 	}
 	
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawPanda(tile.posX(),tile.posY());
+		v.drawPanda(tile.posX(),tile.posY(), g);
 	}
 }
 	

@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
@@ -104,13 +105,13 @@ public class WeakTile extends Tile {
 	}	
 	
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		if(!hasLife())
 			//ha eltorott a csempe, akkor kirajzoltatja az eltorest a view-al
-			v.drawWeakTileBroken(posX(),posY());		
+			v.drawWeakTileBroken(posX(),posY(), g);		
 		if(a != null)
 			//jelzi a rajta allo allatnak hogy ki kell ot rajzolni
-			a.shouldDraw(v);
+			a.shouldDraw(v, g);
 	}
 
 }

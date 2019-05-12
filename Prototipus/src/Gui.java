@@ -18,12 +18,13 @@ public class Gui extends JFrame{
 	
 	JPanel p = new JPanel();
 	
-	public Gui() {
+	public Gui(Map m) {
 		cp = getContentPane();
 	    cp.setLayout(new BorderLayout());
 	    
 	    gg=new GameGraphics();
-	    v = new View();
+	    v = new View(m);
+	    Globals.gc.setView(v);
 	    
 	    gg.setPreferredSize(new Dimension(xdim,ydim));
 	    p.setPreferredSize(new Dimension(xdim,ydim));
@@ -47,15 +48,18 @@ public class Gui extends JFrame{
 			//paintek meghívása
 			
 			v.drawMap(g);
+			v.update(g);
 		}
 	}
 	
 	public static void main(String[] args) {
-		Gui g=new Gui();
-		//palya letehozasa
+		//palya letrehozasa
 		Map map = new Map();
 		//palya inicializalasa, ez hoz letre mindent
 		map.init();
+		Gui g=new Gui(map);
+		g.v.init();
+		g.repaint();
 	}
 	
 }

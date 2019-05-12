@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
@@ -88,10 +89,10 @@ public class Tile {
 	*/
 	
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		if(a != null)
 			//jelzi a rajta allo allatnak hogy ki kell ot rajzolni
-			a.shouldDraw(v);
+			a.shouldDraw(v, g);
 	}
 	
 }

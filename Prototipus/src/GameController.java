@@ -1,6 +1,7 @@
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -44,12 +45,16 @@ public class GameController {
 		return points;
 	}
 	//egy mezot megker arra, hogy rajzoljon
-	public void drawRequiredFor(Tile t) {
-		t.shouldDraw(view);
+	public void drawRequiredFor(Tile t, Graphics g) {
+		t.shouldDraw(view, g);
 	}
 	//a jateknak vege van ha elfogy az ido, vagy a pandak
 	public boolean isGameOver() {
 		return time_left<=0 || pandaCnt == 0;
+	}
+	
+	public void setView(View v) {
+		view = v;
 	}
 
 	//Main

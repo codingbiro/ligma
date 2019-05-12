@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 
 /**
  * @author Kevin
@@ -15,8 +16,8 @@ public class JumperPanda extends Panda{
 		tile.setAnimal(this);
 	}
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
-	public void shouldDraw(View v) {
+	public void shouldDraw(View v, Graphics g) {
 		//kirajzoltatja magat a kapott viewval
-		v.drawJumper(tile.posX(),tile.posY());
+		v.drawJumper(tile.posX(),tile.posY(), g);
 	}
 }
