@@ -62,14 +62,16 @@ public class Gui extends JFrame{
 	    	public void run() {
 	    		Random r = new Random();
 	            for(int i = 0; i < Globals.gc.pandas.size(); i++) {
-	            	int success = 0;
-	            	while(success != 1) {
-	            		int dir = r.nextInt(9);
-	            		if(Globals.gc.pandas.get(i).tile.neighbour[dir]  != null 
-	            			&& Globals.gc.pandas.get(i).tile.neighbour[dir].a == null 
-	            			&& Globals.gc.pandas.get(i).tile.neighbour[dir].th == null) {
-	            				Globals.gc.pandas.get(i).Move(Direction.values()[dir]);
-	            				success = 1;
+	            	if(!Globals.gc.pandas.get(i).inLine()) {
+	            		int success = 0;
+	            		while(success != 1) {
+	            			int dir = r.nextInt(10);
+	            			if(Globals.gc.pandas.get(i).tile.neighbour[dir]  != null 
+	            				&& Globals.gc.pandas.get(i).tile.neighbour[dir].a == null 
+	            				&& Globals.gc.pandas.get(i).tile.neighbour[dir].th == null) {
+	            					Globals.gc.pandas.get(i).Move(Direction.values()[dir]);
+	            					success = 1;
+	            			}
 	            		}
 	            	}
 	            	gg.repaint();
