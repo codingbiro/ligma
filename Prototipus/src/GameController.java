@@ -22,8 +22,12 @@ public class GameController {
 	public ArrayList<Panda> pandas = new ArrayList<Panda>();
 	//palyan levo pandak szama
 	int pandaCnt = 5;
+	//palyan levo targyak
+	public VendingMachine vm;
+	public SlotMachine sm;
+	public Armchair ac;
 	
-	//Szkeleton
+	//Tarolja a bejaratot, hogy az orangutant ra tudja rakni miutan meghalt, vagy kilepett az exiten
 	Entrance e;
 	
 	// A pontok hozzáadását végzõ függvény

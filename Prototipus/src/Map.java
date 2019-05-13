@@ -77,13 +77,19 @@ public class Map {
 		tiles.add(new Tile(111,89));
 		//Tile with vending machine
 		Tile tvm = new Tile(108,120);
-		tvm.setThing(new VendingMachine());
+		VendingMachine vm = new VendingMachine();
+		//hozzaadjuk a gamecontrollerhez
+		Globals.gc.vm = vm;
+		tvm.setThing(vm);
 		tiles.add(tvm);
 		//basic tile
 		tiles.add(new Tile(131,36));
 		//Tile with SlotMachine
 		Tile tsm = new Tile(131,65);
-		tsm.setThing(new SlotMachine());
+		SlotMachine sm = new SlotMachine();
+		//hozzaadjuk a gamecontrollerhez
+		Globals.gc.sm = sm;
+		tsm.setThing(sm);
 		tiles.add(tsm);
 		//basic tiles
 		tiles.add(new Tile(129,94));
@@ -115,9 +121,12 @@ public class Map {
 		tap.setAnimal(ap);
 		tiles.add(tap);
 		//Tile with Armchair
-		Tile tar = new Tile(174,131);
-		tar.setThing(new Armchair());
-		tiles.add(tar); 
+		Tile tac = new Tile(174,131);
+		Armchair ac = new Armchair();
+		//hozzaadjuk a gamecontroller pandaihoz
+		Globals.gc.ac = ac;
+		tac.setThing(ac);
+		tiles.add(tac);
 		//basic tiles
 		tiles.add(new Tile(178,23));
 		tiles.add(new Tile(189,39));
