@@ -121,7 +121,7 @@ public class Orangutan extends Animal{
 		// Elveszti a pandáit is
 		breakLine();			
 		if(gc!=null) {
-			gc.decreasePoints();
+			points-=10;
 			Entrance en = gc.getEntrance();
 			Tile ten = null;
 			if(en!=null) {

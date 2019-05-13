@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  *
  */
 public class GameController {
-	private int points=0;
+	//private int points=0;
 	private View view;
 	public int time_left = 1000;
 	//a palyan levo pandak
@@ -35,23 +35,23 @@ public class GameController {
 	public Entrance e;
 	
 	// A pontok hozzáadását végzõ függvény
-	public void addPoints() {
+	/*public void addPoints() {
 		points+=10;
-	}
+	}*/
 	
 	// A pontok elvételét végzõ függvény
-	public void decreasePoints() {
+	/*public void decreasePoints() {
 		points-=5;
-	}
+	}*/
 	
 	// A bejárat visszaadása
 	public Entrance getEntrance() {
 		return e;
 	}
 	
-	public int getPoints() {
+	/*public int getPoints() {
 		return points;
-	}
+	}*/
 	//egy mezot megker arra, hogy rajzoljon
 	public void drawRequiredFor(Tile t, Graphics g) {
 		t.shouldDraw(view, g);

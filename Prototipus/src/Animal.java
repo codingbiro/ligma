@@ -11,7 +11,17 @@ public abstract class Animal implements IViewable {
 	Panda behind;
 	Animal ahead;
 	public String random;
+	protected int points=0;
 
+	public int getPoints() {
+		return points;
+	}
+	
+	public void points() {
+		if(ahead!=null) ahead.points();
+		else points+=10;
+	}
+	
 	// Az állatok mozgását jelölõ absztrakt függvény
 	public abstract void Move(Direction d);
 	

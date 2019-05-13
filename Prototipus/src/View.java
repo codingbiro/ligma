@@ -27,7 +27,7 @@ public class View {
 			//calling drawrequiredfor to start the drawing
 			gc.drawRequiredFor(t, g);
 		}
-		int points = gc.getPoints();
+		//int points = gc.getPoints();
 		boolean gameover = gc.isGameOver();
 	}
 	
@@ -115,7 +115,7 @@ public class View {
 	
 	
 	
-	public int getPoints() {
+	/*public int getPoints() {
 		return gc.getPoints();
-	}
+	}*/
 }

@@ -181,6 +181,9 @@ public class Gui extends JFrame{
 			behindind(Globals.gc.o1,g);
 			behindind(Globals.gc.o2,g);
 			
+			g.drawString("1. Orángután pontjai: "+Globals.gc.o1.getPoints(), 30, 170);
+			g.drawString("2. Orángután pontjai: "+Globals.gc.o2.getPoints(), 30, 190);
+			
 		}
 	}
 	

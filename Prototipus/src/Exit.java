@@ -13,8 +13,8 @@ public class Exit extends Thing{
 		}
 		// Ha sorban van akkor kivezetik a kijáraton, tehát a játékos pontot kap és a panda elpusztul
 		else {
-			Globals.gc.addPoints();
-			p.die();
+			//Globals.gc.addPoints();
+			//p.die();
 			return true;
 		}
 	}

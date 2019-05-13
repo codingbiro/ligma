@@ -99,6 +99,8 @@ public class Panda extends Animal{
 		return null;
 	}
 	
+	
+	
 	// Elõtte lévõ beállítása
 	public void setAhead(Animal a) {
 		ahead= a;
@@ -153,7 +155,7 @@ public class Panda extends Animal{
 	}
 	
 	public void exited() {
-		Globals.gc.addPoints();
+		points();
 		if(behind!=null) {
 			behind.exited();
 		}
