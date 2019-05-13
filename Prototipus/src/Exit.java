@@ -32,15 +32,18 @@ public class Exit extends Thing{
 			e = Globals.gc.getEntrance();
 		if(o!=null) {
 			// Mozgatja a mögötte álló pandákat
-			if(o.getBehind()!=null) o.getBehind().Move(o.getBehind().getDirection(o.getTile()));
+			if(o.getBehind()!=null) o.getBehind().exited();
 			o.setBehind(null);
 		}
 		// Átmozog az orángután a bejáratra
+		Orangutan anull=null;
+		o.tile.setAnimal(anull);
 		Tile t1 = null;
 		if(e!=null)
 			t1 = e.getTile();
 		if(t1!=null)
 			t1.setAnimal(o);
+		
 		return true;
 	}
 

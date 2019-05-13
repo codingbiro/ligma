@@ -152,6 +152,19 @@ public class Panda extends Animal{
 		Globals.gc.pandaCnt--;
 	}
 	
+	public void exited() {
+		Globals.gc.addPoints();
+		if(behind!=null) {
+			behind.exited();
+		}
+		breakLine();
+		Orangutan anull=null;
+		tile.setAnimal(anull);
+		Tile newt=new Tile();
+		newt.setCenter(-50, -50);
+		tile=newt;
+	}
+	
 	//ezen keresztul kap felkerest, hogy rajzoltassa ki magat a view-al
 	public void shouldDraw(View v, Graphics g) {
 		//kirajzoltatja magat a kapott viewval
