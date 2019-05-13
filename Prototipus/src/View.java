@@ -95,7 +95,7 @@ public class View {
 		    img = ImageIO.read(new File("images/brokentile.png"));
 		} catch (IOException e) {
 		}
-		g.drawImage(img, x, y, null);		
+		g.drawImage(img, x-18, y-20, null);		
 		 
 	}
 	
