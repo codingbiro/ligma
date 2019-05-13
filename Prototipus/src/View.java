@@ -89,20 +89,19 @@ public class View {
 	}
 	
 	public void drawWeakTileBroken(int x, int y, Graphics g) {
-		/*
+		
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("images/weakTileBroken.jpg"));
+		    img = ImageIO.read(new File("images/brokentile.png"));
 		} catch (IOException e) {
 		}
-		//g.drawImage(img, 0, 0, null);
-		*/
+		g.drawImage(img, x, y, null);		
 		 
 	}
 	
 	public void drawMap(Graphics g) {
 		if(img_map == null) {
-			//p·lya kÈpe
+			//p√°lya k√©pe
 			try {
 				img_map = ImageIO.read(new File("images/map_default.jpg"));
 				//System.out.println("sikeres beolvasas");
