@@ -15,6 +15,8 @@ public class Map {
 		Orangutan o1 = new Orangutan();
 		//game controller beallitasa az orangutannak
 		o1.gc = Globals.gc;
+		//orangutan beallitasa gcnek
+		Globals.gc.o1 = o1;
 		to1.setAnimal(o1);
 		tiles.add(to1);
 		//Tile with entrance
@@ -28,6 +30,8 @@ public class Map {
 		Orangutan o2 = new Orangutan();
 		//game controller beallitasa az orangutannak
 		o2.gc = Globals.gc;
+		//orangutan beallitasa gcnek
+		Globals.gc.o2 = o2;
 		to2.setAnimal(o2);
 		tiles.add(to2);
 		//basic tiles

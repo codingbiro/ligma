@@ -22,6 +22,9 @@ public class GameController {
 	public ArrayList<Panda> pandas = new ArrayList<Panda>();
 	//palyan levo pandak szama
 	int pandaCnt = 5;
+	//palyan levo orangutanok
+	public Orangutan o1;
+	public Orangutan o2;
 	//palyan levo targyak
 	public VendingMachine vm;
 	public SlotMachine sm;
