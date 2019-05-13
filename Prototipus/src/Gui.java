@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +20,9 @@ public class Gui extends JFrame{
 	
 	private GameGraphics gg;
 	View v;
+	Timer pandatimer;
+	Timer vmtimer;
+	Timer smtimer;
 	
 	JPanel p = new JPanel();
 	
@@ -49,6 +55,58 @@ public class Gui extends JFrame{
 	    gg.setPreferredSize(new Dimension(xdim,ydim));
 	    p.setPreferredSize(new Dimension(xdim,ydim));
 	    window();
+	    
+	    // pandák mozgatásához szükséges idõzítõ
+	    pandatimer = new Timer();
+	    pandatimer.scheduleAtFixedRate(new TimerTask() {
+	    	public void run() {
+	    		Random r = new Random();
+	            for(int i = 0; i < Globals.gc.pandas.size(); i++) {
+	            	int success = 0;
+	            	while(success != 1) {
+	            		int dir = r.nextInt(9);
+	            		if(Globals.gc.pandas.get(i).tile.neighbour[dir]  != null 
+	            			&& Globals.gc.pandas.get(i).tile.neighbour[dir].a == null 
+	            			&& Globals.gc.pandas.get(i).tile.neighbour[dir].th == null) {
+	            				Globals.gc.pandas.get(i).Move(Direction.values()[dir]);
+	            				success = 1;
+	            		}
+	            	}
+	            	gg.repaint();
+	            }
+	            
+	            if(Globals.gc.isGameOver()) {
+	            	pandatimer.cancel(); //A timer szál megszüntetése
+	            }
+	    	}
+	    }, 0, 3*1000); // elsõ paraméter: mi hajtódjon végre adott idõközönként, második: hány milisec múlva hajtsa végre elõször, 
+	    // harmadik: hány milisecenként hajtsa végre
+	    
+	    // beepeléshez szükséges idõzítõ
+	    vmtimer = new Timer();
+	    vmtimer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				Globals.gc.vm.beep();
+	    		if(Globals.gc.isGameOver()) {
+	    			vmtimer.cancel();	// timer leállítása ha vége a játéknak
+	    		}
+			}
+	    	
+	    }, 3*1000, 5*1000);
+	    
+	    // jinglehöz szükséges idõzítõ
+	    smtimer = new Timer();
+	    smtimer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				Globals.gc.sm.jingle();
+	    		if(Globals.gc.isGameOver()) {
+	    			smtimer.cancel();
+	    		}
+			}
+	    	
+	    }, 6*1000, 5*1000);
 	    
 	    addKeyListener(new KeyAdapter() {
 	         @Override
