@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,6 +20,9 @@ public class Gui extends JFrame{
 	
 	JPanel p = new JPanel();
 	
+	private int o1dir=0;
+	private int o2dir=0;
+	
 	public Gui(Map m) {
 		cp = getContentPane();
 	    cp.setLayout(new BorderLayout());
@@ -29,6 +34,44 @@ public class Gui extends JFrame{
 	    gg.setPreferredSize(new Dimension(xdim,ydim));
 	    p.setPreferredSize(new Dimension(xdim,ydim));
 	    window();
+	    
+	    addKeyListener(new KeyAdapter() {
+	         @Override
+	         public void keyPressed(KeyEvent evt) {
+	            switch(evt.getKeyCode()) {
+	               case KeyEvent.VK_LEFT:
+	            	   o1dir--;
+	            	   if(o1dir<0) o1dir=9;
+	            	   System.out.println("left key pressed"+o1dir);
+	            	   break;
+	               case KeyEvent.VK_RIGHT:
+	            	   o1dir++;
+	            	   if(o1dir>9) o1dir=0;
+	            	  System.out.println("right key pressed"+o1dir);
+	                  break;
+	               case KeyEvent.VK_UP:
+	            	   System.out.println("forward key pressed");
+	            	   break;
+	            	   // 2. Orángután
+	               case KeyEvent.VK_A:
+	            	   o2dir--;
+	            	   if(o2dir<0) o2dir=9;
+	            	   System.out.println("'A' key pressed"+o2dir);
+	            	   break;
+	               case KeyEvent.VK_D:
+	            	   o2dir++;
+	            	   if(o2dir>9) o2dir=0;
+	            	   System.out.println("'D' key pressed"+o2dir);
+	            	   break;
+	               case KeyEvent.VK_W:
+	            	   System.out.println("'W' key pressed");
+	            	   break;
+	            }
+	         }
+	      });
+
+	    
+	    requestFocus();
 	}
 	
 	public void window() {
