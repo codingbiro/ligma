@@ -23,6 +23,7 @@ public class Gui extends JFrame{
 	private int o1dir=0;
 	private int o2dir=0;
 	
+	
 	public Gui(Map m) {
 		cp = getContentPane();
 	    cp.setLayout(new BorderLayout());
@@ -43,11 +44,13 @@ public class Gui extends JFrame{
 	            	   o1dir--;
 	            	   if(o1dir<0) o1dir=9;
 	            	   System.out.println("left key pressed"+o1dir);
+	            	   gg.repaint();
 	            	   break;
 	               case KeyEvent.VK_RIGHT:
 	            	   o1dir++;
 	            	   if(o1dir>9) o1dir=0;
 	            	  System.out.println("right key pressed"+o1dir);
+	            	  gg.repaint();
 	                  break;
 	               case KeyEvent.VK_UP:
 	            	   Globals.gc.o1.Move(Direction.values()[o1dir]);
@@ -59,11 +62,13 @@ public class Gui extends JFrame{
 	            	   o2dir--;
 	            	   if(o2dir<0) o2dir=9;
 	            	   System.out.println("'A' key pressed"+o2dir);
+	            	   gg.repaint();
 	            	   break;
 	               case KeyEvent.VK_D:
 	            	   o2dir++;
 	            	   if(o2dir>9) o2dir=0;
 	            	   System.out.println("'D' key pressed"+o2dir);
+	            	   gg.repaint();
 	            	   break;
 	               case KeyEvent.VK_W:
 	            	   Globals.gc.o2.Move(Direction.values()[o2dir]);
@@ -93,9 +98,19 @@ public class Gui extends JFrame{
 			super.paintComponent(g);
 			setBackground(Color.WHITE);		
 			//paintek meghívása
-			
 			v.drawMap(g);
 			v.update(g);
+			
+			if(Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir])!=null)
+			g.drawLine(Globals.gc.o1.getTile().posX(), Globals.gc.o1.getTile().posY(),
+					Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir]).posX(), 
+					Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir]).posY());
+			
+			if(Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir])!=null)
+				g.drawLine(Globals.gc.o2.getTile().posX(), Globals.gc.o2.getTile().posY(),
+						Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir]).posX(), 
+						Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir]).posY());
+			
 		}
 	}
 	
