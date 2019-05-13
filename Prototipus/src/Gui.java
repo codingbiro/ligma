@@ -50,7 +50,9 @@ public class Gui extends JFrame{
 	            	  System.out.println("right key pressed"+o1dir);
 	                  break;
 	               case KeyEvent.VK_UP:
+	            	   Globals.gc.o1.Move(Direction.values()[o1dir]);
 	            	   System.out.println("forward key pressed");
+	            	   gg.repaint();
 	            	   break;
 	            	   // 2. Orángután
 	               case KeyEvent.VK_A:
@@ -64,7 +66,9 @@ public class Gui extends JFrame{
 	            	   System.out.println("'D' key pressed"+o2dir);
 	            	   break;
 	               case KeyEvent.VK_W:
+	            	   Globals.gc.o2.Move(Direction.values()[o2dir]);
 	            	   System.out.println("'W' key pressed");
+	            	   gg.repaint();
 	            	   break;
 	            }
 	         }
