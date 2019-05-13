@@ -43,6 +43,12 @@ public class Gui extends JFrame{
 		}
 	}
 	
+	private void entrancedraw(Orangutan o,Graphics g) {
+		if(o.getTile().posX()==35&&o.getTile().posY()==60) {
+			v.drawOrangutan(o.getTile().posX(), o.getTile().posY(), g);
+		}
+	}
+	
 	
 	public Gui(Map m) {
 		cp = getContentPane();
@@ -180,6 +186,8 @@ public class Gui extends JFrame{
 			dirind(Globals.gc.o2,o2dir,g);
 			behindind(Globals.gc.o1,g);
 			behindind(Globals.gc.o2,g);
+			entrancedraw(Globals.gc.o1,g);
+			entrancedraw(Globals.gc.o2,g);
 			
 			g.drawString("1. Orángután pontjai: "+Globals.gc.o1.getPoints(), 30, 170);
 			g.drawString("2. Orángután pontjai: "+Globals.gc.o2.getPoints(), 30, 190);
