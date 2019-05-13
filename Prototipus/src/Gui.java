@@ -23,6 +23,20 @@ public class Gui extends JFrame{
 	private int o1dir=0;
 	private int o2dir=0;
 	
+	private void dirind(Orangutan o, int odir, Graphics g) {
+		if(o.getTile().getNeighbour(Direction.values()[odir])!=null)
+			g.drawLine(o.getTile().posX(), o.getTile().posY(),
+					o.getTile().getNeighbour(Direction.values()[odir]).posX(), 
+					o.getTile().getNeighbour(Direction.values()[odir]).posY());
+	}
+	
+	private void behindind(Animal a,Graphics g) {
+		if(a.behind!=null) {
+			behindind(a.behind,g);
+			g.drawLine(a.getTile().posX(), a.getTile().posY(),a.behind.getTile().posX(),a.behind.getTile().posY());
+		}
+	}
+	
 	
 	public Gui(Map m) {
 		cp = getContentPane();
@@ -101,15 +115,10 @@ public class Gui extends JFrame{
 			v.drawMap(g);
 			v.update(g);
 			
-			if(Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir])!=null)
-			g.drawLine(Globals.gc.o1.getTile().posX(), Globals.gc.o1.getTile().posY(),
-					Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir]).posX(), 
-					Globals.gc.o1.getTile().getNeighbour(Direction.values()[o1dir]).posY());
-			
-			if(Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir])!=null)
-				g.drawLine(Globals.gc.o2.getTile().posX(), Globals.gc.o2.getTile().posY(),
-						Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir]).posX(), 
-						Globals.gc.o2.getTile().getNeighbour(Direction.values()[o2dir]).posY());
+			dirind(Globals.gc.o1,o1dir,g);
+			dirind(Globals.gc.o2,o2dir,g);
+			behindind(Globals.gc.o1,g);
+			behindind(Globals.gc.o2,g);
 			
 		}
 	}
