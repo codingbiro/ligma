@@ -10,19 +10,19 @@ public class Orangutan extends Animal{
 	GameController gc;
 	int stunned = 0;
 	
-	// A sorban ·ll·st mondja meg
+	// A sorban √°ll√°st mondja meg
 	public boolean inLine() {
-		return ahead!=null;
+		return behind!=null;
 	} 
 	
-	// Or·ngut·n mozg·s·Èrt felelıs f¸ggvÈny
+	// Or√°ngut√°n mozg√°s√°√©rt felel√µs f√ºggv√©ny
 	public void Move(Direction d) {
 		if(stunned != 0)
 			stunned--;
 		boolean b1=true;
 		boolean b2=true;
 		
-		// A szomszÈdos mezı lekÈrÈse
+		// A szomsz√©dos mez√µ lek√©r√©se
 		Tile t2 = null;
 		if(tile!=null)
 			t2=tile.getNeighbour(d);
@@ -32,16 +32,16 @@ public class Orangutan extends Animal{
 		if(!b) {
 			if(t2!=null) {
 				
-				// Ha nem ·ll elıtte senki Ès van a v·lasztott ir·nyban szomszÈdos mezı akkor elkÈri az azon ·llÛ dolgot Ès ·llatot
+				// Ha nem √°ll el√µtte senki √©s van a v√°lasztott ir√°nyban szomsz√©dos mez√µ akkor elk√©ri az azon √°ll√≥ dolgot √©s √°llatot
 				Animal a2=t2.getAnimal();
 				Thing th=t2.getThing();
 				if(a2!=null) {
 					if(th!=null) {
-						// Ha ·llat Ès dolog is van
+						// Ha √°llat √©s dolog is van
 						b1=a2.hitBy(this);
 						b2=th.hitBy(this);
 					}
-					// Ha csak ·llat van
+					// Ha csak √°llat van
 					else if(th==null){
 						b1=a2.hitBy(this);
 					}
@@ -49,13 +49,13 @@ public class Orangutan extends Animal{
 				
 				else if(a2==null){
 					if(th!=null) {						
-						// Ha csak t·rgy van
+						// Ha csak t√°rgy van
 						b2=th.hitBy(this);
 						wardrobex=th.Ward();
 					}
 				}
 				
-				// Ha mozoghat az adott mezıre
+				// Ha mozoghat az adott mez√µre
 				if(b1&&b2) {
 					Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 					if(tile!=null)
@@ -75,13 +75,13 @@ public class Orangutan extends Animal{
 							a2.caughtBy(this);
 						}
 					}
-					// Ha nem kij·ratra vagy szekrÈnyre lÈpett akkor odalÈp (azokn·l m·shogy ker¸l oda)
+					// Ha nem kij√°ratra vagy szekr√©nyre l√©pett akkor odal√©p (azokn√°l m√°shogy ker√ºl oda)
 					if(wardrobex)
 					t2.setAnimal(this);					
 				}
 			}
 		}
-		// Ha sorban ·ll
+		// Ha sorban √°ll
 		else if(b){			
 			Orangutan anull = null; //The method setAnimal(Orangutan) is ambiguous for the type Tile - elkerules miatt
 			tile.setAnimal(anull);
@@ -95,10 +95,10 @@ public class Orangutan extends Animal{
 		
 	}
 	
-	// Ha ¸tkˆzik m·s or·ngut·nnal
+	// Ha √ºtk√∂zik m√°s or√°ngut√°nnal
 	public boolean hitBy(Orangutan o) {
 		Panda pb1 = o.getBehind();
-		// Ha eleget tesz a panda lop·s feltÈteleinek, ellopja a m·sik pand·it
+		// Ha eleget tesz a panda lop√°s felt√©teleinek, ellopja a m√°sik pand√°it
 		if(pb1 == null && this.behind != null && o.stunned == 0) {
 			behind.setAhead(o);
 			o.setBehind(behind);
@@ -111,14 +111,14 @@ public class Orangutan extends Animal{
 		return false;
 	}
 	
-	// Panda nem mozoghat r·
+	// Panda nem mozoghat r√°
 	public boolean hitBy(Panda p) {
 		return false;
 	}
 
-	// Az or·ngut·n ha meghal akkor csˆkkennek a pontjai Ès visszaker¸l a bej·ratra
+	// Az or√°ngut√°n ha meghal akkor cs√∂kkennek a pontjai √©s visszaker√ºl a bej√°ratra
 	public void die() {
-		// Elveszti a pand·it is
+		// Elveszti a pand√°it is
 		breakLine();			
 		if(gc!=null) {
 			gc.decreasePoints();
@@ -133,7 +133,7 @@ public class Orangutan extends Animal{
 		}	
 	}
 
-	// Felbontja a panda sor·t
+	// Felbontja a panda sor√°t
 	public void breakLine() {
 		// TODO Auto-generated method stub
 		Panda pb = getBehind();
