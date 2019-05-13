@@ -136,7 +136,10 @@ public class Map {
 		tiles.add(new Tile(189,39));
 		//Tile with exit
 		Tile tex = new Tile(190,65);
-		tex.setThing(new Exit());
+		Exit ex = new Exit();
+		//hozzaadjuk a gamecontrollerhez
+		Globals.gc.ex = ex;
+		tex.setThing(ex);
 		tiles.add(tex);
 		//basic tile
 		tiles.add(new Tile(186,99));

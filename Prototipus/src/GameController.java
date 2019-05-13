@@ -29,9 +29,10 @@ public class GameController {
 	public VendingMachine vm;
 	public SlotMachine sm;
 	public Armchair ac;
-	
+	//exit
+	public Exit ex;
 	//Tarolja a bejaratot, hogy az orangutant ra tudja rakni miutan meghalt, vagy kilepett az exiten
-	Entrance e;
+	public Entrance e;
 	
 	// A pontok hozzáadását végzõ függvény
 	public void addPoints() {
